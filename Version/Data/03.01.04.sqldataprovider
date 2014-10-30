@@ -1,0 +1,52 @@
+﻿-- MODULE         : DNNSTUFF - AGGREGATOR - DNN3
+-- VERSION        : 03.01.04
+-- 30/JAN/2006    : FIXES PROBLEM OF NESTED MODULES SHOWING BOTH INSIDE AND OUTSIDE OF AGGREGATOR
+-- 30/JAN/2006    : FIXES PROBLEM OF COPYING AGGREGATOR TO OTHER PAGES ALONG WITH MODULES
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetPageModules') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetPageModules
+GO
+
+/* Get a list of the modules on this page that will be aggregated */
+CREATE procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetPageModules
+
+@TabId  int
+
+as
+
+-- select all modules that are aggregated on this page
+-- we need to hide these before we render anything else
+SELECT A.TabModuleId, TM.ModuleId
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON TM.TabModuleId = A.TabModuleId
+	WHERE 
+	TM.ModuleId IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}TabModules WHERE TabId = @TabId)
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregator') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregator
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregator
+
+@ModuleId  int
+
+as
+
+-- First, clean up any modules deleted fom the DNN side
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId AND TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}Modules M INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON M.ModuleId = TM.ModuleId WHERE M.IsDeleted = 1)
+
+-- Second, make sure that the module orders for all contained modules are greater than the aggregator itself so rendering is correct sequence
+UPDATE {databaseOwner}{objectQualifier}TabModules Set ModuleOrder = 1 +  (SELECT MAX(ModuleOrder) FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+UPDATE {databaseOwner}{objectQualifier}TabModules Set PaneName = (SELECT TOP 1 PaneName FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+
+-- Now, select remaining modules
+SELECT A.AggregatorId, A.TabModuleId, A.TabOrder, A.Caption,'' AS ModuleTitle, M.ModuleId
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON TM.TabModuleId = A.TabModuleId
+		INNER JOIN {databaseOwner}{objectQualifier}Modules M ON M.ModuleId = TM.ModuleId
+	WHERE A.ModuleId = @ModuleId
+	ORDER BY A.TabOrder ASC
+GO

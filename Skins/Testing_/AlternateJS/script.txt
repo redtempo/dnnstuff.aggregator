@@ -1,0 +1,103 @@
+<input id="[UNIQUE]SelectedElementId" name="[UNIQUE]SelectedElementId" type="hidden" value="[UNIQUE]Tab[SELECTEDTABNUMBER]" />
+
+<script type="text/javascript">
+//[CDATASTART]
+
+function [UNIQUE]ActivateTab(tabNumber)
+{
+    if (document.getElementById('[PARENTID]')) {
+		// unselect all tabs
+		for(var i=1;i<=[TABCOUNT];i++){
+            document.getElementById('[UNIQUE]Tab'+i).className='[SKIN]_TabUnselected';
+		}
+		// select new tab
+		var newTabElementId = '[UNIQUE]Tab'+tabNumber.toString()
+        if (document.getElementById(newTabElementId)) {
+            document.getElementById(newTabElementId).className='[SKIN]_TabSelected';
+            }
+		// set hidden input value to the new tab
+        document.getElementById('[UNIQUE]SelectedElementId').value=newTabElementId;
+        [SAVEACTIVETAB]
+
+	}
+		else
+	{
+		setTimeout([UNIQUE]ActivateTab(tabNumber),100);
+	}        
+}
+
+function [UNIQUE]ActivateTabPage(tabNumber)
+{
+    if (document.getElementById('[PARENTID]')) {
+		// unselect all tabpages
+		for(var i=1;i<=[TABCOUNT];i++){
+            document.getElementById('[UNIQUE]TabPage'+i).style.display='none';
+		}
+        // show new tabpage
+		var newTabElementId = '[UNIQUE]TabPage'+tabNumber.toString()
+        if (document.getElementById(newTabElementId)) {
+		    document.getElementById(newTabElementId).style.display='';
+		    }
+	}
+		else
+	{
+		setTimeout([UNIQUE]ActivateTabPage(tabNumber),100);
+	}  
+}
+
+function [UNIQUE]MouseOverTab(tabname)
+{
+    if (document.getElementById('[UNIQUE]SelectedElementId').value != tabname.id
+    )    document.getElementById(tabname.id).className='[SKIN]_TabUnselected [SKIN]_TabMouseOver';
+}
+
+function [UNIQUE]MouseOutTab(tabname)
+{
+    if (document.getElementById('[UNIQUE]SelectedElementId').value != tabname.id
+    )    document.getElementById(tabname.id).className='[SKIN]_TabUnselected';
+	window.status = 'You just mouseouted from ' + tabname.id;
+}   
+
+function [UNIQUE]SelectTab(tabNumber,source)
+// SelectTab - select a specific tab#, source=tabmodule selecting
+{
+    [UNIQUE]selectedTabNumber = tabNumber;
+    [UNIQUE]ActivateTabPage(tabNumber);
+    [UNIQUE]ActivateTab(tabNumber);
+    
+    [SELECTTARGET]
+}
+
+function [UNIQUE]SelectNextTab()
+// SelectNextTab - select the next tab
+{
+    [UNIQUE]selectedTabNumber = [UNIQUE]selectedTabNumber+1;
+    if ([UNIQUE]selectedTabNumber > [UNIQUE]MAXTAB) {[UNIQUE]selectedTabNumber=1;} ;
+    if (document.getElementById('[PARENTID]')) {
+        [UNIQUE]SelectTab([UNIQUE]selectedTabNumber);
+    }
+}   
+   
+function [UNIQUE]SelectPrevTab()
+// SelectPrevTab - select the previous tab
+{
+    [UNIQUE]selectedTabNumber = [UNIQUE]selectedTabNumber-1;
+    if ([UNIQUE]selectedTabNumber < 1 ) {
+        [UNIQUE]selectedTabNumber=[UNIQUE]MAXTAB;} ;
+        if (document.getElementById('[PARENTID]')) {
+            [UNIQUE]SelectTab([UNIQUE]selectedTabNumber);
+        }
+}
+
+function [UNIQUE]Initialize()
+{
+	[UNIQUE]SelectTab([SELECTEDTABNUMBER],[MODULEID]);
+}
+
+// Code to initialize the tab
+var [UNIQUE]MAXTAB = [TABCOUNT];
+var [UNIQUE]selectedTabNumber = [SELECTEDTABNUMBER];
+
+//[CDATAEND]
+
+</script>

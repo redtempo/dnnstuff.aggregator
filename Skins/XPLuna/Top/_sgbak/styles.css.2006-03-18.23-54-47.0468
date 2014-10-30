@@ -1,0 +1,67 @@
+/* CSS and Images - originally by Tim Scarfe, 2002 - http://www.developer-x.com/projects/tabs/ */
+
+.XPLUNA_TOP_TabStrip {
+ margin:0;padding:0;
+ background-color: #fff;
+ border: none;
+ float: left;
+ filter: none;
+}
+
+.XPLUNA_TOP_TabPage {
+ margin-top: 1px;
+ border: none;
+ width: 100%;
+ background: #fff;
+ padding: 2px 2px;
+ font: 14px Verdana;
+ color: black;
+ border: 1px solid rgb( 145, 155, 156 );
+ clear: both;
+ filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#eeeeee');
+}
+
+.XPLUNA_TOP_TabStrip .XPLUNA_TOP_TabUnselected {
+ cursor: pointer;
+ background: url(tab.png);
+ position:	relative;
+ top: 1px;
+ display: inline;
+ float: left;
+ overflow: hidden;	
+ margin: 1px 1px 1px 0px;
+ padding: 2px 0px 0px 0px;
+ border: 0;
+ font: 11px Tahoma;
+ white-space: nowrap;
+ text-align: center;
+ width: 70px;
+ height: 18px;
+}
+
+.XPLUNA_TOP_TabStrip .XPLUNA_TOP_TabMouseover {
+ margin: 1px 1px 1px 0px;
+ background: url(tab.hover.png);
+ width: 70px;
+ height: 18px;
+}
+
+.XPLUNA_TOP_TabStrip .XPLUNA_TOP_TabSelected{
+ cursor: pointer;
+ position:	relative;
+ top: 2px;
+ display: inline;
+ float: left;
+ overflow: hidden;	
+ margin: 1px 1px 1px 0px;
+ padding: 2px 0px 0px 0px;
+ border: 0;
+ font: 11px Tahoma;
+ white-space: nowrap;
+ text-align: center;
+ width: 74px;
+ height: 18px;
+ background-image: url(tab.active.png);
+ letter-spacing: 0px;
+ text-decoration: none;
+}

@@ -1,0 +1,84 @@
+    .Chiffon_Top_TabStrip {
+      float:right;
+      width:100%;
+      background:transparent;
+      font-size:93%;
+      line-height:normal;
+      }
+
+	.Chiffon_Top_TabStrip ul {
+        margin:0;
+        padding:0px 0px 0px 0px;
+        list-style:none;
+      }
+	  
+    .Chiffon_Top_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+
+	  .Chiffon_Top_TabStrip span {
+      float:right;
+      margin:0;
+      padding:0 1px 0 0;
+      text-decoration:none;
+	  -moz-border-radius-topleft: 7px;
+	  -moz-border-radius-topright: 7px;
+      }
+	  
+    .Chiffon_Top_TabStrip span span {
+      float:right;
+      display:block;
+      padding:5px 15px 4px 6px;
+      color:#000;
+      }
+
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .Chiffon_Top_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+
+	.Chiffon_Top_TabSelected {
+      background: #FFF7CD;
+	  border-bottom: 1px solid #FFF7CD;
+      }
+    
+	.Chiffon_Top_TabStrip .Chiffon_Top_TabUnselected {
+      background: #fff;
+      color:#000;
+      }
+
+	.Chiffon_Top_TabStrip .Chiffon_Top_TabMouseOver {
+      background: #FFF7CD;
+	  color: #000;
+	  cursor: pointer;
+      }
+	  
+	.Chiffon_Top_TabPage {
+   _width: 100%;
+border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		padding: 3px;
+		background: #FFF3B3;
+		text-align: left;
+	}
+	
+	.Chiffon_Top_Paging {
+		text-align:center;
+		padding: 2px;
+		margin: 3px;
+}
+	.Chiffon_Top_Paging a {
+		cursor: pointer;
+		padding: 2px 5px 2px 5px;
+		margin: 1px;
+		border: 1px solid #FFF7CD;
+		background-color: #FFF7CD;
+		color: #000;
+		text-decoration: none;
+}
+	.Chiffon_Top_Paging a:hover, .Chiffon_Top_Paging a:active {
+		border: 1px solid #ccc;
+		color: #555;
+}	

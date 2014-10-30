@@ -1,0 +1,76 @@
+    .ExplodingBoy_TabMenuG_TabStrip {
+      float:left;
+      width:100%;
+      background:#666;
+      font-size:93%;
+      line-height:normal;
+      }
+    .ExplodingBoy_TabMenuG_TabStrip ul {
+		margin:0;
+		padding:10px 10px 0 5px;
+		list-style:none;
+      }
+    .ExplodingBoy_TabMenuG_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      cursor:pointer;
+      }
+    .ExplodingBoy_TabMenuG_TabStrip span {
+      float:left;
+      background:url("tableft.gif") no-repeat left top;
+      margin:0;
+      padding:0 0 0 4px;
+      text-decoration:none;
+      }
+    .ExplodingBoy_TabMenuG_TabStrip span span {
+      float:left;
+      display:block;
+      background:url("tabright.gif") no-repeat right top;
+      padding:5px 15px 4px 6px;
+      color:#FFF;
+      }
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .ExplodingBoy_TabMenuG_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+	
+    .ExplodingBoy_TabMenuG_TabStrip .ExplodingBoy_TabMenuG_TabMouseOver {
+      background-position:0% -42px;
+      }
+    .ExplodingBoy_TabMenuG_TabStrip .ExplodingBoy_TabMenuG_TabMouseOver span {
+      background-position:100% -42px;
+      color:#FFF;
+      }
+    .ExplodingBoy_TabMenuG_TabStrip .ExplodingBoy_TabMenuG_TabSelected {
+      background-position:0% -42px;
+      }
+    .ExplodingBoy_TabMenuG_TabStrip .ExplodingBoy_TabMenuG_TabSelected span {
+      background-position:100% -42px;
+      color:#fff;
+      }
+    .ExplodingBoy_TabMenuG_TabPage {
+   _width: 100%;
+color:#000;
+	  background-color: #FFF;
+	  margin: 0;
+	  padding: 0;
+	  border: 1px solid #666;
+	  text-align: left;
+      }
+	.ExplodingBoy_TabMenuG_TabPage p {
+		margin: 0px;
+		padding: 3px;
+		}
+	.ExplodingBoy_TabMenuG_Paging {
+		font-size: .8em;
+		text-align: center;
+	}
+	
+	.ExplodingBoy_TabMenuG_Paging span {
+		cursor: pointer;
+		padding: 3px;
+	}
+	
+	.ExplodingBoy_TabMenuG_Paging span:hover {
+		color: #777;
+	}	

@@ -1,0 +1,4 @@
+/* Progressbar
+----------------------------------*/
+.mint-choc .ui-progressbar { height:2em; text-align: left; }
+.mint-choc .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }

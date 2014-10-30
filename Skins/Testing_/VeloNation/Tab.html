@@ -1,0 +1,16 @@
+[IFPOSTBACK value="true"]
+[IFCURRENTTAB value="true"]
+<li><span><span id="[TABID]" [TABACTION] class="[SKIN]_TabUnselected">[TABCAPTION]</span></span></li>
+[/IFCURRENTTAB]
+[IFCURRENTTAB value="false"]
+[IFACTIVEHOVER value="true"]
+<li><a href="[POSTBACKSELECTTAB]"><span><span id="[TABID]" onmouseover="javascript:[UNIQUE]MouseOverTab(this); parent.location='[POSTBACKSELECTTAB]';" class="[SKIN]_TabUnselected">[TABCAPTION]</span></span></a></li>
+[/IFACTIVEHOVER]
+[IFACTIVEHOVER value="false"]
+<li><a href="[POSTBACKSELECTTAB]"><span><span id="[TABID]" onmouseover="javascript:[UNIQUE]MouseOverTab(this);" onmouseout="javascript:[UNIQUE]MouseOutTab(this);" class="[SKIN]_TabUnselected">[TABCAPTION]</span></span></a></li>
+[/IFACTIVEHOVER]
+[/IFCURRENTTAB]
+[/IFPOSTBACK]
+[IFPOSTBACK value="false"]
+<li><span><span id="[TABID]" [TABACTION] class="[SKIN]_TabUnselected">[TABCAPTION]</span></span></li>
+[/IFPOSTBACK]

@@ -1,0 +1,1 @@
+[IFJQUERYUIURL]<script type="text/javascript" src="[JQUERYUIURL]"></script>[/IFJQUERYUIURL]

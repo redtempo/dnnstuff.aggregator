@@ -1,0 +1,64 @@
+    .Sample_Sample2_TabStrip {
+      float:left;
+      width:100%;
+      background:transparent;
+      font-size:93%;
+      line-height:normal;
+      }
+
+	.Sample_Sample2_TabStrip ul {
+        margin:0;
+        padding:0px 10px 0 0px;
+        list-style:none;
+      }
+	  
+    .Sample_Sample2_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+
+	  .Sample_Sample2_TabStrip span {
+      float:left;
+      margin:0;
+      padding:0 1px 0 0;
+      text-decoration:none;
+      }
+	  
+    .Sample_Sample2_TabStrip span span {
+      float:left;
+      display:block;
+      padding:5px 15px 4px 6px;
+      color:#fff;
+      }
+
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .Sample_Sample2_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+
+	.Sample_Sample2_TabSelected {
+      background: #7799ee;
+	  border-bottom: 1px solid #7799ee;
+      }
+    
+	.Sample_Sample2_TabStrip .Sample_Sample2_TabUnselected {
+      background: #fff;
+      color:black;
+      }
+
+	.Sample_Sample2_TabStrip .Sample_Sample2_TabMouseOver {
+      background: #7799ee;
+	  color: #fff;
+	  cursor: pointer;
+      }
+	  
+	.Sample_Sample2_TabPage {
+   _width: 100%;
+border: 3px solid #7799ee;
+		text-align: left;
+		padding: 3px;
+	}
+	
+	.Sample_Sample2_TabStrip .Sample_Sample2_PrevNext {
+		cursor: pointer;
+	}

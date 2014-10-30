@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>Manage Scripts</value>
+  </data>
+  <data name="DocumentationHelp.Text" xml:space="preserve">
+    <value>For documentation on all DNNStuff modules, please visit &lt;a style="text-decoration:underline"  href="http://wiki.dnnstuff.com?utm_source=dnnstuff&amp;utm_medium=settings&amp;utm_campaign=aggregator"&gt;wiki.dnnstuff.com&lt;/a&gt;</value>
+  </data>
+  <data name="TabCaption_EditScript1.Text" xml:space="preserve">
+    <value>jQuery</value>
+  </data>
+  <data name="TabCaption_Help.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="lblHostedScript1.Help" xml:space="preserve">
+    <value>If you checked the option above, provide the full url to the jQuery library here</value>
+  </data>
+  <data name="lblHostedScript1.Text" xml:space="preserve">
+    <value>Hosted jQuery Url</value>
+  </data>
+  <data name="lblHostedScript2.Help" xml:space="preserve">
+    <value>If you checked the option above, provide the full url to the jQuery UI library here</value>
+  </data>
+  <data name="lblHostedScript2.Text" xml:space="preserve">
+    <value>Hosted jQuery UI Url</value>
+  </data>
+  <data name="lblLoadScript1.Help" xml:space="preserve">
+    <value>Uncheck this option if you wish this module to load jQuery for you. If you are using DNN5 and above or load jQuery in a different manner, please leave this checked</value>
+  </data>
+  <data name="lblLoadScript1.Text" xml:space="preserve">
+    <value>Don't load jQuery. I'm taking care of jQuery myself or using DNN5 and above</value>
+  </data>
+  <data name="lblLoadScript2.Help" xml:space="preserve">
+    <value>Uncheck this option is you wish this module to load jQuery UI for you. If you are using DNN5 or load jQuery UI in a different manner, please leave this checked</value>
+  </data>
+  <data name="lblLoadScript2.Text" xml:space="preserve">
+    <value>Don't load jQueryUI. I'm taking care of jQueryUI myself</value>
+  </data>
+  <data name="lblUseHostedScript1.Help" xml:space="preserve">
+    <value>Check this option if you wish to provide your own url to the jQuery library</value>
+  </data>
+  <data name="lblUseHostedScript1.Text" xml:space="preserve">
+    <value>Use Hosted jQuery</value>
+  </data>
+  <data name="lblUseHostedScript2.Help" xml:space="preserve">
+    <value>Check this option if you wish to provide your own url to the jQuery UI library</value>
+  </data>
+  <data name="lblUseHostedScript2.Text" xml:space="preserve">
+    <value>Use Hosted jQuery UI</value>
+  </data>
+  <data name="TabCaption_EditScript2.Text" xml:space="preserve">
+    <value>jQuery UI</value>
+  </data>
+  <data name="Disclaimer.Text" xml:space="preserve">
+    <value>Note: Script settings are applied portal wide and not just to this instance of the module</value>
+  </data>
+</root>

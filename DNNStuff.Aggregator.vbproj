@@ -1,0 +1,1643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22B3EC39-D311-424F-B899-A822B8709767}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DNNStuff.Aggregator</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>On</OptionStrict>
+    <RootNamespace>
+    </RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>Windows</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DNNVERSION="DNN6"</DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DNNVERSION="DNN6"</DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Trial|AnyCPU' ">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DNNVERSION="DNN6"</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke">
+      <Name>DotNetNuke</Name>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN7' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke7\DotNetNuke.dll</HintPath>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN5' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke5\DotNetNuke.dll</HintPath>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN6' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke6\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.WebUtility">
+      <Name>DotNetNuke.WebUtility</Name>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN7' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke7\DotNetNuke.WebUtility.dll</HintPath>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN5' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke5\DotNetNuke.WebUtility.dll</HintPath>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN6' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke6\DotNetNuke.WebUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SharpZipLib, Version=0.81.0.1407, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN7' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke7\SharpZipLib.dll</HintPath>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN5' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke5\SharpZipLib.dll</HintPath>
+      <HintPath Condition=" '$(DNNVERSION)' == 'DNN6' ">\\RICHARD-SERVER\Shared Files\Development\BIN\DotNetNuke6\SharpZipLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RssToolkit, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\RICHARD-SERVER\Shared Files\Development\BIN\Various\RssToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="DNNStuff.Utilities, Version=1.0.0.14263, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\RICHARD-SERVER\Shared Files\Development\BIN\Various\DNNStuff.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Name>Microsoft.VisualBasic</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Data" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.HtmlControls" />
+    <Import Include="System.Web.UI.WebControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Aggregator.ascx">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditTab.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\EditModule.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\UploadSkin.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ManageSkin.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\CopyAggregator.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ManageScript.ascx.resx" />
+    <Content Include="Skins\jQueryUI\head.txt" />
+    <Content Include="Skins\jQueryUI\_js\jquery-ui-tabs-rotate.js" />
+    <Content Include="Version\Documentation\images\Install - Browse.Png" />
+    <Content Include="Version\Documentation\images\ModuleWrapping_Html.jpg" />
+    <Content Include="Version\Documentation\images\ModuleWrapping_Result.jpg" />
+    <Content Include="Version\Documentation\images\ModuleWrapping_Tokens.jpg" />
+    <Content Include="Version\Documentation\images\SkinFolder.jpg" />
+    <Content Include="Version\Documentation\images\SkinStructure.png" />
+    <Content Include="Version\Documentation\images\Style Settings.png" />
+    <Content Include="Version\Documentation\images\Tab Settings.png" />
+    <Content Include="Version\Documentation\images\TabAnatomy.gif" />
+    <Content Include="Version\Documentation\images\Target Settings.png" />
+    <Content Include="Version\Documentation\images\UploadSkin.png" />
+    <EmbeddedResource Include="CopyAggregator.ascx.resx">
+      <DependentUpon>CopyAggregator.ascx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageScript.ascx.resx">
+      <DependentUpon>ManageScript.ascx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageSkin.ascx.resx">
+      <DependentUpon>ManageSkin.ascx.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadSkin.ascx.resx">
+      <DependentUpon>UploadSkin.ascx.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditModule.ascx.resx">
+      <DependentUpon>EditModule.ascx.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditTab.ascx.resx">
+      <DependentUpon>EditTab.ascx.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="CopyAggregator.ascx" />
+    <Content Include="CustomPropertiesViewer.ascx" />
+    <Content Include="ManageScript.ascx" />
+    <Content Include="ManageSkin.ascx" />
+    <Content Include="Resources\jQuery\jquery-ui.min.js" />
+    <Content Include="Resources\jQuery\jquery.easing.1.3.js" />
+    <Content Include="Resources\jQuery\jquery.min.js" />
+    <Content Include="Resources\Scripts\jquery.txt" />
+    <Content Include="Resources\Scripts\jqueryui.txt" />
+    <Content Include="Resources\Support\alert.png" />
+    <Content Include="Resources\Support\close-icn.png" />
+    <Content Include="Resources\Support\dnnstuff-min.js" />
+    <Content Include="Resources\Support\down-icn.png" />
+    <Content Include="Resources\Support\edit.css" />
+    <Content Include="Resources\Support\edit_5.css" />
+    <Content Include="Resources\Support\error-icn.png" />
+    <Content Include="Resources\Support\errorbg.gif" />
+    <Content Include="Resources\Support\help-icn.png" />
+    <Content Include="Resources\Support\pixel.gif" />
+    <Content Include="Resources\Support\success-icn.png" />
+    <Content Include="Resources\Support\up-icn.png" />
+    <Content Include="Resources\Support\warning-icn.png" />
+    <Content Include="Resources\Support\yetii-min.js" />
+    <Content Include="Resources\Templates\Layout.html" />
+    <Content Include="Resources\Templates\Paging.html" />
+    <Content Include="Resources\Templates\Tab.html" />
+    <Content Include="Resources\Templates\TabPage.html" />
+    <Content Include="Resources\Templates\TabStrip.html" />
+    <Content Include="Resources\Templates\RSSContent.html" />
+    <Content Include="Resources\Scripts\Script.txt" />
+    <Content Include="Skins\Apple\Top\PageLeft.gif" />
+    <Content Include="Skins\Apple\Top\PageRight.gif" />
+    <Content Include="Skins\Apple\Top\tableft.gif" />
+    <Content Include="Skins\Apple\Top\tabright.gif" />
+    <Content Include="Skins\Blank\Blank\styles.css" />
+    <Content Include="Skins\BlueSteel\Top\PageLeft.gif" />
+    <Content Include="Skins\BlueSteel\Top\PageRight.gif" />
+    <Content Include="Skins\BlueSteel\Top\PagingItem.html" />
+    <Content Include="Skins\BlueSteel\Top\tableft.gif" />
+    <Content Include="Skins\BlueSteel\Top\tabright.gif" />
+    <Content Include="Skins\Chiffon\Top\PagingItem.html" />
+    <Content Include="Skins\Clean\Top\Layout.html" />
+    <Content Include="Skins\Clean\Top\Paging.html" />
+    <Content Include="Skins\Clean\Top\PagingItem.html" />
+    <Content Include="Skins\Clean\Top\styles.css" />
+    <Content Include="Skins\Clean\Top\Tab.html" />
+    <Content Include="Skins\Clean\Top\TabPage.html" />
+    <Content Include="Skins\Clean\Top\TabStrip.html" />
+    <Content Include="Skins\CodaSlider\head.txt" />
+    <Content Include="Skins\CodaSlider\slider1\Layout.html" />
+    <Content Include="Skins\CodaSlider\slider1\Paging.html" />
+    <Content Include="Skins\CodaSlider\slider1\RSSContent.html" />
+    <Content Include="Skins\CodaSlider\slider1\Script.txt" />
+    <Content Include="Skins\CodaSlider\slider1\Settings.xml" />
+    <Content Include="Skins\CodaSlider\slider1\styles.css" />
+    <Content Include="Skins\CodaSlider\slider1\Tab.html" />
+    <Content Include="Skins\CodaSlider\slider1\TabPage.html" />
+    <Content Include="Skins\CodaSlider\slider1\TabStrip.html" />
+    <Content Include="Skins\CodaSlider\slider6\Layout.html" />
+    <Content Include="Skins\CodaSlider\slider6\RSSContent.html" />
+    <Content Include="Skins\CodaSlider\slider6\Script.txt" />
+    <Content Include="Skins\CodaSlider\slider6\Settings.xml" />
+    <Content Include="Skins\CodaSlider\slider6\styles.css" />
+    <Content Include="Skins\CodaSlider\slider6\Tab.html" />
+    <Content Include="Skins\CodaSlider\slider6\TabPage.html" />
+    <Content Include="Skins\CodaSlider\slider6\TabStrip.html" />
+    <Content Include="Skins\CodaSlider\_images\ajax-loader.gif" />
+    <Content Include="Skins\CodaSlider\_js\jquery.coda-slider-2.0.js" />
+    <Content Include="Skins\Default\Bottom\resultset_next.png" />
+    <Content Include="Skins\Default\Bottom\resultset_previous.png" />
+    <Content Include="Skins\Default\Top\resultset_next.png" />
+    <Content Include="Skins\Default\Top\resultset_previous.png" />
+    <Content Include="Skins\Demo\Pager1\Layout.html" />
+    <Content Include="Skins\Demo\Pager1\Paging.html" />
+    <Content Include="Skins\Demo\Pager1\PagingItem.html" />
+    <Content Include="Skins\Demo\Pager1\styles.css" />
+    <Content Include="Skins\Demo\Pager1\Tab.html" />
+    <Content Include="Skins\Demo\Pager1\TabPage.html" />
+    <Content Include="Skins\Demo\Pager1\TabStrip.html" />
+    <Content Include="Skins\Demo\Pager2\Layout.html" />
+    <Content Include="Skins\Demo\Pager2\Paging.html" />
+    <Content Include="Skins\Demo\Pager2\PagingItem.html" />
+    <Content Include="Skins\Demo\Pager2\styles.css" />
+    <Content Include="Skins\Demo\Pager2\Tab.html" />
+    <Content Include="Skins\Demo\Pager2\TabPage.html" />
+    <Content Include="Skins\Demo\Pager2\TabStrip.html" />
+    <Content Include="Skins\Demo\Pager3\Layout.html" />
+    <Content Include="Skins\Demo\Pager3\Paging.html" />
+    <Content Include="Skins\Demo\Pager3\PagingItem.html" />
+    <Content Include="Skins\Demo\Pager3\styles.css" />
+    <Content Include="Skins\Demo\Pager3\Tab.html" />
+    <Content Include="Skins\Demo\Pager3\TabPage.html" />
+    <Content Include="Skins\Demo\Pager3\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\readme.txt" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu10\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu11\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu12\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu1\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu2\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu3\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu4\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu5\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu6\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu7\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu8\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\Layout.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\Paging.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\styles.css" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\Tab.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy2\TabMenu9\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\readme.txt" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuA\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\tableftb.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\tabrightb.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuB\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuC\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuD\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuE\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuF\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuG\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuH\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuI\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuJ\TabStrip.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\Layout.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\PageLeft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\PageRight.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\Paging.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\PagingItem.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\styles.css" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\Tab.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\tableft.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\TabPage.html" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\tabright.gif" />
+    <Content Include="Skins\ExplodingBoy\TabMenuK\TabStrip.html" />
+    <Content Include="Skins\Glossy\Top\Layout.html" />
+    <Content Include="Skins\Glossy\Top\PageLeft.gif" />
+    <Content Include="Skins\Glossy\Top\PageRight.gif" />
+    <Content Include="Skins\Glossy\Top\Paging.html" />
+    <Content Include="Skins\Glossy\Top\PagingItem.html" />
+    <Content Include="Skins\Glossy\Top\styles.css" />
+    <Content Include="Skins\Glossy\Top\Tab.html" />
+    <Content Include="Skins\Glossy\Top\tableft.gif" />
+    <Content Include="Skins\Glossy\Top\TabPage.html" />
+    <Content Include="Skins\Glossy\Top\tabright.gif" />
+    <Content Include="Skins\Glossy\Top\TabStrip.html" />
+    <Content Include="Skins\jQueryUI\Accordion\Layout.html" />
+    <Content Include="Skins\jQueryUI\Accordion\Paging.html" />
+    <Content Include="Skins\jQueryUI\Accordion\Script.txt" />
+    <Content Include="Skins\jQueryUI\Accordion\Settings.xml" />
+    <Content Include="Skins\jQueryUI\Accordion\styles.css" />
+    <Content Include="Skins\jQueryUI\Accordion\Tab.html" />
+    <Content Include="Skins\jQueryUI\Accordion\TabPage.html" />
+    <Content Include="Skins\jQueryUI\Accordion\TabStrip.html" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image1-small.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image1.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image2-small.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image2.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image3-small.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image3.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image4-small.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image4.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image5-small.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\image5.jpg" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\selected-item.gif" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\transparent-bg.gif" />
+    <Content Include="Skins\jQueryUI\ContentSlider\images\transparent-bg.png" />
+    <Content Include="Skins\jQueryUI\ContentSlider\Layout.html" />
+    <Content Include="Skins\jQueryUI\ContentSlider\Paging.html" />
+    <Content Include="Skins\jQueryUI\ContentSlider\RSSContent.html" />
+    <Content Include="Skins\jQueryUI\ContentSlider\Script.txt" />
+    <Content Include="Skins\jQueryUI\ContentSlider\Settings.xml" />
+    <Content Include="Skins\jQueryUI\ContentSlider\styles.css" />
+    <Content Include="Skins\jQueryUI\ContentSlider\Tab.html" />
+    <Content Include="Skins\jQueryUI\ContentSlider\TabPage.html" />
+    <Content Include="Skins\jQueryUI\ContentSlider\TabStrip.html" />
+    <Content Include="Skins\jQueryUI\Tabs\Layout.html" />
+    <Content Include="Skins\jQueryUI\Tabs\Paging.html" />
+    <Content Include="Skins\jQueryUI\Tabs\Script.txt" />
+    <Content Include="Skins\jQueryUI\Tabs\Settings.xml" />
+    <Content Include="Skins\jQueryUI\Tabs\styles.css" />
+    <Content Include="Skins\jQueryUI\Tabs\Tab.html" />
+    <Content Include="Skins\jQueryUI\Tabs\TabPage.html" />
+    <Content Include="Skins\jQueryUI\Tabs\TabStrip.html" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\base\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\base\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_diagonals-thick_8_333333_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_glass_40_111111_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_glass_55_1c1c1c_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_highlight-hard_100_f9f9f9_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_highlight-hard_40_aaaaaa_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_highlight-soft_50_aaaaaa_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_inset-hard_45_cd0a0a_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-bg_inset-hard_55_ffeb80_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-icons_4ca300_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-icons_bbbbbb_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-icons_ededed_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-icons_ffcf29_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\black-tie\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\blitzer\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\cupertino\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_highlight-hard_20_0972a5_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_highlight-soft_33_003147_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_highlight-soft_35_222222_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_highlight-soft_44_444444_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-bg_loop_25_000000_21x21.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\dark-hive\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_dots-small_30_a32d00_2x2.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_dots-small_40_00498f_2x2.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_flat_40_292929_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-bg_gloss-wave_20_111111_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-icons_00498f_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-icons_98d2fb_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-icons_9ccdfc_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\dot-luv\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_flat_55_994d53_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_flat_55_fafafa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_gloss-wave_30_3d3644_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_highlight-soft_100_dcd9de_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_highlight-soft_100_eae6ea_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_highlight-soft_25_30273a_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-bg_highlight-soft_45_5f5964_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-icons_454545_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-icons_734d99_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-icons_8d78a5_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-icons_a8a3ae_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-icons_ebccce_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\eggplant\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_diagonals-small_25_c5ddfc_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_diagonals-thick_20_e69700_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_diagonals-thick_22_1484e6_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_diagonals-thick_26_2293f7_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_flat_0_e69700_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_flat_0_e6b900_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_highlight-soft_100_f9f9f9_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-bg_inset-hard_100_eeeeee_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-icons_0a82eb_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-icons_0b54d5_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-icons_5fa5e3_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-icons_fcdd4a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\excite-bike\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-icons_666666_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\flick\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\flick\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_diagonals-small_40_db4865_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_diagonals-small_50_93c3cd_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_diagonals-small_50_ff3853_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_diagonals-small_75_ccd232_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_dots-medium_80_ffff38_4x4.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_dots-small_35_35414f_2x2.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_flat_75_ba9217_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-bg_white-lines_85_f7f7ba_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-icons_454545_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-icons_88a206_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-icons_c02669_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-icons_e1e463_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-icons_ffeb33_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\hot-sneaks\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_glass_100_f5f0e5_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_glass_25_cb842e_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_glass_70_ede4d4_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_highlight-hard_100_f4f0ec_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_highlight-hard_75_f5f5b5_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-bg_inset-soft_100_f4f0ec_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-icons_c47a23_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-icons_cb672b_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-icons_f08000_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-icons_f35f07_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\humanity\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_diagonals-small_0_aaaaaa_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_diagonals-thick_15_444444_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_diagonals-thick_95_ffdc2e_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_glass_55_fbf5d0_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_highlight-hard_30_285c00_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_highlight-soft_33_3a8104_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_highlight-soft_50_4eb305_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_highlight-soft_60_4ca20b_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-bg_inset-soft_10_285c00_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-icons_4eb305_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-icons_72b42d_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\le-frog\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_glass_15_5f391b_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_gloss-wave_20_1c160d_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_gloss-wave_25_453326_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_gloss-wave_30_44372c_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_highlight-soft_20_201913_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_highlight-soft_20_619226_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-bg_inset-soft_10_201913_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-icons_9bcc60_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-icons_add978_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-icons_e3ddc9_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-icons_f1fd86_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\mint-choc\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-icons_3383bb_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-icons_454545_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-icons_70b2e1_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-icons_999999_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\images\ui-icons_fbc856_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\overcast\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_diagonal-maze_20_6e4f1c_10x10.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_diagonal-maze_40_000000_10x10.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_fine-grain_10_eceadf_60x60.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_fine-grain_10_f8f7f6_60x60.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_fine-grain_15_eceadf_60x60.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_fine-grain_15_f7f3de_60x60.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_fine-grain_15_ffffff_60x60.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_fine-grain_65_654b24_60x60.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-bg_fine-grain_68_b83400_60x60.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-icons_3572ac_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-icons_8c291d_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-icons_b83400_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-icons_fbdb93_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\pepper-grinder\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\redmond\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\smoothness\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-icons_808080_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-icons_847e71_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-icons_8DC262_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\south-street\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\start\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\start\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_diagonals-medium_20_d34d17_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_gloss-wave_45_817865_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_gloss-wave_60_fece2f_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_gloss-wave_70_ffdd57_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_gloss-wave_90_fff9e5_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_highlight-soft_100_feeebd_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-bg_inset-soft_30_ffffff_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-icons_3d3d3d_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-icons_bd7b00_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-icons_d19405_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-icons_eb990f_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-icons_ed9f26_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-icons_fadc7a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\images\ui-icons_ffe180_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\sunny\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_diamond_10_4f4221_10x8.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_diamond_20_372806_10x8.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_diamond_25_675423_10x8.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_diamond_25_d5ac5d_10x8.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_diamond_8_261803_10x8.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_diamond_8_443113_10x8.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_flat_75_ddd4b0_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-icons_070603_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-icons_e8e2b5_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-icons_e9cd86_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-icons_efec9f_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-icons_f2ec64_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-icons_f9f2bd_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\swanky-purse\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_diagonals-small_50_262626_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_flat_0_303030_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_flat_0_4c4c4c_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_glass_40_0a0a0a_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_glass_55_f1fbe5_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_glass_60_000000_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_gloss-wave_55_000000_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_gloss-wave_85_9fda58_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-bg_gloss-wave_95_f6ecd5_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-icons_000000_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-icons_1f1f1f_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-icons_9fda58_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-icons_b8ec79_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\trontastic\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-darkness\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\ui-lightness\ui.theme.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_gloss-wave_16_121212_500x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_highlight-hard_15_888888_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_highlight-hard_55_555555_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_highlight-soft_35_adadad_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_highlight-soft_60_dddddd_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-bg_inset-soft_15_121212_1x100.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-icons_666666_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-icons_aaaaaa_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-icons_bbbbbb_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-icons_c98000_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\images\ui-icons_f29a00_256x240.png" />
+    <Content Include="Skins\jQueryUI\_themes\vader\jquery-ui.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.accordion.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.all.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.base.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.core.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.datepicker.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.dialog.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.progressbar.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.resizable.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.slider.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.tabs.css" />
+    <Content Include="Skins\jQueryUI\_themes\vader\ui.theme.css" />
+    <Content Include="Skins\jShowOff\Basic\Layout.html" />
+    <Content Include="Skins\jShowOff\Basic\Paging.html" />
+    <Content Include="Skins\jShowOff\Basic\RSSContent.html" />
+    <Content Include="Skins\jShowOff\Basic\Script.txt" />
+    <Content Include="Skins\jShowOff\Basic\Settings.xml" />
+    <Content Include="Skins\jShowOff\Basic\styles.css" />
+    <Content Include="Skins\jShowOff\Basic\Tab.html" />
+    <Content Include="Skins\jShowOff\Basic\TabPage.html" />
+    <Content Include="Skins\jShowOff\Basic\TabStrip.html" />
+    <Content Include="Skins\jShowOff\head.txt" />
+    <Content Include="Skins\jShowOff\_js\jquery.jshowoff.min.js" />
+    <Content Include="Skins\Kwicks\Basic\Layout.html" />
+    <Content Include="Skins\Kwicks\Basic\Paging.html" />
+    <Content Include="Skins\Kwicks\Basic\RSSContent.html" />
+    <Content Include="Skins\Kwicks\Basic\Script.txt" />
+    <Content Include="Skins\Kwicks\Basic\Settings.xml" />
+    <Content Include="Skins\Kwicks\Basic\styles.css" />
+    <Content Include="Skins\Kwicks\Basic\Tab.html" />
+    <Content Include="Skins\Kwicks\Basic\TabPage.html" />
+    <Content Include="Skins\Kwicks\Basic\TabStrip.html" />
+    <Content Include="Skins\Kwicks\head.txt" />
+    <Content Include="Skins\Kwicks\_js\jquery.kwicks-1.5.1.pack.js" />
+    <Content Include="Skins\Ocean\Top\PageLeft.gif" />
+    <Content Include="Skins\Ocean\Top\PageRight.gif" />
+    <Content Include="Skins\Ocean\Top\PagingItem.html" />
+    <Content Include="Skins\Ocean\Top\tableft.gif" />
+    <Content Include="Skins\Ocean\Top\tabpage.gif" />
+    <Content Include="Skins\Ocean\Top\tabright.gif" />
+    <Content Include="Skins\Onyx\Top\PageLeft.gif" />
+    <Content Include="Skins\Onyx\Top\PageRight.gif" />
+    <Content Include="Skins\Onyx\Top\PagingItem.html" />
+    <Content Include="Skins\Onyx\Top\tableft.gif" />
+    <Content Include="Skins\Onyx\Top\tabpage.gif" />
+    <Content Include="Skins\Onyx\Top\tabright.gif" />
+    <Content Include="Skins\Sample\Sample1\Layout.html" />
+    <Content Include="Skins\Sample\Sample1\styles.css" />
+    <Content Include="Skins\Sample\Sample1\Tab.html" />
+    <Content Include="Skins\Sample\Sample1\TabPage.html" />
+    <Content Include="Skins\Sample\Sample1\TabStrip.html" />
+    <Content Include="Skins\Sample\Sample2\Layout.html" />
+    <Content Include="Skins\Sample\Sample2\styles.css" />
+    <Content Include="Skins\Sample\Sample2\Tab.html" />
+    <Content Include="Skins\Sample\Sample2\TabPage.html" />
+    <Content Include="Skins\Sample\Sample2\TabStrip.html" />
+    <Content Include="Skins\Sample\Sample3\Layout.html" />
+    <Content Include="Skins\Sample\Sample3\styles.css" />
+    <Content Include="Skins\Sample\Sample3\Tab.html" />
+    <Content Include="Skins\Sample\Sample3\TabPage.html" />
+    <Content Include="Skins\Sample\Sample3\TabStrip.html" />
+    <Content Include="Skins\Sample\Sample4\Layout.html" />
+    <Content Include="Skins\Sample\Sample4\Paging.html" />
+    <Content Include="Skins\Sample\Sample4\resultset_next.png" />
+    <Content Include="Skins\Sample\Sample4\resultset_previous.png" />
+    <Content Include="Skins\Sample\Sample4\styles.css" />
+    <Content Include="Skins\Sample\Sample4\Tab.html" />
+    <Content Include="Skins\Sample\Sample4\TabPage.html" />
+    <Content Include="Skins\Sample\Sample4\TabStrip.html" />
+    <Content Include="Skins\Sample\Sample5\Layout.html" />
+    <Content Include="Skins\Sample\Sample5\Paging.html" />
+    <Content Include="Skins\Sample\Sample5\PagingItem.html" />
+    <Content Include="Skins\Sample\Sample5\resultset_next.png" />
+    <Content Include="Skins\Sample\Sample5\styles.css" />
+    <Content Include="Skins\Sample\Sample5\Tab.html" />
+    <Content Include="Skins\Sample\Sample5\TabPage.html" />
+    <Content Include="Skins\Sample\Sample5\TabStrip.html" />
+    <Content Include="Skins\Sample\Samples.txt" />
+    <Content Include="Skins\Simple\Bottom\PagingItem.html" />
+    <Content Include="Skins\Simple\Left\PagingItem.html" />
+    <Content Include="Skins\Simple\MultiColored\Layout.html" />
+    <Content Include="Skins\Simple\MultiColored\Paging.html" />
+    <Content Include="Skins\Simple\MultiColored\PagingItem.html" />
+    <Content Include="Skins\Simple\MultiColored\styles.css" />
+    <Content Include="Skins\Simple\MultiColored\Tab.html" />
+    <Content Include="Skins\Simple\MultiColored\TabPage.html" />
+    <Content Include="Skins\Simple\MultiColored\TabStrip.html" />
+    <Content Include="Skins\Simple\Right\PagingItem.html" />
+    <Content Include="Skins\Simple\RSS\Layout.html" />
+    <Content Include="Skins\Simple\RSS\Paging.html" />
+    <Content Include="Skins\Simple\RSS\PagingItem.html" />
+    <Content Include="Skins\Simple\RSS\RSSContent.html" />
+    <Content Include="Skins\Simple\RSS\styles.css" />
+    <Content Include="Skins\Simple\RSS\Tab.html" />
+    <Content Include="Skins\Simple\RSS\TabPage.html" />
+    <Content Include="Skins\Simple\RSS\TabStrip.html" />
+    <Content Include="Skins\Simple\Top\PagingItem.html" />
+    <Content Include="Skins\Square\Top\images\square-blue.gif" />
+    <Content Include="Skins\Square\Top\images\square-purple.gif" />
+    <Content Include="Skins\Square\Top\images\square-red.gif" />
+    <Content Include="Skins\Square\Top\PagingItem.html" />
+    <Content Include="Skins\XPLunaVarWidth\Top\PageLeft.gif" />
+    <Content Include="Skins\XPLunaVarWidth\Top\PageRight.gif" />
+    <Content Include="Skins\XPLunaVarWidth\Top\PagingItem.html" />
+    <Content Include="Skins\XPLunaVarWidth\Top\tableft.gif" />
+    <Content Include="Skins\XPLunaVarWidth\Top\tabright.gif" />
+    <Content Include="Skins\XPLuna\Top\PageLeft.gif" />
+    <Content Include="Skins\XPLuna\Top\PageRight.gif" />
+    <Content Include="Skins\XPLuna\Top\PagingItem.html" />
+    <Content Include="Skins\XPLuna\Top\tableft.gif" />
+    <Content Include="Skins\XPLuna\Top\tabright.gif" />
+    <Content Include="UploadSkin.ascx" />
+    <Content Include="EditModule.ascx" />
+    <Content Include="EditTab.ascx" />
+    <Content Include="ManageAggregator.ascx" />
+    <Content Include="Module.css" />
+    <Content Include="No Container.ascx" />
+    <Content Include="Resources\Templates\PagingItem.html" />
+    <Content Include="Skins\Apple\Top\Layout.html" />
+    <Content Include="Skins\Apple\Top\Paging.html" />
+    <Content Include="Skins\Apple\Top\styles.css" />
+    <Content Include="Skins\Apple\Top\Tab.html" />
+    <Content Include="Skins\Apple\Top\TabPage.html" />
+    <Content Include="Skins\Apple\Top\TabStrip.html" />
+    <Content Include="Skins\BlueSteel\Top\Layout.html" />
+    <Content Include="Skins\BlueSteel\Top\Paging.html" />
+    <Content Include="Skins\BlueSteel\Top\styles.css" />
+    <Content Include="Skins\BlueSteel\Top\Tab.html" />
+    <Content Include="Skins\BlueSteel\Top\TabPage.html" />
+    <Content Include="Skins\BlueSteel\Top\TabStrip.html" />
+    <Content Include="Skins\Chiffon\Top\Layout.html" />
+    <Content Include="Skins\Chiffon\Top\Paging.html" />
+    <Content Include="Skins\Chiffon\Top\styles.css" />
+    <Content Include="Skins\Chiffon\Top\Tab.html" />
+    <Content Include="Skins\Chiffon\Top\TabPage.html" />
+    <Content Include="Skins\Chiffon\Top\TabStrip.html" />
+    <Content Include="Skins\Default\Bottom\Layout.html" />
+    <Content Include="Skins\Default\Bottom\Paging.html" />
+    <Content Include="Skins\Default\Bottom\styles.css" />
+    <Content Include="Skins\Default\Bottom\Tab.html" />
+    <Content Include="Skins\Default\Bottom\TabPage.html" />
+    <Content Include="Skins\Default\Bottom\TabStrip.html" />
+    <Content Include="Skins\Default\Top\Layout.html" />
+    <Content Include="Skins\Default\Top\Paging.html" />
+    <Content Include="Skins\Default\Top\styles.css" />
+    <Content Include="Skins\Default\Top\Tab.html" />
+    <Content Include="Skins\Default\Top\TabPage.html" />
+    <Content Include="Skins\Default\Top\TabStrip.html" />
+    <Content Include="Skins\Ocean\Top\Layout.html" />
+    <Content Include="Skins\Ocean\Top\Paging.html" />
+    <Content Include="Skins\Ocean\Top\styles.css" />
+    <Content Include="Skins\Ocean\Top\Tab.html" />
+    <Content Include="Skins\Ocean\Top\TabPage.html" />
+    <Content Include="Skins\Ocean\Top\TabStrip.html" />
+    <Content Include="Skins\Onyx\Top\Layout.html" />
+    <Content Include="Skins\Onyx\Top\Paging.html" />
+    <Content Include="Skins\Onyx\Top\styles.css" />
+    <Content Include="Skins\Onyx\Top\Tab.html" />
+    <Content Include="Skins\Onyx\Top\TabPage.html" />
+    <Content Include="Skins\Onyx\Top\TabStrip.html" />
+    <Content Include="Skins\Simple\Bottom\Layout.html" />
+    <Content Include="Skins\Simple\Bottom\Paging.html" />
+    <Content Include="Skins\Simple\Bottom\styles.css" />
+    <Content Include="Skins\Simple\Bottom\Tab.html" />
+    <Content Include="Skins\Simple\Bottom\TabPage.html" />
+    <Content Include="Skins\Simple\Bottom\TabStrip.html" />
+    <Content Include="Skins\Simple\Inline\images\max.gif" />
+    <Content Include="Skins\Simple\Inline\images\min.gif" />
+    <Content Include="Skins\Simple\Inline\Layout.html" />
+    <Content Include="Skins\Simple\Inline\Paging.html" />
+    <Content Include="Skins\Simple\Inline\styles.css" />
+    <Content Include="Skins\Simple\Inline\Tab.html" />
+    <Content Include="Skins\Simple\Inline\TabPage.html" />
+    <Content Include="Skins\Simple\Inline\TabStrip.html" />
+    <Content Include="Skins\Simple\Left\Layout.html" />
+    <Content Include="Skins\Simple\Left\Paging.html" />
+    <Content Include="Skins\Simple\Left\styles.css" />
+    <Content Include="Skins\Simple\Left\Tab.html" />
+    <Content Include="Skins\Simple\Left\TabPage.html" />
+    <Content Include="Skins\Simple\Left\TabStrip.html" />
+    <Content Include="Skins\Simple\Right\Layout.html" />
+    <Content Include="Skins\Simple\Right\Paging.html" />
+    <Content Include="Skins\Simple\Right\styles.css" />
+    <Content Include="Skins\Simple\Right\Tab.html" />
+    <Content Include="Skins\Simple\Right\TabPage.html" />
+    <Content Include="Skins\Simple\Right\TabStrip.html" />
+    <Content Include="Skins\Simple\Top\Layout.html" />
+    <Content Include="Skins\Simple\Top\Paging.html" />
+    <Content Include="Skins\Simple\Top\styles.css" />
+    <Content Include="Skins\Simple\Top\Tab.html" />
+    <Content Include="Skins\Simple\Top\TabPage.html" />
+    <Content Include="Skins\Simple\Top\TabStrip.html" />
+    <Content Include="Skins\Square\Top\Layout.html" />
+    <Content Include="Skins\Square\Top\Paging.html" />
+    <Content Include="Skins\Square\Top\styles.css" />
+    <Content Include="Skins\Square\Top\Tab.html" />
+    <Content Include="Skins\Square\Top\TabPage.html" />
+    <Content Include="Skins\Square\Top\TabStrip.html" />
+    <Content Include="Skins\XPLunaVarWidth\Top\Layout.html" />
+    <Content Include="Skins\XPLunaVarWidth\Top\Paging.html" />
+    <Content Include="Skins\XPLunaVarWidth\Top\styles.css" />
+    <Content Include="Skins\XPLunaVarWidth\Top\Tab.html" />
+    <Content Include="Skins\XPLunaVarWidth\Top\TabPage.html" />
+    <Content Include="Skins\XPLunaVarWidth\Top\TabStrip.html" />
+    <Content Include="Skins\XPLuna\Top\Layout.html" />
+    <Content Include="Skins\XPLuna\Top\Paging.html" />
+    <Content Include="Skins\XPLuna\Top\styles.css" />
+    <Content Include="Skins\XPLuna\Top\Tab.html" />
+    <Content Include="Skins\XPLuna\Top\TabPage.html" />
+    <Content Include="Skins\XPLuna\Top\TabStrip.html" />
+    <Content Include="Version\All\Version_Append.md" />
+    <None Include="Version\All\Version_Current.md" />
+    <Content Include="Version\All\icon_aggregator_32px.gif" />
+    <Content Include="Version\All\License.html" />
+    <Content Include="Version\All\RssToolkit.dll" />
+    <Compile Include="Aggregator.ascx.designer.vb">
+      <DependentUpon>Aggregator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Aggregator.ascx.vb">
+      <DependentUpon>Aggregator.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compatibility\DNN6\Compatibility.vb" />
+    <Compile Include="Components\Data\AggregatorDB.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Helpers\CustomProperties.vb">
+    </Compile>
+    <Compile Include="Components\Shared\StandardVariables.vb" />
+    <Compile Include="CopyAggregator.ascx.designer.vb">
+      <DependentUpon>CopyAggregator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CopyAggregator.ascx.vb">
+      <DependentUpon>CopyAggregator.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomPropertiesViewer.ascx.designer.vb">
+      <DependentUpon>CustomPropertiesViewer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertiesViewer.ascx.vb">
+      <DependentUpon>CustomPropertiesViewer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageScript.ascx.designer.vb">
+      <DependentUpon>ManageScript.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageScript.ascx.vb">
+      <DependentUpon>ManageScript.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSkin.ascx.designer.vb">
+      <DependentUpon>ManageSkin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSkin.ascx.vb">
+      <DependentUpon>ManageSkin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadSkin.ascx.designer.vb">
+      <DependentUpon>UploadSkin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadSkin.ascx.vb">
+      <DependentUpon>UploadSkin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditModule.ascx.designer.vb">
+      <DependentUpon>EditModule.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditModule.ascx.vb">
+      <DependentUpon>EditModule.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\Data\DataProvider.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Helpers\DNNUtilities.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EditTab.ascx.designer.vb">
+      <DependentUpon>EditTab.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTab.ascx.vb">
+      <DependentUpon>EditTab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageAggregator.ascx.designer.vb">
+      <DependentUpon>ManageAggregator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageAggregator.ascx.vb">
+      <DependentUpon>ManageAggregator.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\Helpers\ModuleSettings.vb" />
+    <Compile Include="Components\Helpers\ScriptHelper.vb" />
+    <Compile Include="Components\Helpers\Template.vb" />
+    <EmbeddedResource Include="Aggregator.ascx.resx">
+      <DependentUpon>Aggregator.ascx.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Aggregator.ascx.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\ManageAggregator.ascx.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAggregator.ascx.resx">
+      <DependentUpon>ManageAggregator.ascx.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Build\Build.bat" />
+    <None Include="Build\BuildFinal.bat" />
+    <None Include="Build\DeployFinal.bat" />
+    <None Include="Build\ModuleSpecific.targets" />
+    <None Include="Skins\BlueSteel\Top\BlueSteel_Original.pdn" />
+    <None Include="Skins\Ocean\Top\Ocean_Original.pdn" />
+    <None Include="Skins\Onyx\Top\Onyx_Original.pdn" />
+    <None Include="Version\Data\03.00.00.sqldataprovider" />
+    <None Include="Version\Data\03.00.01.sqldataprovider" />
+    <None Include="Version\Data\03.01.00.sqldataprovider" />
+    <None Include="Version\Data\03.01.04.sqldataprovider" />
+    <None Include="Version\Data\03.02.00.sqldataprovider" />
+    <None Include="Version\Data\04.00.01.sqldataprovider" />
+    <None Include="Version\Data\05.00.00.sqldataprovider" />
+    <None Include="Version\Data\05.00.01.sqldataprovider" />
+    <None Include="Version\Data\05.06.00.sqldataprovider" />
+    <None Include="Version\Data\05.06.01.sqldataprovider" />
+    <None Include="Version\Data\05.06.02.sqldataprovider" />
+    <None Include="Version\Data\05.06.03.sqldataprovider" />
+    <None Include="Version\Data\06.00.00.sqldataprovider" />
+    <None Include="Version\Data\06.00.08.sqldataprovider" />
+    <None Include="Version\Data\06.00.15.sqldataprovider" />
+    <None Include="Version\Data\06.01.02.sqldataprovider" />
+    <None Include="Version\Data\06.01.04.sqldataprovider" />
+    <None Include="Version\Data\06.01.05.sqldataprovider" />
+    <None Include="Version\Data\06.01.06.sqldataprovider" />
+    <None Include="Version\Data\06.01.07.sqldataprovider" />
+    <None Include="Version\All\aggregator.dnn">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Version\Data\uninstall.sqldataprovider" />
+    <Content Include="Version\Documentation\Configuration.html.md" />
+    <Content Include="Version\Documentation\Index.html.md" />
+    <Content Include="Version\Documentation\Installation.html.md" />
+    <Content Include="Version\Documentation\Localization.html.md" />
+    <Content Include="Version\Documentation\ModuleWrapping.html.md" />
+    <Content Include="Version\Documentation\Nesting.html.md" />
+    <Content Include="Version\Documentation\Releases.html.md" />
+    <Content Include="Version\Documentation\SelectingTabs.html.md" />
+    <Content Include="Version\Documentation\TabCaptionReplacement.html.md" />
+    <Content Include="Version\Documentation\Templates.html.md" />
+    <Content Include="Version\Documentation\UploadSkins.html.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\Business\" />
+    <Folder Include="My Project\" />
+    <Folder Include="Skins\jShowOff\_images\" />
+    <Folder Include="Skins\Kwicks\_images\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1124</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://dev.dnn6/DesktopModules/DNNStuff - Aggregator</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://dev.dnn6/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://dev.dnn6/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+</Project>

@@ -1,0 +1,60 @@
+[REQUIRESJQUERYUI]
+
+<input id="[UNIQUE]SelectedElementId" name="[UNIQUE]SelectedElementId" type="hidden" value="[UNIQUE]Tab[SELECTEDTABNUMBER]" />
+
+<link rel="stylesheet" href="[SKINBASEFOLDER]/_themes/[IFQS_THEME][QS_THEME][/IFQS_THEME][IFNOTQS_THEME][THEME][/IFNOTQS_THEME]/ui.all.css" type="text/css" media="all" />
+
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+		var $tabs = jQuery('#[UNIQUE]Tab').tabs({ select: function(event,ui) {[UNIQUE]UpdateSelectedTab(ui.index+1);}}[IFACTIVEHOVER VALUE="true"],{event: 'mouseover'}[/IFACTIVEHOVER]);
+		[IFROTATE VALUE="true"]$tabs.tabs('rotate' , [ROTATETIME], [ROTATECONTINUE]);[/IFROTATE]
+		[IFNOTFX VALUE="none"]$tabs.tabs('option', 'fx', { [FX], duration: '[FXSPEED]' });[/IFNOTFX]
+		[UNIQUE]SelectTab([SELECTEDTABNUMBER],'');
+	});
+
+	function [UNIQUE]NewUIVersion()
+	{
+		return $.ui.version.split('.')[0] == 1 && $.ui.version.split('.')[1] > 7;
+	}
+
+	function [UNIQUE]Initialize()
+	{
+	// needs to be here for Aggregator to function but doesn't need to do anything
+	}
+
+	function [UNIQUE]SelectTab(tabNumber,source)
+	// SelectTab - select a specific tab#, source=tabmodule selecting
+	{
+		jQuery('#[UNIQUE]Tab').tabs('option', 'active', tabNumber-1);
+
+		[UNIQUE]UpdateSelectedTab(tabNumber);
+		[SELECTTARGET]
+	}
+	function [UNIQUE]UpdateSelectedTab(tabNumber)
+	// UpdateSelectedTab - update hidden value and cookie to remember selection across pages, postbacks
+	{
+		// set hidden input value to the new tab
+        document.getElementById('[UNIQUE]SelectedElementId').value=tabNumber;
+        [SAVEACTIVETAB]
+	}
+	function [UNIQUE]SelectNextTab()
+	// SelectNextTab - select the next tab
+	{
+	  var num_tabs = jQuery('#[UNIQUE]Tab').tabs("length"); 
+	  var current = jQuery('#[UNIQUE]Tab').tabs('option','active'); 
+	  var next = ((current + 1)>num_tabs-1) ? 0 : current + 1; 
+	  jQuery('#[UNIQUE]Tab').tabs('option', 'active', next); 
+	}   
+	   
+	function [UNIQUE]SelectPrevTab()
+	// SelectPrevTab - select the previous tab
+	{
+	  var num_tabs = jQuery('#[UNIQUE]Tab').tabs("length"); 
+	  var current = jQuery('#[UNIQUE]Tab').tabs('option','active'); 
+	  var prev = ((current - 1)<0) ? num_tabs-1 : current - 1; 
+	  jQuery('#[UNIQUE]Tab').tabs('option', 'active', prev); 
+	}
+
+
+</script>

@@ -1,0 +1,89 @@
+    .Square_Top_TabStrip {
+      float:left;
+      width:100%;
+      background:transparent;
+      font-size:93%;
+      line-height:normal;
+      }
+
+	.Square_Top_TabStrip ul {
+        margin:0;
+        padding:0;
+        list-style:none;
+      }
+	  
+    .Square_Top_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+
+	  .Square_Top_TabStrip span {
+      float:left;
+      margin:0;
+      padding:0 1px 0 0;
+      text-decoration:none;
+      }
+	  
+    .Square_Top_TabStrip span span {
+      float:left;
+      display:block;
+      padding:5px 15px 4px 16px;
+      color:#000;
+	  cursor: pointer;
+      }
+
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .Square_Top_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+
+	.Square_Top_TabSelected {
+	  background: mistyrose url(images/square-red.gif) no-repeat;
+	  border-bottom: 1px solid mistyrose;
+	  border-left: 1px solid black;	  
+	  border-top: 1px solid black;	  
+	  border-right: 1px solid black;	  
+	  top: 1px;
+	  position: relative;
+	  text-align: center;
+      }
+    
+	.Square_Top_TabStrip .Square_Top_TabUnselected {
+	  background: aliceblue url(images/square-blue.gif) no-repeat;
+	  position: relative;
+	  text-align: center;
+	  border: 1px solid black;
+	  top: 1px;
+	  position: relative;
+      color:#000;
+
+      }
+
+	.Square_Top_TabStrip .Square_Top_TabMouseOver {
+	  background: gainsboro url(images/square-purple.gif) no-repeat;
+      }
+	  
+	.Square_Top_TabPage {
+   _width: 100%;
+border-left: 1px solid black;
+		border-right: 1px solid black;
+		border-bottom: 1px solid black;
+		border-top: 1px solid black;
+		padding: 3px;
+		background: mistyrose;
+		text-align: left;
+	}
+	
+	.Square_Top_Paging {
+		font-size: .8em;
+		text-align: center;
+	}
+	
+	.Square_Top_Paging span {
+		cursor: pointer;
+		padding: 3px;
+	}
+	
+	.Square_Top_Paging span:hover {
+		color: #777;
+	}	}	

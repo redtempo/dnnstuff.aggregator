@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<settings>
+  <description><![CDATA[
+  <strong>jShowOff</strong> - based on the jQuery library <a href="http://ekallevig.com/jshowoff/">jShowOff</a> by <a href="http://ekallevig.com/about">Erik Kallevig</a>.<br />
+  ]]></description>
+  <help>
+  </help>
+  <properties>
+
+    <property name="AnimatePause" type="Boolean" caption="Animate Pause" default="True">
+      <help>Whether to use 'Pause' animation text when pausing</help>
+    </property>	
+
+    <property name="AutoPlay" type="Boolean" caption="Auto Play" default="True">
+      <help>Whether to start playing immediately</help>
+    </property>	
+
+    <property name="ChangeSpeed" type="String" caption="Transition speed (milliseconds)" default="600">
+      <help>The time in milliseconds taken to ease to a new slide</help>
+    </property>    
+
+    <property name="Controls" type="Boolean" caption="Show Controls" default="True">
+      <help>Whether to create &amp; display controls (Play/Pause, Previous, Next)</help>
+    </property>	
+
+    <property name="TransitionEffect" type="Choice" caption="Transition Effect" default="fade">
+	  <choices>
+		<choice value="none" caption="None" />
+		<choice value="fade" caption="Fade" />
+		<choice value="slideLeft" caption="Slide Left" />
+  	  </choices>
+      <help>Type of transition effect: 'fade', 'slideLeft' or 'none'</help>
+    </property>	
+
+    <property name="HoverPause" type="Boolean" caption="Hover Pause" default="True">
+      <help>Whether to pause on hover</help>
+    </property>	
+	
+    <property name="ShowLinks" type="Boolean" caption="Show links" default="True">
+      <help>Whether to create and display numeric links to each slide</help>
+    </property>	
+	
+    <property name="ShowCaption" type="Boolean" caption="Show caption instead of numeric" default="False">
+      <help>Whether to show caption instead of numeric links</help>
+    </property>	
+	
+    <property name="Speed" type="String" caption="Slide duration (milliseconds)" default="3000">
+      <help>The time in milliseconds that a given slide is shown</help>
+    </property>    
+
+  </properties>
+  <tabproperties>
+  </tabproperties>
+</settings>

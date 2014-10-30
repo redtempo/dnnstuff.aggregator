@@ -1,0 +1,4 @@
+/* Progressbar
+----------------------------------*/
+.ui-lightness .ui-progressbar { height:2em; text-align: left; }
+.ui-lightness .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }

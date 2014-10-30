@@ -1,0 +1,134 @@
+﻿----------------------------------------------------------------------------------------------
+-- DROP ALL PROCS
+----------------------------------------------------------------------------------------------
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteAggregatorModule') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteAggregatorModule
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteAggregatorTab') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteAggregatorTab
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteTarget') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteTarget
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregatorModule') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregatorModule
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregatorTab') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregatorTab
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAvailableTargets') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAvailableTargets
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetPageModules') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetPageModules
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTargets') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTargets
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_ListAggregator') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_ListAggregator
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_ListAggregatorModule') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_ListAggregatorModule
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregatorModule') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregatorModule
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregatorTab') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregatorTab
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateModuleOrder') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateModuleOrder
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateTabOrder') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateTabOrder
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateTarget') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateTarget
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateProperties') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateProperties
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetProperties') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetProperties
+GO
+
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE ID = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNStuff_Aggregator_GetScript]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_GetScript];
+GO
+
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE ID = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNStuff_Aggregator_GetScripts]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_GetScripts];
+GO
+
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE ID = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNStuff_Aggregator_UpdateScript]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_UpdateScript];
+GO
+
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE ID = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNStuff_Aggregator_AddScript]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_AddScript];
+GO
+
+IF EXISTS (SELECT * FROM SYSOBJECTS WHERE ID = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNStuff_Aggregator_DeleteScript]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_DeleteScript];
+GO
+
+---------------------------------------------------------------------------------------------
+-- DROP ALL CONSTRAINTS
+----------------------------------------------------------------------------------------------
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab DROP CONSTRAINT [FK_DNNStuff_Aggregator_Tab]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target DROP CONSTRAINT [FK_DNNStuff_Aggregator_Target1]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module DROP CONSTRAINT [FK_DNNStuff_Aggregator_Module]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties DROP CONSTRAINT [FK_DNNStuff_Aggregator_CustomProperties]
+GO
+
+---------------------------------------------------------------------------------------------
+-- DROP ALL TABLES
+----------------------------------------------------------------------------------------------
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Script') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Script
+GO
+
+-- last line --

@@ -1,0 +1,49 @@
+/* Inline Style */
+
+.Simple_Inline_TabPage {
+   _width: 100%;
+border-left: 1px solid silver;
+ border-bottom : 1px solid silver;
+ border-right: 1px solid silver;
+ border-top: 0px solid silver;
+ background: white;
+ padding: 5px;
+ margin-left: 7px;
+ margin-right: 7px;
+ width: 90%;
+ text-align: left;
+}
+
+.Simple_Inline_TabSelected{
+ cursor: pointer;
+ border-left: 1px solid black;
+ border-top : 1px solid black;
+ border-right: 1px solid black;
+ border-bottom: 1px solid black;
+ background: gainsboro url(images/min.gif) no-repeat;
+ padding-left: 14px;
+ position: relative;
+ text-align: left;
+ }
+
+.Simple_Inline_TabUnselected {
+ cursor: pointer;
+ border-left: 1px solid silver;
+ border-top : 1px solid silver;
+ border-right: 1px solid silver;
+ border-bottom: 1px solid silver;
+ background: aliceblue url(images/max.gif) no-repeat;
+ padding-left: 14px;
+ position: relative;
+ text-align: left;
+}
+
+.Simple_Inline_TabMouseover {
+ border-left: 1px solid black;
+ border-top : 1px solid black;
+ border-right: 1px solid black;
+ border-bottom: 1px solid black;
+ border-bottom: 1px solid silver;
+ background: gainsboro url(images/max.gif) no-repeat;
+}
+

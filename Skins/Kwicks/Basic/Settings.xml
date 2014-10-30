@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<settings>
+  <description><![CDATA[
+  <strong>Kwicks</strong> - based on the jQuery library <a href="http://www.jeremymartin.name/projects.php?project=kwicks">Kwicks</a> by <a href="http://www.jeremymartin.name/">Jeremy Martin</a>.<br />
+  ]]></description>
+  <help>
+  </help>
+  <properties>
+
+	<property name="ElementOrientation" type="Choice" caption="Orientation" default="horizontal">
+	  <choices>
+		<choice value="horizontal" caption="horizontal"></choice>
+		<choice value="vertical" caption="vertical"></choice>
+  	  </choices>
+      <help>The orientation of the elements</help>
+    </property>	
+  
+    <property name="ElementWidth" type="String" caption="Element Width (pixels)" default="125">
+      <help>The width in pixels of the elements</help>
+    </property>    
+	
+    <property name="ElementHeight" type="String" caption="Element Height (pixels)" default="100">
+      <help>The height in pixels of the elements</help>
+    </property>    
+
+    <property name="ElementSpacing" type="String" caption="Spacing (pixels)" default="5">
+      <help>The spacing in pixels between the elements</help>
+    </property>    
+
+	<property name="ElementSizingMode" type="Choice" caption="Sizing Mode" default="max">
+	  <choices>
+		<choice value="max" caption="max"></choice>
+		<choice value="min" caption="min"></choice>
+  	  </choices>
+      <help>The sizing mode with the width setting</help>
+    </property>	
+
+    <property name="ElementSizeWidth" type="String" caption="Sizing (pixels)" default="200">
+      <help>The min/max width in pixels of the elements depending on your selected sizing mode</help>
+    </property>  
+	
+	<property name="ElementEasing" type="Choice" caption="Easing Effect" default="">
+	  <choices>
+		<choice value="" caption="default"></choice>
+		<choice value="jswing" caption="jswing"></choice>
+		<choice value="easeInQuad" caption="easeInQuad"></choice>
+		<choice value="easeOutQuad" caption="easeOutQuad"></choice>
+		<choice value="easeInOutQuad" caption="easeInOutQuad"></choice>
+		<choice value="easeInCubic" caption="easeInCubic"></choice>
+		<choice value="easeOutCubic" caption="easeOutCubic"></choice>
+		<choice value="easeInOutCubic" caption="easeInOutCubic"></choice>
+		<choice value="easeInQuart" caption="easeInQuart"></choice>
+		<choice value="easeOutQuart" caption="easeOutQuart"></choice>
+		<choice value="easeInOutQuart" caption="easeInOutQuart"></choice>
+		<choice value="easeInQuint" caption="easeInQuint"></choice>
+		<choice value="easeOutQuint" caption="easeOutQuint"></choice>
+		<choice value="easeInOutQuint" caption="easeInOutQuint"></choice>
+		<choice value="easeInSine" caption="easeInSine"></choice>
+		<choice value="easeOutSine" caption="easeOutSine"></choice>
+		<choice value="easeInOutSine" caption="easeInOutSine"></choice>
+		<choice value="easeInExpo" caption="easeInExpo"></choice>
+		<choice value="easeOutExpo" caption="easeOutExpo"></choice>
+		<choice value="easeInOutExpo" caption="easeInOutExpo"></choice>
+		<choice value="easeInCirc" caption="easeInCirc"></choice>
+		<choice value="easeOutCirc" caption="easeOutCirc"></choice>
+		<choice value="easeInOutCirc" caption="easeInOutCirc"></choice>
+		<choice value="easeInElastic" caption="easeInElastic"></choice>
+		<choice value="easeOutElastic" caption="easeOutElastic"></choice>
+		<choice value="easeInOutElastic" caption="easeInOutElastic"></choice>
+		<choice value="easeInBack" caption="easeInBack"></choice>
+		<choice value="easeOutBack" caption="easeOutBack"></choice>
+		<choice value="easeInOutBack" caption="easeInOutBack"></choice>
+		<choice value="easeInBounce" caption="easeInBounce"></choice>
+		<choice value="easeOutBounce" caption="easeOutBounce"></choice>
+		<choice value="easeInOutBounce" caption="easeInOutBounce"></choice>
+  	  </choices>
+      <help>Type of easing effect</help>
+    </property>	
+
+    <property name="ElementEasingDuration" type="String" caption="Easing Duration (milliseconds)" default="500">
+      <help>The duration of the easing in milliseconds (1000 milliseconds = 1 second)</help>
+    </property>    
+
+    <property name="ElementSticky" type="Boolean" caption="Sticky" default="false">
+      <help>One element will always be expanded if true</help>
+    </property>    
+
+	<property name="ElementEvent" type="Choice" caption="Trigger Event" default="mouseover">
+	  <choices>
+		<choice value="mouseover" caption="mouseover"></choice>
+		<choice value="click" caption="click"></choice>
+		<choice value="dblclick" caption="dblclick"></choice>
+  	  </choices>
+      <help>The trigger event used to start the transition between elements</help>
+    </property>	
+  </properties>
+  <tabproperties>
+  </tabproperties>
+</settings>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<settings>
+  <properties>
+    <property name="ScrollImages" type="String" caption="# of icons to scroll" default="2">
+      <help>The number of icons to scroll when left or right indicators are clicked</help>
+	</property>    
+    <property name="IconSkin" type="Directory" caption="Icon Skin" default="clear" directory="Skins/NewsGator_/iconbar/skins">
+      <help>The skin used for the icon bar</help>
+	</property>    
+  </properties>
+  <tabproperties>
+    <property name="IconUrl" type="String" caption="Icon Url" default="http://pathto/icon.jpg">
+      <help>The full url to the icon used for the tab image</help>
+    </property>    
+  </tabproperties>
+</settings>

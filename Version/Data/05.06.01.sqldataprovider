@@ -1,0 +1,28 @@
+﻿-- MODULE         : DNNSTUFF - AGGREGATOR - DNN4
+-- VERSION        : 05.06.00
+-- 03/MAR/2009    : 
+-- Fixes include  : 
+
+
+---------------------------------------------------------------------------------------------
+-- ALTER STORED PROCEDURES
+---------------------------------------------------------------------------------------------
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetPageModules
+
+@TabId  int
+
+as
+
+-- select all modules that are aggregated on this page
+-- we need to hide these before we render anything else
+SELECT AM.TabModuleId, TM.ModuleId 
+	FROM {databaseOwner}{objectQualifier}DNNSTUFF_AGGREGATOR_TAB AT INNER JOIN
+		{databaseOwner}{objectQualifier}DNNSTUFF_AGGREGATOR_MODULE AM ON AT.AGGREGATORTABID = AM.AGGREGATORTABID
+		INNER JOIN {databaseOwner}{objectQualifier}TABMODULES TM ON TM.MODULEID = AT.MODULEID
+	WHERE TM.TabId = @TabId
+GO
+
+----------------------------------------------------------------------------------------------
+-- DONE
+----------------------------------------------------------------------------------------------

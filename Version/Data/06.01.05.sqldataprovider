@@ -1,0 +1,146 @@
+﻿DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+WHERE ModuleId NOT IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}Modules)
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties WITH CHECK ADD CONSTRAINT [FK_DNNStuff_Aggregator_CustomProperties] FOREIGN KEY([ModuleID])
+REFERENCES {databaseOwner}{objectQualifier}Modules ([ModuleID])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab WITH CHECK ADD CONSTRAINT [FK_DNNStuff_Aggregator_Tab] FOREIGN KEY([ModuleID])
+REFERENCES {databaseOwner}{objectQualifier}Modules ([ModuleID])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target WITH CHECK ADD CONSTRAINT [FK_DNNStuff_Aggregator_Target1] FOREIGN KEY([ModuleID])
+REFERENCES {databaseOwner}{objectQualifier}Modules ([ModuleID])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module WITH CHECK ADD CONSTRAINT [FK_DNNStuff_Aggregator_Module] FOREIGN KEY([AggregatorTabId])
+REFERENCES {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab ([AggregatorTabId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties CHECK CONSTRAINT [FK_DNNStuff_Aggregator_CustomProperties]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab CHECK CONSTRAINT [FK_DNNStuff_Aggregator_Tab]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target CHECK CONSTRAINT [FK_DNNStuff_Aggregator_Target1]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module CHECK CONSTRAINT [FK_DNNStuff_Aggregator_Module]
+GO
+
+
+ALTER PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_DeleteAggregatorTab]
+(
+@AggregatorTabId  int
+)
+
+AS
+
+declare @CurrentTabOrder int
+declare @ModuleId int
+
+-- grab current taborder, module
+select @ModuleId=ModuleId, @CurrentTabOrder=TabOrder from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab where  AggregatorTabId = @AggregatorTabId
+
+-- remove it
+delete from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab
+where  AggregatorTabId = @AggregatorTabId
+
+delete from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module
+where  AggregatorTabId = @AggregatorTabId
+
+delete from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+where  AggregatorTabId = @AggregatorTabId
+
+-- reshuffle tab order
+update {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab set TabOrder = TabOrder-1 WHERE ModuleId = @ModuleId and TabOrder > @CurrentTabOrder
+GO
+
+
+ALTER PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_UpdateAggregatorModule]
+(
+@AggregatorModuleId int,
+@AggregatorTabId  int,
+@TabModuleId int,
+@Locale nvarchar(50),
+@InsertBreak bit
+)
+
+as
+
+DECLARE @MaxTabOrder int
+
+if exists(select AggregatorModuleId From {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module WHERE AggregatorModuleId = @AggregatorModuleId)
+	-- update
+	BEGIN
+		UPDATE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module SET
+			AggregatorTabId = @AggregatorTabId,
+			TabModuleId = @TabModuleId,
+			Locale = @Locale,
+			InsertBreak = @InsertBreak
+		WHERE AggregatorModuleId = @AggregatorModuleId
+	END
+else
+	-- add
+	BEGIN
+		-- grab tab order
+		SET @MaxTabOrder = (SELECT IsNull(Max(ModuleOrder),0) FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module WHERE AggregatorTabId = @AggregatorTabId)
+
+		INSERT  INTO {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module
+			 (AggregatorTabId, ModuleOrder, TabModuleId, Locale, InsertBreak)
+		 VALUES (@AggregatorTabId, @MaxTabOrder+1, @TabModuleId, @Locale, @InsertBreak)
+		-- grab new id
+		SET @AggregatorModuleId = SCOPE_IDENTITY()
+	END
+
+-- ensure that the module orders for all contained modules are greater than the aggregator itself so rendering is correct sequence
+DECLARE @ModuleId int
+SET @ModuleId = (SELECT TOP 1 ModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab WHERE AggregatorTabId = @AggregatorTabId)
+
+UPDATE {databaseOwner}{objectQualifier}TabModules 
+Set ModuleOrder = 1 +  (SELECT MAX(ModuleOrder) FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+ WHERE TabModuleId = @TabModuleId
+
+UPDATE {databaseOwner}{objectQualifier}TabModules 
+Set PaneName = (SELECT TOP 1 PaneName FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+ WHERE TabModuleId = @TabModuleId
+
+-- return id
+SELECT @AggregatorModuleId
+GO
+
+
+ALTER PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_ListAggregatorModule]
+(
+@AggregatorTabId  int
+)
+AS
+
+SELECT AM.AggregatorModuleId, AM.AggregatorTabId, AM.TabModuleId, AM.ModuleOrder, AM.InsertBreak, AM.Locale, VM.ModuleId, VM.TabId, VM.ModuleTitle
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM 
+		INNER JOIN {databaseOwner}{objectQualifier}vw_Modules VM ON VM.TabModuleId = AM.TabModuleId
+	WHERE AM.AggregatorTabId = @AggregatorTabId AND VM.IsDeleted = 0
+	ORDER BY AM.ModuleOrder ASC
+GO
+
+
+ALTER PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_ListAggregator]
+(
+@ModuleId  int
+)
+
+AS
+
+SELECT T.AggregatorTabId, T.TabOrder, T.Caption, T.Locale, T.HtmlText, T.Postback
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab T
+	WHERE T.ModuleId = @ModuleId
+	ORDER BY T.TabOrder ASC
+
+GO
+

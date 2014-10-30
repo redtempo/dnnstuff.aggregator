@@ -1,0 +1,76 @@
+﻿-- MODULE         : DNNSTUFF - AGGREGATOR - DNN3/DNN4
+-- VERSION        : 04.00.01
+-- 31/JUL/2006    : 
+-- Fixes include  : Removed condition that tab should be visible for modules to be added from it
+
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules
+(
+@TabId int,
+@ModuleId int,
+@ShowAllModules bit,
+@AggregatorModuleId int,
+@PortalId int
+)
+AS
+
+-- Delete any modules that have been orphaned by a user delete of an aggregator
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId NOT IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}Modules WHERE IsDeleted = 0)
+
+-- Select currently selected module
+SELECT T.TABNAME,T.TABORDER,TM.TabModuleId, T.TabName + '>' + '' FullModuleTitle FROM {databaseOwner}{objectQualifier}TabModules TM
+
+INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = TM.TabId
+INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM ON AM.TabModuleId = TM.TabModuleId
+WHERE AM.AggregatorModuleId = @AggregatorModuleId
+
+UNION
+
+-- Now, select remaining
+SELECT T.TABNAME,T.TABORDER,TM.TabModuleId, T.TabName + '>' + '' FullModuleTitle FROM {databaseOwner}{objectQualifier}TabModules TM
+
+INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = TM.TabId
+INNER JOIN {databaseOwner}{objectQualifier}ModuleDefinitions MD ON MD.ModuleDefID = M.ModuleDefID
+INNER JOIN {databaseOwner}{objectQualifier}DesktopModules DM ON MD.DesktopModuleID = DM.DesktopModuleID
+WHERE
+	-- this tab
+	(TM.TabId = @TabId OR @ShowAllModules = 1)
+		AND
+	-- not this module
+	TM.ModuleId <> @ModuleId
+		AND
+	-- module not deleted
+	M.IsDeleted = 0
+		AND
+	-- tab not deleted
+	T.IsDeleted = 0 
+		AND
+
+	-- not already aggregated in this tab
+	TM.TabModuleId NOT IN (SELECT AM1.TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A1 
+		INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM1 ON A1.AggregatorId = AM1.AggregatorId
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM1 ON AM1.TabModuleId = TM1.TabModuleId 
+		INNER JOIN {databaseOwner}{objectQualifier}Modules M1 ON TM1.ModuleId = M1.ModuleId 
+		WHERE TM1.TabId = @TabId OR A1.ModuleId = @ModuleId)
+		AND
+
+	-- not an aggregator itself
+	M.ModuleId NOT IN (SELECT A2.ModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A2
+		INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM2 ON A2.AggregatorId = AM2.AggregatorId
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM2 ON AM2.TabModuleId = TM2.TabModuleId
+		WHERE TM2.ModuleId = @moduleid
+		)
+		AND
+	-- same portal
+	T.PortalId = @PortalId
+		AND
+	-- not an admin module
+	DM.IsAdmin = 0
+
+GO
+
+----------------------------------------------------------------------------------------------
+-- DONE
+----------------------------------------------------------------------------------------------

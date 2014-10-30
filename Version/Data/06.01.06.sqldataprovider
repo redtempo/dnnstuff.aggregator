@@ -1,0 +1,52 @@
+﻿ALTER PROCEDURE {databaseOwner}[{objectQualifier}DNNStuff_Aggregator_UpdateAggregatorModule]
+(
+@AggregatorModuleId int,
+@AggregatorTabId  int,
+@TabModuleId int,
+@Locale nvarchar(50),
+@InsertBreak bit
+)
+
+as
+
+DECLARE @MaxTabOrder int
+
+if exists(select AggregatorModuleId From {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module WHERE AggregatorModuleId = @AggregatorModuleId)
+	-- update
+	BEGIN
+		UPDATE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module SET
+			AggregatorTabId = @AggregatorTabId,
+			TabModuleId = @TabModuleId,
+			Locale = @Locale,
+			InsertBreak = @InsertBreak
+		WHERE AggregatorModuleId = @AggregatorModuleId
+	END
+else
+	-- add
+	BEGIN
+		-- grab tab order
+		SET @MaxTabOrder = (SELECT IsNull(Max(ModuleOrder),0) FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module WHERE AggregatorTabId = @AggregatorTabId)
+
+		INSERT  INTO {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module
+			 (AggregatorTabId, ModuleOrder, TabModuleId, Locale, InsertBreak)
+		 VALUES (@AggregatorTabId, @MaxTabOrder+1, @TabModuleId, @Locale, @InsertBreak)
+		-- grab new id
+		SET @AggregatorModuleId = SCOPE_IDENTITY()
+	END
+
+-- ensure that the module orders for all contained modules are greater than the aggregator itself so rendering is correct sequence
+DECLARE @ModuleId int
+SET @ModuleId = (SELECT TOP 1 ModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab WHERE AggregatorTabId = @AggregatorTabId)
+
+UPDATE {databaseOwner}{objectQualifier}TabModules 
+Set ModuleOrder = 1 +  (SELECT MAX(ModuleOrder) FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+ WHERE TabModuleId = @TabModuleId
+
+UPDATE {databaseOwner}{objectQualifier}TabModules 
+Set PaneName = (SELECT TOP 1 PaneName FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+ WHERE TabModuleId = @TabModuleId
+
+-- return id
+SELECT @AggregatorModuleId
+GO
+

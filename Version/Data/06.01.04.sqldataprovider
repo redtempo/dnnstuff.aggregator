@@ -1,0 +1,11 @@
+﻿INSERT INTO {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+select ModuleId, AggregatorTabId, Skin, Template, 'Collapsible' Name, 'false' Value
+FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+where Skin = 'jQueryUI' and Template = 'Accordion' and Name='Theme'
+GO
+
+INSERT INTO {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+select ModuleId, AggregatorTabId, Skin, Template, 'StartCollapsed' Name, 'false' Value
+FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+where Skin = 'jQueryUI' and Template = 'Accordion' and Name='Theme'
+GO

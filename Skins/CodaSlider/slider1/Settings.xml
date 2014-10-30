@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<settings>
+  <properties>
+    <property name="SlideEaseDuration" type="String" caption="Slide ease duration (milliseconds)" default="1000">
+      <help>The time in milliseconds taken to ease to a new slide</help>
+    </property>    
+    <property name="SlideEaseFunction" type="Choice" caption="Slide ease function" default="easeInOutExpo">
+      <help>The fx used for slide transitions</help>
+		<choices>
+			<choice value="easeInQuad" caption="EaseInQuad" />
+			<choice value="easeOutQuad" caption="EaseOutQuad" />
+			<choice value="easeInOutQuad" caption="EaseInOutQuad" />
+			<choice value="easeInCubic" caption="EaseInCubic" />
+			<choice value="easeOutCubic" caption="EaseOutCubic" />
+			<choice value="easeInOutCubic" caption="EaseInOutCubic" />
+			<choice value="easeInQuart" caption="EaseInQuart" />
+			<choice value="easeOutQuart" caption="EaseOutQuart" />
+			<choice value="easeInOutQuart" caption="EaseInOutQuart" />
+			<choice value="easeInQuint" caption="EaseInQuint" />
+			<choice value="easeOutQuint" caption="EaseOutQuint" />
+			<choice value="easeInOutQuint" caption="EaseInOutQuint" />
+			<choice value="easeInSine" caption="EaseInSine" />
+			<choice value="easeOutSine" caption="EaseOutSine" />
+			<choice value="easeInOutSine" caption="EaseInOutSine" />
+			<choice value="easeInExpo" caption="EaseInExpo" />
+			<choice value="easeOutExpo" caption="EaseOutExpo" />
+			<choice value="easeInOutExpo" caption="EaseInOutExpo" />
+			<choice value="easeInCirc" caption="EaseInCirc" />
+			<choice value="easeOutCirc" caption="EaseOutCirc" />
+			<choice value="easeInOutCirc" caption="EaseInOutCirc" />
+			<choice value="easeInElastic" caption="EaseInElastic" />
+			<choice value="easeOutElastic" caption="EaseOutElastic" />
+			<choice value="easeInOutElastic" caption="EaseInOutElastic" />
+			<choice value="easeInBack" caption="EaseInBack" />
+			<choice value="easeOutBack" caption="EaseOutBack" />
+			<choice value="easeInOutBack" caption="EaseInOutBack" />
+			<choice value="easeInBounce" caption="EaseInBounce" />
+			<choice value="easeOutBounce" caption="EaseOutBounce" />
+			<choice value="easeInOutBounce" caption="EaseInOutBounce" />
+		</choices>
+    </property>
+    <property name="AutoHeight" type="Boolean" caption="Auto height" default="True">
+      <help>Check to automatically determine height</help>
+    </property>  
+    <property name="AutoHeightEaseDuration" type="String" caption="Auto height ease duration (milliseconds)" default="1000">
+      <help>The time in milliseconds taken to ease to a new height</help>
+    </property>    
+    <property name="AutoHeightEaseFunction" type="Choice" caption="Auto height ease function" default="easeInOutExpo">
+      <help>The fx used for auto height transitions</help>
+		<choices>
+			<choice value="easeInQuad" caption="EaseInQuad" />
+			<choice value="easeOutQuad" caption="EaseOutQuad" />
+			<choice value="easeInOutQuad" caption="EaseInOutQuad" />
+			<choice value="easeInCubic" caption="EaseInCubic" />
+			<choice value="easeOutCubic" caption="EaseOutCubic" />
+			<choice value="easeInOutCubic" caption="EaseInOutCubic" />
+			<choice value="easeInQuart" caption="EaseInQuart" />
+			<choice value="easeOutQuart" caption="EaseOutQuart" />
+			<choice value="easeInOutQuart" caption="EaseInOutQuart" />
+			<choice value="easeInQuint" caption="EaseInQuint" />
+			<choice value="easeOutQuint" caption="EaseOutQuint" />
+			<choice value="easeInOutQuint" caption="EaseInOutQuint" />
+			<choice value="easeInSine" caption="EaseInSine" />
+			<choice value="easeOutSine" caption="EaseOutSine" />
+			<choice value="easeInOutSine" caption="EaseInOutSine" />
+			<choice value="easeInExpo" caption="EaseInExpo" />
+			<choice value="easeOutExpo" caption="EaseOutExpo" />
+			<choice value="easeInOutExpo" caption="EaseInOutExpo" />
+			<choice value="easeInCirc" caption="EaseInCirc" />
+			<choice value="easeOutCirc" caption="EaseOutCirc" />
+			<choice value="easeInOutCirc" caption="EaseInOutCirc" />
+			<choice value="easeInElastic" caption="EaseInElastic" />
+			<choice value="easeOutElastic" caption="EaseOutElastic" />
+			<choice value="easeInOutElastic" caption="EaseInOutElastic" />
+			<choice value="easeInBack" caption="EaseInBack" />
+			<choice value="easeOutBack" caption="EaseOutBack" />
+			<choice value="easeInOutBack" caption="EaseInOutBack" />
+			<choice value="easeInBounce" caption="EaseInBounce" />
+			<choice value="easeOutBounce" caption="EaseOutBounce" />
+			<choice value="easeInOutBounce" caption="EaseInOutBounce" />
+		</choices>
+    </property>
+    <property name="AutoSlide" type="Boolean" caption="Auto slide" default="False">
+      <help>Check to make the tabs auto slide</help>
+    </property>    
+    <property name="AutoSlideInterval" type="String" caption="Auto slide interval (milliseconds)" default="7000">
+      <help>The time in milliseconds between each slide rotation</help>
+    </property>    
+    <property name="AutoSlideStopWhenClicked" type="Boolean" caption="Continue Rotate after select" default="True">
+      <help>Check to make the tabs stop sliding after clicked</help>
+    </property>
+    <property name="DynamicTabsPosition" type="Choice" caption="Position of tabs" default="Top">
+      <help>The position of the tabs</help>
+	  <choices>
+		<choice value="top" caption="Top" />
+		<choice value="bottom" caption="Bottom" />
+		</choices>
+    </property>
+	
+  </properties>
+  <tabproperties>
+  </tabproperties>
+</settings>

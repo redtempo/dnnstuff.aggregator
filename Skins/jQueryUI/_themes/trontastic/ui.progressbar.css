@@ -1,0 +1,4 @@
+/* Progressbar
+----------------------------------*/
+.trontastic .ui-progressbar { height:2em; text-align: left; }
+.trontastic .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }

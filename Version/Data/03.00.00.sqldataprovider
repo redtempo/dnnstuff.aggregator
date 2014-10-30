@@ -1,0 +1,204 @@
+﻿-- MODULE         : DNNSTUFF - AGGREGATOR - DNN3
+-- VERSION        : 03.00.00
+-- 31/JAN/2005    : THIS UPDATE FIXES A PROBLEM THAT SHOWED 'ALL TAB' MODULES FROM OTHER PORTALS IN THE CONFIGURATION
+--                  DROPDOWN INSTEAD OF JUST FOR THE CURRENT PORTAL
+
+-- remove existing stored procs
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteAggregator') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteAggregator
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregator') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregator
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregator') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregator
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateTabOrder') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateTabOrder
+GO
+
+-- update module references with new 'tabmodule' references
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+BEGIN
+	-- remove any modules that don't exist
+	delete from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator where
+	tabmoduleid not in (select moduleid from {databaseOwner}{objectQualifier}tabmodules)
+	-- update with new tabmodule #
+	update {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator 
+		set tabmoduleid = (select top 1 tabmoduleid from {databaseOwner}{objectQualifier}tabmodules where
+		moduleid = {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator.tabmoduleid)
+END
+GO
+
+-- create table if not already there
+if not exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+BEGIN
+	CREATE TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator (
+		[AggregatorId] [int] IDENTITY (1, 1) NOT NULL ,
+		[ModuleId] [int] NOT NULL ,
+		[TabModuleId] [int] NOT NULL ,
+		[TabOrder] [int] NOT NULL 
+	) 
+
+	ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WITH NOCHECK ADD 
+		CONSTRAINT [PK_{objectQualifier}DNNStuff_Aggregator_Aggregator] PRIMARY KEY  CLUSTERED 
+		(
+			[AggregatorId]
+		)   
+	
+	ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator ADD 
+		CONSTRAINT [DF_{objectQualifier}DNNStuff_Aggregator_Aggregator_TabOrder] DEFAULT (0) FOR [TabOrder]
+END
+GO
+
+CREATE procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_DeleteAggregator
+(
+@AggregatorId  int
+)
+as
+
+declare @CurrentTabOrder int
+declare @ModuleId int
+
+-- grab current taborder, module
+select @ModuleId=ModuleId, @CurrentTabOrder=TabOrder from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator where  AggregatorId = @AggregatorId
+
+-- remove it
+delete from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator
+where  AggregatorId = @AggregatorId
+
+-- reshuffle tab order
+update {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator set TabOrder = TabOrder-1 WHERE ModuleId = @ModuleId and TabOrder > @CurrentTabOrder
+GO
+
+CREATE procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregator
+(
+@ModuleId  int
+)
+as
+
+-- First, clean up any modules deleted fom the DNN side
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId AND TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}Modules M INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON M.ModuleId = TM.ModuleId WHERE M.IsDeleted = 1)
+
+-- Second, make sure that the module orders for all contained modules are greater than the aggregator itself so rendering is correct sequence
+UPDATE {databaseOwner}{objectQualifier}TabModules Set ModuleOrder = 1 +  (SELECT MAX(ModuleOrder) FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+UPDATE {databaseOwner}{objectQualifier}TabModules Set PaneName = (SELECT PaneName FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+
+-- Now, select remaining modules
+SELECT A.AggregatorId,A.TabModuleId,A.TabOrder,'' AS ModuleTitle
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON TM.TabModuleId = A.TabModuleId
+		INNER JOIN {databaseOwner}{objectQualifier}Modules M ON M.ModuleId = TM.ModuleId
+	WHERE A.ModuleId = @ModuleId
+	ORDER BY A.TabOrder ASC
+
+GO
+
+CREATE procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules
+(
+@TabId int,
+@ModuleId int
+)
+AS
+
+-- Delete any modules that have been orphaned by a user delete of an aggregator
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId NOT IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}Modules WHERE IsDeleted = 0)
+
+DECLARE @PortalId int
+SELECT @PortalId = PortalId FROM {databaseOwner}{objectQualifier}Tabs WHERE TabId = @TabId
+
+-- Now, select remaining
+SELECT TM.TabModuleId, M.ModuleId, '' AS ModuleTitle FROM {databaseOwner}{objectQualifier}TabModules TM 
+INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = TM.TabId
+WHERE
+	-- this tab
+	(TM.TabId = @TabId
+		OR
+	M.AllTabs = 1)
+		AND
+	-- not this module
+	TM.ModuleId <> @ModuleId
+		AND
+	-- not deleted
+	M.IsDeleted <> 1
+		AND
+	-- not already aggregated in this tab
+	TM.TabModuleId NOT IN (SELECT A.TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON A.TabModuleId = TM.TabModuleId INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId WHERE (TM.TabId = @TabId AND M.AllTabs=0) OR A.ModuleId = @ModuleId)
+		AND
+	-- not an aggregator itself
+	M.ModuleId NOT IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator)
+		AND
+	-- same portal
+	T.PortalId = @PortalId
+GO
+
+CREATE procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregator
+(
+@AggregatorId  int,
+@ModuleId int,
+@TabModuleId int
+)
+
+as
+
+DECLARE @MaxTabOrder int
+
+if exists(select AggregatorId From {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE AggregatorId = @AggregatorId)
+	-- update
+	BEGIN
+		UPDATE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator SET
+			ModuleId = @ModuleId,
+			TabModuleId = @TabModuleId
+		WHERE AggregatorId = @AggregatorId
+	END
+else
+	-- add
+	BEGIN
+		-- grab tab order
+		SET @MaxTabOrder = (SELECT IsNull(Max(TabOrder),0) FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+
+		INSERT  INTO {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator
+			 (ModuleId, TabModuleId, TabOrder)
+		 VALUES (@ModuleId, @TabModuleId, @MaxTabOrder+1)
+		-- grab new id
+		SET @AggregatorId = @@IDENTITY
+	END
+
+-- set the tab module pane to the same as our module
+UPDATE {databaseOwner}{objectQualifier}TabModules Set PaneName = (SELECT TOP 1 TM.PaneName FROM {databaseOwner}{objectQualifier}TabModules TM WHERE TM.ModuleId = @ModuleId) WHERE TabModuleId = @TabModuleId
+GO
+
+CREATE procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateTabOrder
+(
+@AggregatorId  int,
+@Increment int
+)
+as
+
+declare @CurrentTabOrder int
+declare @ModuleId int
+
+-- grab current taborder, module
+select @ModuleId=ModuleId, @CurrentTabOrder=TabOrder from {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator where  AggregatorId = @AggregatorId
+
+-- update the tab we're replacing
+update {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator
+set    TabOrder = @CurrentTabOrder
+where  ModuleId = @ModuleId and TabOrder = @CurrentTabOrder+@Increment
+
+-- update the tab we are setting
+update {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator
+set    TabOrder = TabOrder + @Increment
+where  AggregatorId = @AggregatorId
+GO
+

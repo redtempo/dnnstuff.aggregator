@@ -1,0 +1,117 @@
+﻿-- MODULE         : DNNSTUFF - AGGREGATOR - DNN3
+-- VERSION        : 03.01.00
+-- 20/MAR/2005    : FIXES PROBLEM WHERE 'ALL TABS' MODULES ARE SHOWN MORE THAN ONCE IN SELECTOR DROPDOWN
+-- 05/AUG/2005    : ADDED CAPTION TO DNNSTUFF_AGGREGATOR_AGGREGATOR
+--                : ADDED ABILITY TO NEST TABS
+
+-- add caption column if not present
+if not exists(select * from dbo.syscolumns where id = object_id(N'{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator') and name = 'Caption')
+	ALTER TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator
+	ADD Caption nvarchar(200) NOT NULL DEFAULT ''
+	GO
+
+ALTER procedure {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateAggregator
+(
+@AggregatorId  int,
+@ModuleId int,
+@TabModuleId int,
+@Caption nvarchar(200)
+)
+
+as
+
+DECLARE @MaxTabOrder int
+
+if exists(select AggregatorId From {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE AggregatorId = @AggregatorId)
+	-- update
+	BEGIN
+		UPDATE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator SET
+			ModuleId = @ModuleId,
+			TabModuleId = @TabModuleId,
+			Caption = @Caption
+		WHERE AggregatorId = @AggregatorId
+	END
+else
+	-- add
+	BEGIN
+		-- grab tab order
+		SET @MaxTabOrder = (SELECT IsNull(Max(TabOrder),0) FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+
+		INSERT  INTO {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator
+			 (ModuleId, TabModuleId, TabOrder, Caption)
+		 VALUES (@ModuleId, @TabModuleId, @MaxTabOrder+1, @Caption)
+		-- grab new id
+		SET @AggregatorId = @@IDENTITY
+	END
+
+-- set the tab module pane to the same as our module
+UPDATE {databaseOwner}{objectQualifier}TabModules Set PaneName = (SELECT TOP 1 TM.PaneName FROM {databaseOwner}{objectQualifier}TabModules TM WHERE TM.ModuleId = @ModuleId) WHERE TabModuleId = @TabModuleId
+GO
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregator
+
+@ModuleId  int
+
+as
+
+-- First, clean up any modules deleted fom the DNN side
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId AND TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}Modules M INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON M.ModuleId = TM.ModuleId WHERE M.IsDeleted = 1)
+
+-- Second, make sure that the module orders for all contained modules are greater than the aggregator itself so rendering is correct sequence
+UPDATE {databaseOwner}{objectQualifier}TabModules Set ModuleOrder = 1 +  (SELECT MAX(ModuleOrder) FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+UPDATE {databaseOwner}{objectQualifier}TabModules Set PaneName = (SELECT TOP 1 PaneName FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId = @ModuleId)
+
+-- Now, select remaining modules
+SELECT A.AggregatorId, A.TabModuleId, A.TabOrder, A.Caption,'' AS ModuleTitle
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON TM.TabModuleId = A.TabModuleId
+		INNER JOIN {databaseOwner}{objectQualifier}Modules M ON M.ModuleId = TM.ModuleId
+	WHERE A.ModuleId = @ModuleId
+	ORDER BY A.TabOrder ASC
+GO
+
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules
+(
+@TabId int,
+@ModuleId int
+)
+AS
+
+-- Delete any modules that have been orphaned by a user delete of an aggregator
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator WHERE ModuleId NOT IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}Modules WHERE IsDeleted = 0)
+
+DECLARE @PortalId int
+SELECT @PortalId = PortalId FROM {databaseOwner}{objectQualifier}Tabs WHERE TabId = @TabId
+
+-- Now, select remaining
+SELECT TM.TabModuleId, M.ModuleId, '' AS ModuleTitle FROM {databaseOwner}{objectQualifier}TabModules TM 
+INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = TM.TabId
+WHERE
+	-- this tab
+	TM.TabId = @TabId
+		AND
+	-- not this module
+	TM.ModuleId <> @ModuleId
+		AND
+	-- not deleted
+	M.IsDeleted <> 1
+		AND
+	-- not already aggregated in this tab
+	TM.TabModuleId NOT IN (SELECT A.TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A 
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON A.TabModuleId = TM.TabModuleId 
+		INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId 
+		WHERE TM.TabId = @TabId OR A.ModuleId = @ModuleId)
+		AND
+	-- not an aggregator itself
+	M.ModuleId NOT IN (SELECT A.ModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Aggregator A
+		INNER JOIN {objectQualifier}TabModules TM ON A.TabModuleId = TM.TabModuleId
+		WHERE TM.ModuleId = @moduleid
+		)
+		AND
+	-- same portal
+	T.PortalId = @PortalId
+GO

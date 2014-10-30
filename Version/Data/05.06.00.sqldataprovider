@@ -1,0 +1,55 @@
+﻿-- MODULE         : DNNSTUFF - AGGREGATOR - DNN4
+-- VERSION        : 05.06.00
+-- 03/MAR/2009    : 
+-- Fixes include  : 
+
+
+---------------------------------------------------------------------------------------------
+-- ALTER STORED PROCEDURES
+---------------------------------------------------------------------------------------------
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_ListAggregator
+(
+@ModuleId  int,
+@TabId int
+)
+
+AS
+
+-- Clean up any tabs belonging to modules that were deleted
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab
+WHERE ModuleId NOT IN (SELECT M.ModuleId FROM {databaseOwner}{objectQualifier}Modules M WHERE M.IsDeleted = 0)
+-- Same for targets - targets belonging to a deleted aggregator
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target
+WHERE ModuleId NOT IN (SELECT M.ModuleId FROM {databaseOwner}{objectQualifier}Modules M WHERE M.IsDeleted = 0)
+-- Same for targets - targets of a deleted aggregator
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target
+WHERE TargetModuleId NOT IN (SELECT M.ModuleId FROM {databaseOwner}{objectQualifier}Modules M WHERE M.IsDeleted = 0)
+
+-- Now, clean up any modules orphaned by those deleted tabs
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module 
+WHERE AggregatorTabId NOT IN (SELECT AggregatorTabId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab)
+
+-- Second, make sure that the module orders for all contained modules are greater than the aggregator itself so rendering is correct sequence
+UPDATE {databaseOwner}{objectQualifier}TabModules Set ModuleOrder = 1 +  (SELECT MAX(ModuleOrder) FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT AM.TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab AT
+	ON AM.AggregatorTabId = AT.AggregatorTabId
+	INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON TM.TabModuleId = AM.TabModuleId 
+	WHERE AT.ModuleId = @ModuleId AND TM.TabId = @TabId)
+
+UPDATE {databaseOwner}{objectQualifier}TabModules Set PaneName = (SELECT TOP 1 PaneName FROM {databaseOwner}{objectQualifier}TabModules WHERE ModuleId = @ModuleId)
+	WHERE TabModuleId IN (SELECT AM.TabModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab AT
+	ON AM.AggregatorTabId = AT.AggregatorTabId
+	INNER JOIN {databaseOwner}{objectQualifier}TabModules TM ON TM.TabModuleId = AM.TabModuleId 
+	WHERE AT.ModuleId = @ModuleId  AND TM.TabId = @TabId)
+
+-- Now, select remaining modules
+SELECT T.AggregatorTabId, T.TabOrder, T.Caption, T.Locale, T.HtmlText
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab T
+	WHERE T.ModuleId = @ModuleId
+	ORDER BY T.TabOrder ASC
+GO
+
+
+----------------------------------------------------------------------------------------------
+-- DONE
+----------------------------------------------------------------------------------------------

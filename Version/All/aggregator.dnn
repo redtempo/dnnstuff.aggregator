@@ -1,0 +1,211 @@
+﻿<dotnetnuke type="Package" version="5.0">
+	<packages>
+		<package name="DNNStuff - Aggregator" type="Module" version="">
+			<friendlyName>DNNStuff - Aggregator</friendlyName>
+			<description>Aggregator module allows you to combine text and/or multiple modules into a tabbed format</description>
+			<owner>
+				<name>Richard Edwards</name>
+				<organization>DNNStuff</organization>
+				<url>
+					<![CDATA[Web: <a href="http://www.dnnstuff.com/" target="_blank">www.dnnstuff.com</a>, Twitter: <a href="http://www.twitter.com/dnnstuff" target="_blank">http://www.twitter.com/dnnstuff</a>, Facebook: <a href="https://www.facebook.com/pages/DNNStuff/206502112775818" target="_blank">http://www.facebook.com/dnnstuff</a><br /><i><strong>(All links open in a new window and won't interupt your install!)</strong></i>]]>
+				</url>
+				<email>
+					<![CDATA[<a href="mailto:support@dnnstuff.com">support@dnnstuff.com</a>]]>
+				</email>
+			</owner>
+			<license src="License.html" />
+			<releaseNotes src="Version_Current.html" />
+			<azureCompatible>true</azureCompatible>
+			<dependencies>
+				<dependency type="CoreVersion">05.02.03</dependency>
+			</dependencies>
+			<components>
+				<component type="Module">
+					<desktopModule>
+						<moduleName>DNNStuff - Aggregator</moduleName>
+						<foldername>DNNStuff - Aggregator</foldername>
+						<businessControllerClass>DNNStuff.Aggregator.AggregatorController, DNNStuff.Aggregator</businessControllerClass>
+						<supportedFeatures>
+							<supportedFeature type="Portable" />
+							<supportedFeature type="Upgradeable" />
+							<supportedFeature type="Searchable" />
+						</supportedFeatures>
+						<moduleDefinitions>
+							<moduleDefinition>
+								<friendlyName>DNNStuff - Aggregator</friendlyName>
+								<defaultCacheTime>0</defaultCacheTime>
+								<moduleControls>
+									<moduleControl>
+										<controlKey></controlKey>
+										<controlSrc>DesktopModules/DNNStuff - Aggregator/Aggregator.ascx</controlSrc>
+										<controlTitle>Aggregator View</controlTitle>
+										<controlType>View</controlType>
+									</moduleControl>
+									<moduleControl>
+										<controlKey>Edit</controlKey>
+										<controlSrc>DesktopModules/DNNStuff - Aggregator/ManageAggregator.ascx</controlSrc>
+										<controlTitle>Edit Tabs</controlTitle>
+										<controlType>Edit</controlType>
+									</moduleControl>
+									<moduleControl>
+									  <controlKey>EditTab</controlKey>
+									  <controlTitle>Edit Tab</controlTitle>
+									  <controlSrc>DesktopModules/DNNStuff - Aggregator/EditTab.ascx</controlSrc>
+									  <controlType>Edit</controlType>
+									</moduleControl>
+									<moduleControl>
+									  <controlKey>EditModule</controlKey>
+									  <controlTitle>Edit Module</controlTitle>
+									  <controlSrc>DesktopModules/DNNStuff - Aggregator/EditModule.ascx</controlSrc>
+									  <controlType>Edit</controlType>
+									</moduleControl>
+									<moduleControl>
+									  <controlKey>UploadSkin</controlKey>
+									  <controlTitle>Upload Skin</controlTitle>
+									  <controlSrc>DesktopModules/DNNStuff - Aggregator/UploadSkin.ascx</controlSrc>
+									  <controlType>Edit</controlType>
+									</moduleControl>
+									<moduleControl>
+									  <controlKey>ManageSkin</controlKey>
+									  <controlTitle>Manage Skin</controlTitle>
+									  <controlSrc>DesktopModules/DNNStuff - Aggregator/ManageSkin.ascx</controlSrc>
+									  <controlType>Edit</controlType>
+									</moduleControl>
+									<moduleControl>
+									  <controlKey>ManageScript</controlKey>
+									  <controlTitle>Manage Script</controlTitle>
+									  <controlSrc>DesktopModules/DNNStuff - Aggregator/ManageScript.ascx</controlSrc>
+									  <controlType>Edit</controlType>
+									</moduleControl>
+									<moduleControl>
+									  <controlKey>CopyAggregator</controlKey>
+									  <controlTitle>Copy Aggregator</controlTitle>
+									  <controlSrc>DesktopModules/DNNStuff - Aggregator/CopyAggregator.ascx</controlSrc>
+									  <controlType>Edit</controlType>
+									</moduleControl>
+								</moduleControls>
+							</moduleDefinition>
+						</moduleDefinitions>
+					</desktopModule>
+				</component>
+				<component type="Assembly">
+					<assemblies>
+						<basePath>bin</basePath>
+						<assembly>
+							<name>DNNStuff.Aggregator.dll</name>
+							<sourceFileName>DNNStuff.Aggregator.dll</sourceFileName>
+						</assembly>
+						<assembly>
+							<name>DNNStuff.Aggregator.SqlDataProvider.dll</name>
+							<sourceFileName>DNNStuff.Aggregator.SqlDataProvider.dll</sourceFileName>
+						</assembly>
+						<assembly>
+							<name>DNNStuff.Utilities.dll</name>
+							<sourceFileName>DNNStuff.Utilities.dll</sourceFileName>
+						</assembly>
+						<assembly>
+							<name>RSSToolkit.dll</name>
+							<sourceFileName>RSSToolkit.dll</sourceFileName>
+						</assembly>
+					</assemblies>
+				</component>
+				<component type="ResourceFile">
+					<resourceFiles>
+						<basePath>DesktopModules\DNNStuff - Aggregator</basePath>
+						<resourceFile>
+							<name>resources.zip</name>
+						</resourceFile>
+					</resourceFiles>
+				</component>
+				<component type="Script">
+					<scripts>
+						<basePath>DesktopModules\DNNStuff - Aggregator</basePath>
+						<script type="Install">
+							<name>03.00.00.SqlDataProvider</name>
+							<version>03.00.00</version>
+						</script>
+						<script type="Install">
+							<name>03.00.01.SqlDataProvider</name>
+							<version>03.00.01</version>
+						</script>
+						<script type="Install">
+							<name>03.01.00.SqlDataProvider</name>
+							<version>03.01.00</version>
+						</script>
+						<script type="Install">
+							<name>03.01.04.SqlDataProvider</name>
+							<version>03.01.04</version>
+						</script>
+						<script type="Install">
+							<name>03.02.00.SqlDataProvider</name>
+							<version>03.02.00</version>
+						</script>
+						<script type="Install">
+							<name>04.00.01.SqlDataProvider</name>
+							<version>04.00.01</version>
+						</script>
+						<script type="Install">
+							<name>05.00.00.SqlDataProvider</name>
+							<version>05.00.00</version>
+						</script>
+						<script type="Install">
+							<name>05.00.01.SqlDataProvider</name>
+							<version>05.00.01</version>
+						</script>
+						<script type="Install">
+							<name>05.06.00.SqlDataProvider</name>
+							<version>05.06.00</version>
+						</script>
+						<script type="Install">
+							<name>05.06.01.SqlDataProvider</name>
+							<version>05.06.01</version>
+						</script>
+						<script type="Install">
+							<name>05.06.02.SqlDataProvider</name>
+							<version>05.06.02</version>
+						</script>
+						<script type="Install">
+							<name>05.06.03.SqlDataProvider</name>
+							<version>05.06.03</version>
+						</script>
+						<script type="Install">
+							<name>06.00.00.SqlDataProvider</name>
+							<version>06.00.00</version>
+						</script>
+						<script type="Install">
+							<name>06.00.08.SqlDataProvider</name>
+							<version>06.00.08</version>
+						</script>
+						<script type="Install">
+							<name>06.00.15.SqlDataProvider</name>
+							<version>06.00.15</version>
+						</script>
+						<script type="Install">
+							<name>06.01.02.SqlDataProvider</name>
+							<version>06.01.02</version>
+						</script>
+						<script type="Install">
+							<name>06.01.04.SqlDataProvider</name>
+							<version>06.01.04</version>
+						</script>
+						<script type="Install">
+							<name>06.01.05.SqlDataProvider</name>
+							<version>06.01.05</version>
+						</script>
+						<script type="Install">
+							<name>06.01.06.SqlDataProvider</name>
+							<version>06.01.06</version>
+						</script>
+						<script type="Install">
+							<name>06.01.07.SqlDataProvider</name>
+							<version>06.01.07</version>
+						</script>
+						<script type="UnInstall">
+							<name>Uninstall.SqlDataProvider</name>
+						</script>
+					</scripts>
+				</component>
+			</components>
+		</package>
+	</packages>
+</dotnetnuke>

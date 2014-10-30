@@ -1,0 +1,99 @@
+﻿/* module specific */
+#token-panel
+{
+    border: 1px solid silver;
+	margin: 1em;
+	padding: 2px;
+	
+}
+
+/* dnn6 overrides */
+.dnnForm .dnnNoMinWidth
+{
+min-width:0px !important;
+}
+
+.dnnFormItem label, .dnnFormItem .dnnFormLabel, .dnnFormItem .dnnTooltip {width: 25%;}
+
+.dnnMaxWidth {width:75% !important;}
+
+/* messages */
+.disclaimer
+{
+    border-top: solid 2px #FED626;
+    border-bottom: solid 2px #FED626;
+    padding: 4px 4px 4px 36px;
+    vertical-align: middle;
+    background-color: #FFF7C0;
+    background-image: url(alert.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+/* tabs */
+div.tabslayout
+{
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+
+ul.tabslayout
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    float: left;
+    background: url(pixel.gif) bottom left repeat-x;
+}
+
+ul.tabslayout li
+{
+    list-style-type: none;
+    margin: 0 2px 0 0;
+    float: left;
+}
+
+ul.tabslayout a
+{
+    float: left;
+    display: block;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    background: #eee;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul.tabslayout a:hover
+{
+    background: #fff;
+}
+
+ul.tabslayout a.active
+{
+    background: #fff;
+    padding-bottom: 5px;
+    cursor: default;
+}
+
+.tabs-container
+{
+    clear: left;
+    border: 1px solid #ccc;
+    border-top: 0;
+    padding: 10px 8px 8px 8px;
+    background-color: white;
+}
+
+.tabs-container div
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#editsettings-nav
+{
+    padding: 0;
+}

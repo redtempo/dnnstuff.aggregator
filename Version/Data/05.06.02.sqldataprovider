@@ -1,0 +1,85 @@
+﻿ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules
+(
+@TabId int,
+@ModuleId int,
+@ShowAllModules bit,
+@AggregatorModuleId int,
+@PortalId int
+)
+AS
+
+-- Delete any modules that have been orphaned by a user delete of an aggregator
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab WHERE ModuleId NOT IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}Modules WHERE IsDeleted = 0)
+
+-- Select currently selected module
+SELECT T.TABNAME,T.TABORDER,TM.TabModuleId, T.TabName + '>' + '' FullModuleTitle FROM {databaseOwner}{objectQualifier}TabModules TM
+
+INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = TM.TabId
+INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM ON AM.TabModuleId = TM.TabModuleId
+WHERE AM.AggregatorModuleId = @AggregatorModuleId
+
+UNION
+
+-- Now, select remaining
+SELECT T.TABNAME,T.TABORDER,TM.TabModuleId, T.TabName + '>' + '' FullModuleTitle FROM {databaseOwner}{objectQualifier}TabModules TM
+
+INNER JOIN {databaseOwner}{objectQualifier}Modules M ON TM.ModuleId = M.ModuleId
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = TM.TabId
+INNER JOIN {databaseOwner}{objectQualifier}ModuleDefinitions MD ON MD.ModuleDefID = M.ModuleDefID
+INNER JOIN {databaseOwner}{objectQualifier}DesktopModules DM ON MD.DesktopModuleID = DM.DesktopModuleID
+WHERE
+	-- this tab
+	(TM.TabId = @TabId OR @ShowAllModules = 1)
+		AND
+	-- not this module
+	TM.ModuleId <> @ModuleId
+		AND
+	-- module not deleted
+	M.IsDeleted = 0
+		AND
+	-- tab not deleted
+	T.IsDeleted = 0 
+		AND
+
+	-- not already aggregated in this tab
+	TM.TabModuleId NOT IN (SELECT AM1.TabModuleId
+FROM         {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab AS A1 INNER JOIN
+                      {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AS AM1 ON A1.AggregatorTabId = AM1.AggregatorTabId INNER JOIN
+                      {databaseOwner}{objectQualifier}TabModules AS TM1 ON AM1.TabModuleId = TM1.TabModuleID INNER JOIN
+                      {databaseOwner}{objectQualifier}Modules AS M1 ON TM1.ModuleID = M1.ModuleID INNER JOIN
+                      {databaseOwner}{objectQualifier}TabModules ON A1.ModuleId = {databaseOwner}{objectQualifier}TabModules.ModuleID
+WHERE     (TM1.TabID = @TabId) AND ({databaseOwner}{objectQualifier}TabModules.TabID = @TabId) OR
+                      (A1.ModuleId = @ModuleId))
+	AND
+
+
+	-- not an aggregator itself
+	M.ModuleId NOT IN (SELECT A2.ModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab A2
+		INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM2 ON A2.AggregatorTabId = AM2.AggregatorTabId
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM2 ON AM2.TabModuleId = TM2.TabModuleId
+		WHERE TM2.ModuleId = @moduleid
+		)
+		AND
+	-- same portal
+	T.PortalId = @PortalId
+		AND
+	-- not an admin module
+	DM.IsAdmin = 0
+GO
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetPageModules
+
+@TabId  int
+
+as
+
+-- select all modules that are aggregated on this page
+-- we need to hide these before we render anything else
+SELECT     {databaseOwner}{objectQualifier}TabModules.TabModuleID, {databaseOwner}{objectQualifier}TabModules.ModuleID FROM  {databaseOwner}{objectQualifier}TabModules INNER JOIN
+                      {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module ON {databaseOwner}{objectQualifier}TabModules.TabModuleID = {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module.TabModuleId INNER JOIN
+                      {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab ON 
+                      {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module.AggregatorTabId = {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab.AggregatorTabId INNER JOIN
+                      {databaseOwner}{objectQualifier}TabModules AS TM1 ON {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab.ModuleId = TM1.ModuleID
+WHERE     ({databaseOwner}{objectQualifier}TabModules.TabID = @TabId) AND (TM1.TabID = @TabId)
+GO

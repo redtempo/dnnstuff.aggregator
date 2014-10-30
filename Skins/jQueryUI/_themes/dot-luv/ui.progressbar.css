@@ -1,0 +1,4 @@
+/* Progressbar
+----------------------------------*/
+.dot-luv .ui-progressbar { height:2em; text-align: left; }
+.dot-luv .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }

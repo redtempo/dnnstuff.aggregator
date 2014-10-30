@@ -1,0 +1,49 @@
+[REQUIRESJQUERYUI]
+<input id="[UNIQUE]SelectedElementId" name="[UNIQUE]SelectedElementId" type="hidden" value="[UNIQUE]Tab[SELECTEDTABNUMBER]" />
+<link rel="stylesheet" href="[SKINBASEFOLDER]/_themes/[IFQS_THEME][QS_THEME][/IFQS_THEME][IFNOTQS_THEME][THEME][/IFNOTQS_THEME]/ui.all.css" type="text/css" media="all" />
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	var $accordion = jQuery('#[UNIQUE]Accordion').accordion({[IFACTIVEHOVER value="True"]event: 'mouseover',[/IFACTIVEHOVER] [IFSTARTCOLLAPSED value="True"] active: false, [/IFSTARTCOLLAPSED] autoHeight: [AUTOHEIGHT], collapsible: [COLLAPSIBLE]});
+	$accordion.bind("accordionchange", function(event, ui) { [UNIQUE]AccordionChangeCallback(event, ui); });
+	
+	[IFSTARTCOLLAPSED value="False"][UNIQUE]SelectTab([SELECTEDTABNUMBER],'');[/IFSTARTCOLLAPSED]
+	});
+
+function [UNIQUE]Initialize()
+{
+// needs to be here for Aggregator to function but doesn't need to do anything
+}
+
+function [UNIQUE]SelectTab(tabNumber,source)
+// SelectTab - select a specific tab#, source=tabmodule selecting
+{
+	jQuery('#[UNIQUE]Accordion').accordion('option', 'active', tabNumber-1);
+	[UNIQUE]UpdateSelectedTab(tabNumber);
+	[SELECTTARGET]
+}
+
+function [UNIQUE]AccordionChangeCallback(event, ui) {
+	var index = jQuery('#[UNIQUE]Accordion').find("h3").index(ui.newHeader[0]);
+	[UNIQUE]UpdateSelectedTab(index+1);
+}
+
+function [UNIQUE]UpdateSelectedTab(tabNumber)
+// UpdateSelectedTab - update hidden value and cookie to remember selection across pages, postbacks
+{
+	// set hidden input value to the new tab
+	document.getElementById('[UNIQUE]SelectedElementId').value=tabNumber;
+    [SAVEACTIVETAB]
+}
+
+function [UNIQUE]SelectNextTab()
+// SelectNextTab - select the next tab
+{
+// not currently supported
+}   
+
+function [UNIQUE]SelectPrevTab()
+// SelectPrevTab - select the previous tab
+{
+// not currently supported
+}
+</script>

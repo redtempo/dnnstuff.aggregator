@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblTabs.Text" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="lblTabs.Help" xml:space="preserve">
+    <value>Add or delete the tabs that will contain the modules</value>
+  </data>
+  <data name="lblTabTemplate.Text" xml:space="preserve">
+    <value>Tab Template</value>
+  </data>
+  <data name="lblTabTemplate.Help" xml:space="preserve">
+    <value>Choose the template that defines the style or positioning of the tabs</value>
+  </data>
+  <data name="lblCssTheme.Text" xml:space="preserve">
+    <value>Tab Skin</value>
+  </data>
+  <data name="lblCssTheme.Help" xml:space="preserve">
+    <value>Select the skin you want to use to style the tabs</value>
+  </data>
+  <data name="lblAutoHide.Text" xml:space="preserve">
+    <value>Hide Module Title/Skin</value>
+  </data>
+  <data name="lblAutoHide.Help" xml:space="preserve">
+    <value>Select this option to automatically hide the title/skin for each contained module</value>
+  </data>
+  <data name="cmdAddModule.Text" xml:space="preserve">
+    <value>Add an existing module to a tab</value>
+  </data>
+  <data name="cmdMoveTabModuleUp.Text" xml:space="preserve">
+    <value>Move Module Up</value>
+  </data>
+  <data name="cmdMoveTabModuleDown.Text" xml:space="preserve">
+    <value>Move Module Down</value>
+  </data>
+  <data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>Edit Tabs</value>
+  </data>
+  <data name="lblShowPrevNext.Text" xml:space="preserve">
+    <value>Show pager</value>
+  </data>
+  <data name="lblShowPrevNext.Help" xml:space="preserve">
+    <value>Select this option to show a pager</value>
+  </data>
+  <data name="lblModules.Text" xml:space="preserve">
+    <value>Modules within selected tab</value>
+  </data>
+  <data name="lblModules.Help" xml:space="preserve">
+    <value>Add or delete the modules that will be contained within tabs</value>
+  </data>
+  <data name="cmdAddTab.Text" xml:space="preserve">
+    <value>Add a New Tab</value>
+  </data>
+  <data name="Target.Header" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="lblHideSingleTab.Text" xml:space="preserve">
+    <value>Hide Single Tabs</value>
+  </data>
+  <data name="lblHideSingleTab.Help" xml:space="preserve">
+    <value>Select this to hide final tab when only one tab is shown</value>
+  </data>
+  <data name="TabCaption_EditTabs.Text" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="TabCaption_EditStyle.Text" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="lblUseOldTheme.Text" xml:space="preserve">
+    <value>Use Old CSS Theme Syntax</value>
+  </data>
+  <data name="lblUseOldTheme.Help" xml:space="preserve">
+    <value>Select this option if you want to specify the theme name manually (ie. pre version 3.2 syntax). It's recommended you switch to the new skin format as soon as possible.</value>
+  </data>
+  <data name="lblActiveHover.Text" xml:space="preserve">
+    <value>Active Hover</value>
+  </data>
+  <data name="lblActiveHover.Help" xml:space="preserve">
+    <value>Select this option to enable automatic tab selection when the user hovers over it</value>
+  </data>
+  <data name="cmdEditTab.AlternateText" xml:space="preserve">
+    <value>Edit this tab</value>
+  </data>
+  <data name="cmdDeleteTab.AlternateText" xml:space="preserve">
+    <value>Delete this tab</value>
+  </data>
+  <data name="cmdMoveTabUp.AlternateText" xml:space="preserve">
+    <value>Move tab up</value>
+  </data>
+  <data name="cmdMoveTabDown.AlternateText" xml:space="preserve">
+    <value>Move tab down</value>
+  </data>
+  <data name="cmdEditTabModule.AlternateText" xml:space="preserve">
+    <value>Edit this module</value>
+  </data>
+  <data name="cmdDeleteTabModule.AlternateText" xml:space="preserve">
+    <value>Remove this module from the tab</value>
+  </data>
+  <data name="cmdMoveTabModuleUp.AlternateText" xml:space="preserve">
+    <value>Move Module up</value>
+  </data>
+  <data name="cmdMoveTabModuleDown.AlternateText" xml:space="preserve">
+    <value>Move Module down</value>
+  </data>
+  <data name="lblActiveHoverDelay.Help" xml:space="preserve">
+    <value>The delay in miiliseconds before hover switches tabs</value>
+  </data>
+  <data name="lblActiveHoverDelay.Text" xml:space="preserve">
+    <value>Active Hover Delay (ms)</value>
+  </data>
+  <data name="lblAggTarget.Help" xml:space="preserve">
+    <value>Select another Aggregator that you wish to control with this Aggregator</value>
+  </data>
+  <data name="lblAggTarget.Text" xml:space="preserve">
+    <value>Target Aggregator</value>
+  </data>
+  <data name="lblHideTabs.Help" xml:space="preserve">
+    <value>Select this option to hide all tabs. This is normally used when another Aggregator is controlling this one</value>
+  </data>
+  <data name="lblHideTabs.Text" xml:space="preserve">
+    <value>Hide All Tabs</value>
+  </data>
+  <data name="TabCaption_EditTargets.Text" xml:space="preserve">
+    <value>Targets</value>
+  </data>
+  <data name="cmdAddTarget.Text" xml:space="preserve">
+    <value>Add a Target Aggregator</value>
+  </data>
+  <data name="lblTargets.Help" xml:space="preserve">
+    <value>Add or delete the Aggregators that will be targets of this Aggregator</value>
+  </data>
+  <data name="lblTargets.Text" xml:space="preserve">
+    <value>Targets</value>
+  </data>
+  <data name="dlTabs.Header.Caption" xml:space="preserve">
+    <value>Tab Caption</value>
+  </data>
+  <data name="dlTabs.Header.Link" xml:space="preserve">
+    <value>Link To Tab</value>
+  </data>
+  <data name="DocumentationHelp.Text" xml:space="preserve">
+    <value>For documentation on all DNNStuff modules, please visit &lt;a style="text-decoration:underline"  href="http://wiki.dnnstuff.com?utm_source=dnnstuff&amp;utm_medium=settings&amp;utm_campaign=aggregator"&gt;wiki.dnnstuff.com&lt;/a&gt;</value>
+  </data>
+  <data name="lblRSSMaxItems.Help" xml:space="preserve">
+    <value>Enter the maximum number of items to return from the RSS feed</value>
+  </data>
+  <data name="lblRSSMaxItems.Text" xml:space="preserve">
+    <value>Max Items (0=all)</value>
+  </data>
+  <data name="lblRSSUrl.Help" xml:space="preserve">
+    <value>Enter the url to the RSS feed</value>
+  </data>
+  <data name="lblRSSUrl.Text" xml:space="preserve">
+    <value>RSS Url</value>
+  </data>
+  <data name="TabCaption_EditRSS.Text" xml:space="preserve">
+    <value>RSS</value>
+  </data>
+  <data name="lblRSSPassword.Help" xml:space="preserve">
+    <value>If the RSS feed needs authentication, enter the password here</value>
+  </data>
+  <data name="lblRSSPassword.Text" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="lblRSSUsername.Help" xml:space="preserve">
+    <value>If the RSS feed needs authentication, enter the username here</value>
+  </data>
+  <data name="lblRSSUsername.Text" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="lblRSSCacheTime.Help" xml:space="preserve">
+    <value>Enter the time in seconds to cache the feed</value>
+  </data>
+  <data name="lblRSSCacheTime.Text" xml:space="preserve">
+    <value>Cache Time (secs)</value>
+  </data>
+  <data name="lblRSSTabCaption.Help" xml:space="preserve">
+    <value>Enter the text used to generate the tab caption for each rss item, usually [RSSTitle]</value>
+  </data>
+  <data name="lblRSSTabCaption.Text" xml:space="preserve">
+    <value>RSS Tab Caption</value>
+  </data>
+  <data name="cmdAddAllModules.Text" xml:space="preserve">
+    <value>Add All Page Modules</value>
+  </data>
+  <data name="ConfirmAddAllModules.Text" xml:space="preserve">
+    <value>Are you sure you want to add all modules from this page to tabs?</value>
+  </data>
+  <data name="lblQuickTabs.Help" xml:space="preserve">
+    <value>Enter each tab name on a separate line and click the 'Add quick tabs' button</value>
+  </data>
+  <data name="lblQuickTabs.Text" xml:space="preserve">
+    <value>Quick Tabs</value>
+  </data>
+  <data name="TabCaption_EditTools.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="lblDefaultTab.Help" xml:space="preserve">
+    <value>Enter the number of the tab to show first</value>
+  </data>
+  <data name="lblDefaultTab.Text" xml:space="preserve">
+    <value>Default Tab</value>
+  </data>
+  <data name="lblRememberLastOpenTab.Help" xml:space="preserve">
+    <value>Select this option if you want to remember the last open tab across page views</value>
+  </data>
+  <data name="lblRememberLastOpenTab.Text" xml:space="preserve">
+    <value>Remember last open tab</value>
+  </data>
+  <data name="TabCaption_EditSkinSettings.Text" xml:space="preserve">
+    <value>Skin Settings</value>
+  </data>
+  <data name="lblHeight.Help" xml:space="preserve">
+    <value>The height of the tab area</value>
+  </data>
+  <data name="lblHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="lblWidth.Help" xml:space="preserve">
+    <value>The width of the tab area</value>
+  </data>
+  <data name="lblWidth.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="TabCaption_Help.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="TabCaption_SkinSettings_Edit.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TabCaption_SkinSettings_Help.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="TabHelp_EditSkinSettings.Text" xml:space="preserve">
+    <value>The settings on this page are specific to the particular template you have selected under style</value>
+  </data>
+  <data name="cmdEditTabModuleSettings.AlternateText" xml:space="preserve">
+    <value>Edit module settings</value>
+  </data>
+</root>

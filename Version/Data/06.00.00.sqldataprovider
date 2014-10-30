@@ -1,0 +1,66 @@
+﻿CREATE TABLE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties(
+	[ModuleId] [int] NOT NULL,
+	[AggregatorTabId] [int] NOT NULL,
+	[Skin] [varchar](100) NOT NULL,
+	[Template] [varchar](100) NOT NULL,
+	[Name] [varchar](100) NOT NULL,
+	[Value] [text] NOT NULL,
+
+CONSTRAINT [PK_{objectQualifier}DNNStuff_Aggregator_CustomProperties] PRIMARY KEY CLUSTERED 
+(
+	[ModuleId] ASC,
+	[AggregatorTabId] ASC,
+	[Skin] ASC,
+	[Template] ASC,
+	[Name] ASC
+)	
+) 
+
+GO
+
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetProperties
+(
+@ModuleId int,
+@AggregatorTabId int,
+@Skin varchar(100),
+@Template varchar(100)
+)
+
+as
+
+SELECT ModuleId, AggregatorTabId, Skin, Template, Name, Value FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+WHERE 
+ModuleId = @ModuleId AND AggregatorTabId = @AggregatorTabId AND Skin = @Skin AND Template = @Template
+
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_UpdateProperties
+(
+@ModuleId int,
+@AggregatorTabId int,
+@Skin varchar(100),
+@Template varchar(100),
+@Name varchar(100),
+@Value text
+)
+
+as
+
+if exists(select ModuleId From {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties WHERE ModuleId = @ModuleId AND AggregatorTabId = @AggregatorTabId AND Name = @Name AND Skin = @Skin AND Template = @Template)
+	-- update
+	BEGIN
+		UPDATE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties SET
+			Value = @Value
+		WHERE ModuleId = @ModuleId AND AggregatorTabId = @AggregatorTabId AND Name = @Name AND Skin = @Skin AND Template = @Template
+	END
+else
+	-- add
+	BEGIN
+		INSERT  INTO {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+			 (ModuleId, AggregatorTabId, Skin, Template, Name, Value)
+		 VALUES (@ModuleId, @AggregatorTabId, @Skin, @Template, @Name, @Value)
+	END
+
+GO
+	

@@ -1,0 +1,6 @@
+[IFJQUERYURL]<script type="text/javascript" src="[JQUERYURL]"></script>
+<script type="text/javascript">
+	jQuery.noConflict();
+</script>
+[/IFJQUERYURL]
+<script type="text/javascript" src="[MODULEFOLDER]/resources/jquery/jquery.easing.1.3.js"></script>

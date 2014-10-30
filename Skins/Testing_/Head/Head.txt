@@ -1,0 +1,8 @@
+[IFJQUERY]
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		alert("Added from [SKIN] template");
+		alert("jQuery version is " + jQuery().jquery);
+	});
+</script>
+[/IFJQUERY]

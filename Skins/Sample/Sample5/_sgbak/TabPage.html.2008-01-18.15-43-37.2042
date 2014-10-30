@@ -1,0 +1,1 @@
+<div id="[TABPAGEID]" [TABPAGEACTION] class="[SKIN]_TabPage">[TABPAGECONTENT][PAGING]</div>

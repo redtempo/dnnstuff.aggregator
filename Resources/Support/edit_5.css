@@ -1,0 +1,157 @@
+﻿@import url("edit.css");
+/* dotnetnuke overrides */
+ul.dnnActions, ul.dnnActions li
+{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.dnnForm ul.dnnActions, ul.dnnActions
+{
+	margin: 1em 0;
+	border-top: #ccc double;
+	padding: 1em 0 0 0;
+}
+ul.dnnActions li
+{
+	overflow: hidden;
+	display: block;
+	float: left;
+}
+ul.dnnActions li a
+{
+	display: block;
+	float: left;
+}
+ul.dnnActions li a, a.dnnPrimaryAction, a.dnnPrimaryAction:link, a.dnnPrimaryAction:visited, a.dnnSecondaryAction, a.dnnSecondaryAction:link, a.dnnSecondaryAction:visited
+{
+	padding: 0 1.2em;
+	line-height: 2.5;
+}
+ul.dnnActions input
+{
+	display: none;
+}
+a.dnnPrimaryAction, a.dnnPrimaryAction:link, a.dnnPrimaryAction:visited, a.dnnSecondaryAction, a.dnnSecondaryAction:link, a.dnnSecondaryAction:visited
+{
+	display: inline-block;
+}
+a.dnnPrimaryAction, a.dnnPrimaryAction:link, a.dnnPrimaryAction:visited, .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only
+{
+	background: #818181;
+	background: -moz-linear-gradient(top, #818181 0%, #656565 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#818181), color-stop(100%,#656565));
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#818181', endColorstr='#656565',GradientType=0 );
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-shadow: 0px 1px 1px #000;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	border-color: #fff;
+}
+a[disabled].dnnPrimaryAction, a[disabled].dnnPrimaryAction:link, a[disabled].dnnPrimaryAction:visited, a[disabled].dnnPrimaryAction:hover, a[disabled].dnnPrimaryAction:visited:hover, dnnForm.ui-widget-content a[disabled].dnnPrimaryAction
+{
+	text-decoration: none;
+	color: #bbb;
+	background: #818181;
+	background: -moz-linear-gradient(top, #818181 0%, #656565 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#818181), color-stop(100%,#656565));
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#818181', endColorstr='#656565',GradientType=0 );
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='#818181', endColorstr='#656565',GradientType=0 )";
+	cursor: default;
+}
+ul.dnnActions a.dnnPrimaryAction:hover, ul.dnnActions a.dnnPrimaryAction:visited:hover, a.dnnPrimaryAction:hover, .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only:hover
+{
+	background: #4E4E4E;
+	background: -moz-linear-gradient(top, #4E4E4E 0%, #282828 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4E4E4E), color-stop(100%,#282828));
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4E4E4E', endColorstr='#282828',GradientType=0 );
+	color: #fff;
+}
+ul.dnnActions a.dnnSecondaryAction, ul.dnnActions a.dnnSecondaryAction:link
+{
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0 1em;
+}
+ul.dnnActions a.dnnSecondaryAction:hover, ul.dnnActions a.dnnSecondaryAction:visited:hover
+{
+	text-decoration: underline;
+	background: none;
+	color: inherit;
+}
+a[disabled].dnnSecondaryAction, a[disabled].dnnSecondaryAction:link, a[disabled].dnnSecondaryAction:visited, a[disabled].dnnSecondaryAction:hover, a[disabled].dnnSecondaryAction:visited:hover
+{
+	text-decoration: none;
+	color: #999;
+	cursor: default;
+}
+.dnnForm.ui-widget-content a.dnnPrimaryAction
+{
+	color: #fff;
+}
+
+/* section head */
+h2.dnnFormSectionHead
+{
+	margin: 0.5em auto 0.6em;
+	padding: 0;
+	letter-spacing: -0.03em;
+	font-weight: bold;
+	border-bottom: 1px #ccc solid;
+	text-align: left;
+	line-height: 1.2;
+	font-size: 1.2em;
+}
+.dnnForm h2.dnnFormSectionHead a, .dnnForm h2.dnnFormSectionHead a:visited
+{
+	display: block;
+	text-decoration: none;
+	padding: 0.4em 0.8em;
+	color: #000;
+	letter-spacing: -0.03em;
+	font-weight: bold;
+	font-size: 1.2em;
+	background: url(down-icn.png) no-repeat 98% center;
+	display: block;
+}
+.dnnForm h2.dnnFormSectionHead a:hover
+{
+	background: #f1f1f1 url(down-icn.png) no-repeat 98% center;
+}
+.dnnForm h2.dnnFormSectionHead a.dnnSectionExpanded
+{
+	background: url(up-icn.png) no-repeat 98% center;
+	text-align: left;
+}
+.dnnForm h2.dnnFormSectionHead a.dnnSectionExpanded:hover
+{
+	background: #f1f1f1 url(up-icn.png) no-repeat 98% center;
+}
+
+.dnnForm fieldset
+{
+	display: block;
+	border: none;
+	margin: 0;
+	text-align: left;
+}
+
+		.dnnFormMessage{-moz-border-radius:3px;border-radius:3px;padding:10px 10px 10px 40px;line-height:1.4;margin:0.5em 1em;}
+			.dnnFormMessage span{float:none;padding:0;width:100%;text-align:left;text-shadow:0px 1px 1px #fff;}
+				.dnnFormWarning{background:#feffce url(warning-icn.png) no-repeat 10px center;border:2px #cdb21f solid;color:#41370C;text-shadow:0px 1px 1px #fff;}
+				.dnnFormValidationSummary{background:#f7eaea url(error-icn.png) no-repeat 10px center;text-shadow:0px 1px 1px #fff;color:#900;border:2px #df4a40 solid;}
+				.dnnFormError{color:#fff !important;background:url(errorbg.gif) no-repeat left center;text-shadow:0px 1px 1px #000;padding:5px 20px;}
+					.dnnFormItem span.dnnFormMessage.dnnFormError{position:absolute;left:55%;top:0;z-index:9999;}
+				.dnnFormSuccess{background:#ecffeb url(success-icn.png) no-repeat 10px center;border:2px #64b657 solid;color:#358927}
+				.dnnFormInfo{background:#edf8ff url(help-icn.png) no-repeat 10px center;border:#46a3d3 2px solid;color:#085b8f;text-shadow:0px 1px 1px #fff;}
+			.dnnFormHelpContent, .dnnFormItem label .dnnFormHelpContent{border:#46a3d3 2px solid;color:#085b8f;background:#edf8ff url(help-icn.png) no-repeat 10px 10px;
+			-moz-border-radius:3px;border-radius:3px;text-shadow:0px 1px 1px #fff;font-weight:normal;max-width:30em;padding:0.8em 1em 0.8em 3em;}
+			 .dnnFormHelpContent, .dnnFormItem .dnnFormHelpContent{left:95%;max-width:30em;position:absolute;z-index:25;width:275px;overflow:hidden;top:0;}
+			.dnnFormHelpContent.ui-draggable{cursor:move;}
+				.dnnFormHelpContent.dnnClear, .dnnFormItem label.dnnFormLabel .dnnFormHelpContent.dnnClear, .dnnFormItem label .dnnFormHelpContent.dnnClear{line-height:1.4;text-align:left;}
+	
+		.dnnForm .dnnFormItem.dnnFormHelp, .dnnFormItem.dnnFormHelp{clear:both;overflow:hidden;width:100%;padding:0;}
+			.dnnFormItem.dnnFormHelp p.dnnFormRequired{float:right;margin:0;padding:0;}
+			.dnnFormItem.dnnFormHelp p.dnnFormRequired span{border-left:5px #F00 solid;padding-left:0.5em;}

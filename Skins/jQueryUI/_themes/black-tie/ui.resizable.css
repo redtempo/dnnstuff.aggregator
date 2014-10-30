@@ -1,0 +1,13 @@
+/* Resizable
+----------------------------------*/
+.black-tie .ui-resizable { position: relative;}
+.black-tie .ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
+.black-tie .ui-resizable-disabled .ui-resizable-handle, .black-tie .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.black-tie .ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0px; }
+.black-tie .ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0px; }
+.black-tie .ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0px; height: 100%; }
+.black-tie .ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0px; height: 100%; }
+.black-tie .ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.black-tie .ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.black-tie .ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.black-tie .ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}

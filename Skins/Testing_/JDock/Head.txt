@@ -1,0 +1,1 @@
+<script type='text/javascript' src='[SKINFOLDER]/jquery.jqDock.min.js'></script>

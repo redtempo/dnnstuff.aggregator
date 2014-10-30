@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<settings>
+  <description>
+    <![CDATA[
+  <strong>jQuery UI Accordion</strong> - based on the jQuery UI Accordion<br />
+  ]]>
+  </description>
+  <help>
+    <![CDATA[
+	<h2>Compatibility notes</h2>
+	<ul>
+  <li>Active Hover Delay - not currently supported</li>
+  <li>Pager - not currently supported</li>
+  </ul>
+  ]]>
+  </help>  
+  <properties>
+    <property name="Theme" type="Directory" caption="JQuery UI Theme" default="flick" directory="Skins/jQueryUI/_themes">
+      <help>The jQuery UI theme used to style the tabs</help>
+    </property>
+    <property name="AutoHeight" type="Boolean" caption="AutoHeight" default="true">
+      <help>If set, the highest content part is used as height reference for all other parts. Provides more consistent animations.</help>
+    </property>
+    <property name="Collapsible" type="Boolean" caption="Collapsible" default="false">
+      <help>Determines whether all the sections can be closed at once</help>
+    </property>
+    <property name="StartCollapsed" type="Boolean" caption="Start Collapsed" default="false">
+      <help>If collapsible is set, this will start with all sections closed</help>
+    </property>
+  </properties>
+  <tabproperties>
+  </tabproperties>
+</settings>

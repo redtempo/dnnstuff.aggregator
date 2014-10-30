@@ -1,0 +1,78 @@
+    .Default_Bottom_TabStrip {
+      float:left;
+      width:100%;
+      background:transparent;
+      font-size:93%;
+      line-height:normal;
+      }
+
+	.Default_Bottom_TabStrip ul {
+        margin:0;
+        padding:0px 10px 0 0px;
+        list-style:none;
+      }
+	  
+    .Default_Bottom_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+
+	  .Default_Bottom_TabStrip span {
+      float:left;
+      margin:0;
+      padding:0 1px 0 0;
+      text-decoration:none;
+      }
+	  
+    .Default_Bottom_TabStrip span span {
+      float:left;
+      display:block;
+      padding:5px 15px 4px 6px;
+      color:#fff;
+      }
+
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .Default_Bottom_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+
+	.Default_Bottom_TabSelected {
+      background: #7799ee;
+	  border-bottom: 1px solid #7799ee;
+      }
+    
+	.Default_Bottom_TabStrip .Default_Bottom_TabUnselected {
+      background: #fff;
+      color:black;
+	  border-bottom: 1px solid #7799ee;
+	  border-right: 1px solid #7799ee;
+	  border-left: 1px solid #7799ee;
+	 
+      }
+
+	.Default_Bottom_TabStrip .Default_Bottom_TabMouseOver {
+      background: #7799ee;
+	  color: #fff;
+	  cursor: pointer;
+      }
+	  
+	.Default_Bottom_TabPage {
+   _width: 100%;
+border: 1px solid #7799ee;
+		text-align: left;
+		padding: 3px;
+		background: #fff;
+	}
+	
+	.Default_Bottom_Paging {
+		margin-bottom: 5px;
+		font-size: .8em;
+		text-align: left;
+		}
+	
+	.Default_Bottom_Paging span {
+		cursor: pointer;
+		border: 1px solid black;
+		padding: 3px;
+		background: #fff;
+	}

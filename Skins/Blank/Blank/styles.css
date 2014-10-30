@@ -1,0 +1,69 @@
+    .Blank_Blank_TabStrip {
+      float:left;
+      width:100%;
+      background:transparent;
+      font-size:93%;
+      line-height:normal;
+      }
+
+	.Blank_Blank_TabStrip ul {
+        margin:0;
+        padding:0;
+        list-style:none;
+      }
+	  
+    .Blank_Blank_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+
+	  .Blank_Blank_TabStrip span {
+      float:left;
+      margin:0;
+      padding:0 1px 0 0;
+      text-decoration:none;
+      }
+	  
+    .Blank_Blank_TabStrip span span {
+      float:left;
+      display:block;
+      padding:5px 15px 4px 6px;
+      color:#000;
+      }
+
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .Blank_Blank_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+
+	.Blank_Blank_TabSelected {
+	  position: relative;
+      }
+    
+	.Blank_Blank_TabStrip .Blank_Blank_TabUnselected {
+      }
+
+	.Blank_Blank_TabStrip .Blank_Blank_TabMouseOver {
+	  cursor: pointer;
+      }
+	  
+	.Blank_Blank_TabPage {
+		_width: 100%;
+		padding: 3px;
+		text-align: left;
+	}
+	
+	.Blank_Blank_Paging {
+		text-align:center;
+		padding: 2px;
+		margin: 3px;
+}
+	.Blank_Blank_Paging a {
+		cursor: pointer;
+		padding: 2px 5px 2px 5px;
+		margin: 1px;
+		color: #000;
+		text-decoration: none;
+}
+	.Blank_Blank_Paging a:hover, .Blank_Blank_Paging a:active {
+	}	

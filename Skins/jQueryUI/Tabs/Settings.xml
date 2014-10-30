@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<settings>
+  <properties>
+    <property name="Theme" type="Directory" caption="JQuery UI Theme" default="flick" directory="Skins/jQueryUI/_themes">
+      <help>The jQuery UI theme used to style the tabs</help>
+    </property>
+    <property name="Fx" type="Choice" caption="Fx Type" default="none">
+      <help>The fx used for tab page transitions</help>
+	  <choices>
+		<choice value="none" caption="None" />
+		<choice value="opacity: 'toggle'" caption="Fade" />
+		<choice value="height: 'toggle'" caption="Slide" />
+		<choice value="opacity: 'toggle', height: 'toggle'" caption="Fade+Slide" />
+		</choices>
+    </property>
+    <property name="FxSpeed" type="Choice" caption="Fx Speed" default="medium">
+      <help>The fx string used for tab page transitions</help>
+	  <choices>
+		<choice value="slow" caption="Slow" />
+		<choice value="medium" caption="Medium" />
+		<choice value="fast" caption="Fast" />
+	  </choices>
+    </property>
+    <property name="Rotate" type="Boolean" caption="Rotate tabs" default="False">
+      <help>Check to make the tabs rotate</help>
+    </property>    
+    <property name="RotateTime" type="String" caption="Rotate time (milliseconds)" default="1000">
+      <help>The time in milliseconds between each tab rotation</help>
+    </property>    
+    <property name="RotateContinue" type="Boolean" caption="Continue Rotate after select" default="False">
+      <help>Check to make the tabs continue to rotate after a tab is selected</help>
+    </property>
+  </properties>
+  <tabproperties>
+  </tabproperties>
+</settings>

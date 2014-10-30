@@ -1,0 +1,23 @@
+Sample1 - Basic
+- shows a basic top tab setup - nothing fancy here
+- active tab shown in blue (#7799ee)
+- inactive tabs shown in white (#fff)
+
+Sample2 - Add Tab Numbers to Tab Captions
+- adds the tab number to the tab template (tab.html), code added is [TABNUMBER].&nbsp;
+- you could also add that code to the tab caption within the tab setup, but adding it here is a one shot deal and will
+  work with all of the tabs that use the template
+
+Sample3 - Change some colors
+- changed tabpage background color to white (#fff) (see .Sample_Sample3_TabPage)
+- changed unselected tab top, right. left border to blue (#7799ee) (see .Sample_Sample3_TabStrip .Sample_Sample3_TabUnselected)
+
+Sample4 - Add nicer pagination
+- you'll need the Show Prev Next setting turned on to see this one
+- changed Paging.html to include images - images are from the free Silk Icon set from famfamfam (http://www.famfamfam.com/lab/icons/silk/)
+- changed styles.css to give the Paging class a nicer look; borders, font smaller
+
+Sample5 - Move pagination to tab page
+- paging.html changed to show only the next page link along with the caption and tabnumber of the next page
+- tabpage.html changed to show the [PAGING] link inside the tab page
+- styles.css changed slightly to position to the right side of the page

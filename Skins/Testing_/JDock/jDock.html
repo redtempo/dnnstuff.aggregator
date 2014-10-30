@@ -1,0 +1,42 @@
+<html>
+<head>
+<link rel='stylesheet' type='text/css' href='styles.css' />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='jquery.jqDock.min.js'></script>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        var opts = { align: 'top'
+                   , size: 48
+                   , distance: 60
+                   , coefficient: 1.5
+                   , labels:  true
+                   , duration:  500
+                   , source:    false
+                   };
+    jQuery('#menu3').jqDock(opts);
+  });
+
+</script>
+</head>
+<body>
+
+<div id="menu3" class="demo">
+  <img src='images\aolicon.png' title='AOL' />
+  <img src='images\Firefoxicon.png' title='Firefox' />
+  <img src='images\IEicon.png' title='IE' />
+  <img src='images\operaicon.png' title='Opera' />
+</div>
+<div>
+This is page 1
+</div>
+<div>
+This is page 2
+</div>
+<div>
+This is page 3
+</div>
+<div>
+This is page 4
+</div>
+</body>
+</html>

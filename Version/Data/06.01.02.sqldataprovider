@@ -1,0 +1,140 @@
+﻿ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTabModules
+(
+@TabId int,
+@ModuleId int,
+@ShowAllModules bit,
+@AggregatorModuleId int,
+@PortalId int
+)
+AS
+
+-- Delete any modules that have been orphaned by a user delete of an aggregator
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab WHERE ModuleId NOT IN (SELECT ModuleId FROM {databaseOwner}{objectQualifier}Modules WHERE IsDeleted = 0)
+
+-- Select currently selected module
+SELECT T.TABNAME,T.TABORDER, VM.TabModuleId, T.TabName + '>' + VM.ModuleTitle FullModuleTitle 
+FROM {databaseOwner}{objectQualifier}vw_Modules VM
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = VM.TabId
+INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM ON AM.TabModuleId = VM.TabModuleId
+WHERE AM.AggregatorModuleId = @AggregatorModuleId
+
+UNION
+
+-- Now, select remaining
+SELECT T.TABNAME,T.TABORDER, VM.TabModuleId, T.TabName + '>' + VM.ModuleTitle FullModuleTitle 
+FROM {databaseOwner}{objectQualifier}vw_Modules VM
+INNER JOIN {databaseOwner}{objectQualifier}Tabs T ON T.TabId = VM.TabId
+INNER JOIN {databaseOwner}{objectQualifier}ModuleDefinitions MD ON MD.ModuleDefID = VM.ModuleDefID
+INNER JOIN {databaseOwner}{objectQualifier}DesktopModules DM ON MD.DesktopModuleID = DM.DesktopModuleID
+WHERE
+	-- this tab
+	(VM.TabId = @TabId OR @ShowAllModules = 1)
+		AND
+	-- not this module
+	VM.ModuleId <> @ModuleId
+		AND
+	-- module not deleted
+	VM.IsDeleted = 0
+		AND
+	-- tab not deleted
+	T.IsDeleted = 0 
+		AND
+
+	-- not already aggregated in this tab
+	VM.TabModuleId NOT IN (SELECT AM1.TabModuleId
+FROM         {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab AS A1 INNER JOIN
+                      {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AS AM1 ON A1.AggregatorTabId = AM1.AggregatorTabId INNER JOIN
+                      {databaseOwner}{objectQualifier}TabModules AS TM1 ON AM1.TabModuleId = TM1.TabModuleID INNER JOIN
+                      {databaseOwner}{objectQualifier}Modules AS M1 ON TM1.ModuleID = M1.ModuleID INNER JOIN
+                      {databaseOwner}{objectQualifier}TabModules ON A1.ModuleId = {databaseOwner}{objectQualifier}TabModules.ModuleID
+WHERE     (TM1.TabID = @TabId) AND ({databaseOwner}{objectQualifier}TabModules.TabID = @TabId) OR
+                      (A1.ModuleId = @ModuleId))
+	AND
+
+
+	-- not an aggregator itself
+	VM.ModuleId NOT IN (SELECT A2.ModuleId FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Tab A2
+		INNER JOIN {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM2 ON A2.AggregatorTabId = AM2.AggregatorTabId
+		INNER JOIN {databaseOwner}{objectQualifier}TabModules TM2 ON AM2.TabModuleId = TM2.TabModuleId
+		WHERE TM2.ModuleId = @moduleid
+		)
+		AND
+	-- same portal
+	T.PortalId = @PortalId
+		AND
+	-- not an admin module
+	DM.IsAdmin = 0
+
+GO
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAggregatorModule
+(
+@AggregatorModuleId int
+)
+
+AS
+SELECT AM.AggregatorModuleId, AM.AggregatorTabId, AM.TabModuleId, AM.ModuleOrder, AM.InsertBreak, AM.Locale, VM.ModuleId, VM.TabId, VM.ModuleTitle
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM 
+		INNER JOIN {databaseOwner}{objectQualifier}vw_Modules VM ON VM.TabModuleId = AM.TabModuleId
+	WHERE AM.AggregatorModuleId = @AggregatorModuleId
+
+GO
+
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetAvailableTargets
+(
+@TabId int,
+@ModuleId int,
+@TargetModuleId int
+)
+AS
+
+SELECT VM.ModuleId, VM.ModuleTitle FullModuleTitle
+FROM
+	 	{databaseOwner}{objectQualifier}vw_Modules VM
+INNER JOIN	{databaseOwner}{objectQualifier}ModuleDefinitions MD ON VM.MODULEDEFID = MD.MODULEDEFID
+LEFT JOIN 	{databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target [AT] ON [AT].TargetModuleId = VM.ModuleID
+WHERE
+	-- on this tab
+ 		(VM.TABID = @TabId)
+	-- only aggregators
+	AND	MD.FriendlyName = 'DNNStuff - Aggregator'
+	-- not this aggregator module
+	AND	VM.ModuleID <> @ModuleId
+	-- nothing already targeted, except the current selection
+	AND	[AT].TargetModuleId IS NULL OR [AT].TargetModuleId = @TargetModuleId
+
+GO
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_GetTargets
+(
+@ModuleId  int
+)
+AS
+
+SELECT A.AggregatorTargetId, A.TargetModuleId, VM.ModuleTitle TargetTitle
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Target A
+INNER JOIN {databaseOwner}{objectQualifier}vw_Modules VM ON VM.ModuleId = A.TargetModuleId
+	WHERE A.ModuleId = @ModuleId
+
+GO
+
+
+ALTER PROCEDURE {databaseOwner}{objectQualifier}DNNStuff_Aggregator_ListAggregatorModule
+(
+@AggregatorTabId  int
+)
+AS
+
+-- First, clean up any modules deleted from the DNN side
+DELETE FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module WHERE TabModuleId IN (SELECT TabModuleId FROM {databaseOwner}{objectQualifier}vw_Modules VM WHERE VM.IsDeleted = 1)
+
+-- Now, select remaining modules
+SELECT AM.AggregatorModuleId, AM.AggregatorTabId, AM.TabModuleId, AM.ModuleOrder, AM.InsertBreak, AM.Locale, VM.ModuleId, VM.TabId, VM.ModuleTitle
+	FROM {databaseOwner}{objectQualifier}DNNStuff_Aggregator_Module AM 
+		INNER JOIN {databaseOwner}{objectQualifier}vw_Modules VM ON VM.TabModuleId = AM.TabModuleId
+	WHERE AM.AggregatorTabId = @AggregatorTabId
+	ORDER BY AM.ModuleOrder ASC
+
+GO
+

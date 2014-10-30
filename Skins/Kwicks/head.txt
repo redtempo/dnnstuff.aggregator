@@ -1,0 +1,1 @@
+<script type="text/javascript" src="[SKINBASEFOLDER]/_js/jquery.kwicks-1.5.1.pack.js"></script>

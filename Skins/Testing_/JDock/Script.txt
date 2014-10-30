@@ -1,0 +1,21 @@
+[REQUIRESJQUERY]
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        var opts = { align: 'top'
+                   , size: 32
+                   , distance:  40
+                   , coefficient: 1.5
+                   , labels:  'tc'
+                   , duration:  200
+                   , source:    false
+                   };
+   jQuery('.[UNIQUE]TabStrip').jqDock(opts);
+  });
+  
+  function [UNIQUE]Initialize()
+  {
+  }
+  </script>
+
+  

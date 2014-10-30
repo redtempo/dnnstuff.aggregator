@@ -1,0 +1,4 @@
+/* Progressbar
+----------------------------------*/
+.hot-sneaks .ui-progressbar { height:2em; text-align: left; }
+.hot-sneaks .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }

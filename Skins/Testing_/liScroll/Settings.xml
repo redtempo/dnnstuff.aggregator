@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<settings>
+  <description><![CDATA[
+  <strong>liScroll</strong> - based on jQuery, this content slider can be used with an RSS feed or by adding manual tabs. Read the help tab for specific instructions.
+  ]]></description>
+  <help><![CDATA[
+	<h2>General features</h2>
+	<p>The template is set up for a maximum of 4 items. Each item is made up of a large image (400px by 250px) and a small image (80px by 50px)</p>
+	<h2>Using RSS</h2>
+	<ul>
+	<li>set the RSS url to the url of your rss feed</li>
+	<li>set the Max Items for the feed to 4 and/or enclode the rss feed itself to limit itself to 4</li>
+	<li>the large image should be a 400x250 px image enclosure within your feed item</li>
+	<li>the small image will use the same image, but automatically set it's size to the required 80x50 px</li>
+	<li>if you are unsure how to set up your rss feed properly, search the wiki, articles or the online demo for additional help</li>
+	</ul>
+	<h2>Using Manual Tabs</h2>
+	<ul>
+	<li>add up to 4 tabs to the module</li>
+	<li>for each tab, go to the Skin Specific settings tab and add an image url, small image url and a more url</li>
+	</ul>
+  ]]></help>
+  <properties>
+    <property name="Fx" type="Choice" caption="Fx Type" default="none">
+      <help>The fx used for tab page transitions</help>
+	  <choices>
+		<choice value="none" caption="None" />
+		<choice value="opacity: 'toggle'" caption="Fade" />
+		<choice value="height: 'toggle'" caption="Slide" />
+		<choice value="opacity: 'toggle', height: 'toggle'" caption="Fade+Slide" />
+		</choices>
+    </property>
+    <property name="FxSpeed" type="Choice" caption="Fx Speed" default="medium">
+      <help>The fx string used for tab page transitions</help>
+	  <choices>
+		<choice value="slow" caption="Slow" />
+		<choice value="medium" caption="Medium" />
+		<choice value="fast" caption="Fast" />
+	  </choices>
+    </property>
+    <property name="Rotate" type="Boolean" caption="Rotate tabs" default="False">
+      <help>Check to make the tabs rotate</help>
+    </property>    
+    <property name="RotateTime" type="String" caption="Rotate time (milliseconds)" default="1000">
+      <help>The time in milliseconds between each tab rotation</help>
+    </property>    
+    <property name="RotateContinue" type="Boolean" caption="Continue Rotate after select" default="False">
+      <help>Check to make the tabs continue to rotate after a tab is selected</help>
+    </property>
+  </properties>
+  <tabproperties>
+    <property name="LargeImageUrl" type="String" caption="Image URL" default="/portals/yourportal/mylargeimage.jpg">
+      <help>The url of the large image</help>
+    </property>
+    <property name="SmalImageUrl" type="String" caption="Small Image URL" default="/portals/yourportal/mysmallimage.jpg">
+      <help>The url of the small image</help>
+    </property>
+    <property name="MoreUrl" type="String" caption="More URL" default="http://www.something.com">
+      <help>The url that points to more information about this tab</help>
+    </property>
+  </tabproperties>
+</settings>

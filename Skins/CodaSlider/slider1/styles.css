@@ -1,0 +1,41 @@
+	.CodaSlider_slider1 .coda-slider-wrapper { padding: 20px 0; text-align: left; }
+	.CodaSlider_slider1 .coda-slider { background: #ebebeb }
+	
+	/* Use this to keep the slider content contained in a box even when JavaScript is disabled */
+	.CodaSlider_slider1 .coda-slider-no-js .coda-slider { height: 200px; overflow: auto !important; padding-right: 20px }
+	
+	/* Change the width of the entire slider (without dynamic arrows) */
+	.CodaSlider_slider1  .coda-slider, .CodaSlider_slider1  .coda-slider .panel { width: 550px; } 
+	
+	/* Change margin and width of the slider (with dynamic arrows) */
+	.CodaSlider_slider1  .coda-slider-wrapper.arrows .coda-slider,.CodaSlider_slider1  .coda-slider-wrapper.arrows .coda-slider .panel { width: 550px; }
+	.CodaSlider_slider1  .coda-slider-wrapper.arrows .coda-slider { margin: 0 10px }
+	
+	/* Arrow styling */
+	.CodaSlider_slider1  .coda-nav-left a, .CodaSlider_slider1  .coda-nav-right a { background: #000; color: #fff; padding: 5px; width: 50px }
+	
+	/* Tab nav */
+	.CodaSlider_slider1  .coda-nav ul li a.current { background: #39c }
+	
+	/* Panel padding */
+	.CodaSlider_slider1  .coda-slider .panel-wrapper { padding: 8px }
+	
+	/* Preloader */
+	.CodaSlider_slider1  .coda-slider p.loading { padding: 20px; text-align: center }
+
+/* Don't change anything below here unless you know what you're doing */
+
+	/* Tabbed nav */
+	.CodaSlider_slider1  .coda-nav ul { clear: both; display: block; margin: auto; overflow: hidden }
+	.CodaSlider_slider1  .coda-nav ul li { display: inline }
+	.CodaSlider_slider1  .coda-nav ul li a { background: #000; color: #fff; display: block; float: left; margin-right: 1px; padding: 3px 6px; text-decoration: none }
+	
+	/* Miscellaneous */
+	.CodaSlider_slider1  .coda-slider-wrapper { clear: both; overflow: auto }
+	.CodaSlider_slider1  .coda-slider { float: left; overflow: hidden; position: relative }
+	.CodaSlider_slider1  .coda-slider .panel { display: block; float: left }
+	.CodaSlider_slider1  .coda-slider .panel-container { position: relative }
+	.CodaSlider_slider1  .coda-nav-left, .CodaSlider_slider1  .coda-nav-right { float: left }
+	.CodaSlider_slider1  .coda-nav-left a, .CodaSlider_slider1  .coda-nav-right a { display: block; text-align: center; text-decoration: none }
+	
+	.CodaSlider_slider1  .coda-slider-wrapper  .coda-nav { text-align: center; }

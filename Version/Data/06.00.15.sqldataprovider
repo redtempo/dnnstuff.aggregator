@@ -1,0 +1,5 @@
+﻿update {databaseOwner}{objectQualifier}DNNStuff_Aggregator_CustomProperties
+set Name='SmallImageUrl'
+where Skin = 'jQueryUI' and Template = 'ContentSlider' and Name = 'SmalImageUrl'
+GO
+

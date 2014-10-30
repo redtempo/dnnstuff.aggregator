@@ -1,0 +1,78 @@
+    .Testing__VeloNation_TabStrip {
+      float:left;
+      width:100%;
+      background:transparent;
+      font-size:93%;
+      line-height:normal;
+      }
+
+	.Testing__VeloNation_TabStrip ul {
+        margin:0;
+        padding:0px 10px 0 0px;
+        list-style:none;
+      }
+	  
+    .Testing__VeloNation_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+
+	  .Testing__VeloNation_TabStrip span {
+      float:left;
+      margin:0;
+      padding:0 1px 0 0;
+      text-decoration:none;
+      }
+	  
+    .Testing__VeloNation_TabStrip span span {
+      float:left;
+      display:block;
+      padding:5px 15px 4px 6px;
+      color:#000;
+      }
+
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .Testing__VeloNation_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+
+	.Testing__VeloNation_TabSelected {
+      background: #fff;
+	  border-top: 1px solid #CEE0EC;
+	  border-right: 1px solid #3a84b3;
+	  border-left: 1px solid #3a84b3;
+      }
+    
+	.Testing__VeloNation_TabStrip .Testing__VeloNation_TabUnselected {
+      background: #CEE0EC;
+      color:#00558b;
+	  border-top: 1px solid #CEE0EC;
+	  border-right: 1px solid #CEE0EC;
+	  border-left: 1px solid #CEE0EC;
+	 
+      }
+
+	.Testing__VeloNation_TabStrip .Testing__VeloNation_TabMouseOver {
+      background: #3a84b3;
+	  color: #fff;
+	  cursor: pointer;
+      }
+	  
+	.Testing__VeloNation_TabPage {
+		border: 1px solid #CEE0EC;
+		text-align: left;
+		padding: 3px;
+		background: #fff;
+	}
+	
+	.Testing__VeloNation_Paging {
+		margin-top: 5px;
+		font-size: .8em;
+		}
+	
+	.Testing__VeloNation_Paging span {
+		cursor: pointer;
+		border: 1px solid black;
+		padding: 3px;
+		background: #CEE0EC;
+	}

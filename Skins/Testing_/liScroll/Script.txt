@@ -1,0 +1,1 @@
+[REQUIRESJQUERY]<script type="text/javascript">	jQuery(document).ready(function(){		jQuery('ul#[UNIQUE]Ticker').liScroll();	});	function [UNIQUE]Initialize()	{	// needs to be here for Aggregator to function but doesn't need to do anything	}</script>

@@ -1,0 +1,60 @@
+.jShowOff_Basic  {
+	background: #efefef;
+	position: relative;
+	overflow: hidden;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	}
+
+.jshowoff p.jshowoff-slidelinks {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	margin: 0;
+	padding: 0;
+	}
+.jshowoff-slidelinks a, .jshowoff-controls a {
+	display: block;
+	background-color: #000;
+	color: #fff;
+	padding: 5px 7px 5px;
+	margin: 5px 0 0 5px;
+	float: left;
+	text-decoration: none;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	outline: none;
+	font-size: 11px;
+	line-height: 14px;
+	}
+.jshowoff-slidelinks a:hover, .jshowoff-controls a:hover {
+	color: #fff;
+	}
+.jshowoff-slidelinks a.jshowoff-active, .jshowoff-slidelinks a.jshowoff-active:hover {
+	background-color: #fff;
+	color: #000;
+	}
+p.jshowoff-controls {
+	background: #aaa;
+	overflow: auto;
+	height: 1%;
+	padding: 0 0 5px 5px;
+	margin: 0;
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	}
+.jshowoff-controls a {
+	margin: 5px 5px 0 0;
+	font-size: 12px;
+	line-height: 15px;
+	padding: 4px 8px 5px;
+	}
+
+.jshowoff-pausetext {
+	color: #fff;
+	}
+

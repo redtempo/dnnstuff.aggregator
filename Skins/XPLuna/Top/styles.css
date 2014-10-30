@@ -1,0 +1,81 @@
+    .XPLuna_Top_TabStrip {
+      float:left;
+      width:100%;
+      background:transparent;
+      font-size:93%;
+      line-height:normal;
+	  border-bottom: 1px solid #91a7b4;
+      }
+    .XPLuna_Top_TabStrip ul {
+		margin:0;
+		padding:10px 10px 0 0px;
+		list-style:none;
+      }
+    .XPLuna_Top_TabStrip li {
+      display:inline;
+      margin:0;
+      padding:0;
+      cursor:pointer;
+      }
+    .XPLuna_Top_TabStrip span {
+      float:left;
+      background:url("tableft.gif") no-repeat left top;
+      margin:0;
+      padding:0 0 0 4px;
+      text-decoration:none;
+      }
+    .XPLuna_Top_TabStrip span span {
+      float:left;
+      display:block;
+      background:url("tabright.gif") no-repeat right top;
+      padding:5px 15px 4px 6px;
+      color:#000;
+      }
+	  /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    .XPLuna_Top_TabStrip span span {float:none;}
+    /* End IE5-Mac hack */
+	
+    .XPLuna_Top_TabStrip .XPLuna_Top_TabMouseOver {
+      background-position:0% -42px;
+      }
+    .XPLuna_Top_TabStrip .XPLuna_Top_TabMouseOver span {
+      background-position:100% -42px;
+      color:#000;
+      }
+    .XPLuna_Top_TabStrip .XPLuna_Top_TabSelected {
+      background-position:0% -42px;
+position: relative;
+top: 1px;
+      }
+    .XPLuna_Top_TabStrip .XPLuna_Top_TabSelected span {
+      background-position:100% -42px;
+      color:#000;
+      }
+    .XPLuna_Top_TabPage {
+   _width: 100%;
+color:#000;
+	  background-color: #f0f0eb;
+	  margin: 0;
+	  padding: 0;
+	  border-left: 1px solid #91a7b4;
+	  border-right: 1px solid #91a7b4;
+	  border-bottom: 1px solid #91a7b4;
+	  text-align: left;
+      }
+	.XPLuna_Top_TabPage p {
+		margin: 0px;
+		padding: 3px;
+		}
+	.XPLuna_Top_Paging {
+		font-size: .8em;
+		text-align: center;
+	}
+	
+	.XPLuna_Top_Paging span {
+		cursor: pointer;
+		padding: 3px;
+	}
+	
+	.XPLuna_Top_Paging span:hover {
+		color: #777;
+	}	
