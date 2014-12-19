@@ -3,7 +3,8 @@
 		<package name="DNNStuff - Aggregator" type="Module" version="">
 			<friendlyName>DNNStuff - Aggregator</friendlyName>
 			<description>Aggregator module allows you to combine text and/or multiple modules into a tabbed format</description>
-			<owner>
+      <iconFile>~/DesktopModules/DNNStuff - Aggregator/Resources/Styles/app/images/badge_aggregator.gif</iconFile>
+      <owner>
 				<name>Richard Edwards</name>
 				<organization>DNNStuff</organization>
 				<url>

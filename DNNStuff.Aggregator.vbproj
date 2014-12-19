@@ -1460,7 +1460,7 @@
     <Content Include="Skins\XPLuna\Top\TabStrip.html" />
     <Content Include="Version\All\Version_Append.md" />
     <None Include="Version\All\Version_Current.md" />
-    <Content Include="Version\All\icon_aggregator_32px.gif" />
+    <Content Include="Resources\Styles\app\images\badge_aggregator.gif" />
     <Content Include="Version\All\License.html" />
     <Content Include="Version\All\RssToolkit.dll" />
     <Compile Include="Aggregator.ascx.designer.vb">

@@ -7,6 +7,16 @@ tags: ['intro','page']
 
 <!-- insert-newversion -->
 
+## 06.04.09
+
+19/Dec/2014
+
+
+* Fixes
+	* Minor theme styling fixes
+
+
+
 ## 06.04.08
 
 09/Apr/2014
