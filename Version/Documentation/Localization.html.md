@@ -17,8 +17,6 @@ you use a special token **[MMLINKSTITLE]**. This special token will be
 replaced with the MMLINKS module caption depending on what localized
 content is shown.
 
-Please visit the demo page here to see it in
-[action](http://www.dnnstuff.com/Modules/AggregatorTabbedModules/AggregatorDemos/LocalizationofTabs/tabid/336/Default.aspx).
 
 ### Using MLHTML
 
@@ -35,8 +33,6 @@ you use a special token **[MLHTMLTITLE]**. This special token will be
 replaced with the MLHTML module caption depending on what localized
 content is shown.
 
-Please visit the demo page here to see it in
-[action](http://www.dnnstuff.com/Modules/AggregatorTabbedModules/AggregatorDemos/LocalizationofTabs/tabid/336/Default.aspx).
 
 ### Using tab localization
 
@@ -48,8 +44,6 @@ instance you could have a fallback tab of english and two other tabs,
 one for italian and one for french. If the user visiting has their
 locale set to spanish, it would show only the english tab.
 
-Please visit the demo page here to see it in
-[action](http://www.dnnstuff.com/Modules/AggregatorTabbedModules/AggregatorDemos/LocalizationofTabs/tabid/336/Default.aspx).
 
 ## Tab Localization
 

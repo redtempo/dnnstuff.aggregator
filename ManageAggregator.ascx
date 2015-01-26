@@ -302,12 +302,12 @@
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblRSSUsername" CssClass="SubHead" runat="server" ControlName="txtRSSUsername"
                         Suffix=":" />
-                    <asp:TextBox ID="txtRSSUsername" runat="server" />
+                    <asp:TextBox ID="txtRSSUsername" runat="server" autocomplete="off" />
                 </div>
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblRSSPassword" CssClass="SubHead" runat="server" ControlName="txtRSSPassword"
                         Suffix=":" />
-                    <asp:TextBox ID="txtRSSPassword" runat="server" TextMode="password" />
+                    <asp:TextBox ID="txtRSSPassword" runat="server" TextMode="password" autocomplete="off" />
                 </div>
             </div>
             <div class="tab" id="edittools">
