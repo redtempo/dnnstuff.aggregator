@@ -174,8 +174,19 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_LocalResources\ManageScript.ascx.resx" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\Layout.html" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\Paging.html" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\Script.txt" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\Settings.xml" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\styles.css" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\Tab.html" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\TabPage.html" />
+    <Content Include="Skins\jQueryUI\Accordion_1_10\TabStrip.html" />
     <Content Include="Skins\jQueryUI\head.txt" />
     <Content Include="Skins\jQueryUI\_js\jquery-ui-tabs-rotate.js" />
+    <Content Include="Version\All\Version_Current.html">
+      <DependentUpon>Version_Current.md</DependentUpon>
+    </Content>
     <Content Include="Version\Documentation\images\Install - Browse.Png" />
     <Content Include="Version\Documentation\images\ModuleWrapping_Html.jpg" />
     <Content Include="Version\Documentation\images\ModuleWrapping_Result.jpg" />

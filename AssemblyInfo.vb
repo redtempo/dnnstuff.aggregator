@@ -22,6 +22,6 @@ Imports System.Runtime.InteropServices
  Assembly: AssemblyCopyright("Copyright (c) DNNStuff 2004-2012"),  _
  Assembly: ComVisible(false),  _
  Assembly: CLSCompliant(true),  _
- Assembly: AssemblyVersion("06.04.09"),  _
- Assembly: AssemblyFileVersion("06.04.09")> 
+ Assembly: AssemblyVersion("06.04.10"),  _
+ Assembly: AssemblyFileVersion("06.04.10")> 
 
