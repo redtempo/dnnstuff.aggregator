@@ -24,18 +24,6 @@ tags: ['intro','page']
 	* Minor theme styling fixes
 
 
-For additional release history please visit the [documentation](http://docs.dnnstuff.com/pages/aggregator).
-
-
-## 06.04.09
-
-19/Dec/2014
-
-
-* Fixes
-	* Minor theme styling fixes
-
-
 
 ## 06.04.08
 
@@ -561,9 +549,7 @@ For additional release history please visit the [documentation](http://docs.dnns
 12/Sep/2007
 
 -   Changed loading so that modules that support partial rendering are
-    rendered in page init
-
-`   while all other modules are rendered in page load as before `
+    rendered in page init while all other modules are rendered in page load as before `
 
 ## 04.05.01
 
