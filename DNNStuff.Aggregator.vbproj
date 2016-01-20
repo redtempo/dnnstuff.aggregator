@@ -45,12 +45,12 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\..\dnn7.dev.com\bin\</OutputPath>
     <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>DNNVERSION="DNN8"</DefineConstants>
+    <DefineConstants></DefineConstants>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <DebugSymbols>true</DebugSymbols>
@@ -64,12 +64,12 @@
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\..\dnn7.dev.com\bin\</OutputPath>
     <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>DNNVERSION="DNN8"</DefineConstants>
+    <DefineConstants></DefineConstants>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <DebugSymbols>false</DebugSymbols>
@@ -84,8 +84,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Trial|AnyCPU' ">
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\bin\</OutputPath>
-    <DefineConstants>DNNVERSION="DNN8"</DefineConstants>
+    <OutputPath>..\..\dnn7.dev.com\bin\</OutputPath>
+    <DefineConstants></DefineConstants>
     <BaseAddress>285212672</BaseAddress>
     <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
     <Optimize>true</Optimize>
