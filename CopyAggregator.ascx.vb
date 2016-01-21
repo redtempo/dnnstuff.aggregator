@@ -13,20 +13,14 @@
 Option Strict On
 Option Explicit On
 
-Imports System.Text.RegularExpressions
 Imports System.Collections.Generic
-Imports System.Xml
 
 Imports DotNetNuke
 Imports DotNetNuke.Common
 Imports DotNetNuke.Common.Utilities
-Imports DotNetNuke.Entities.Portals
 Imports DotNetNuke.Services.Exceptions
-Imports DotNetNuke.Services.Localization
 Imports DotNetNuke.Entities.Tabs
 Imports DotNetNuke.Entities.Modules
-Imports DotNetNuke.Services.FileSystem
-Imports DotNetNuke.Security
 Imports DotNetNuke.Security.Permissions
 
 Namespace DNNStuff.Aggregator

@@ -11,14 +11,12 @@
 '* DEALINGS IN THE SOFTWARE.
 '*************/
 Option Strict On
-Option Explicit On 
+Option Explicit On
 
-Imports System
-Imports System.Data
 Imports System.Xml
 Imports DotNetNuke
 Imports DotNetNuke.Common.Utilities
-Imports DotNetNuke.Services.Search
+''Imports DotNetNuke.Services.Search
 
 Namespace DNNStuff.Aggregator
 
@@ -584,7 +582,7 @@ Namespace DNNStuff.Aggregator
 #Region " Search Interface"
         Public Function GetSearchItems(ByVal ModInfo As Entities.Modules.ModuleInfo) As Services.Search.SearchItemInfoCollection Implements Entities.Modules.ISearchable.GetSearchItems
 
-            Dim SearchItemCollection As New SearchItemInfoCollection
+            Dim SearchItemCollection As New DotNetNuke.Services.Search.SearchItemInfoCollection
 
             Dim ai As AggregatorInfo = GetAggregatorObjectGraph(ModInfo.ModuleID, "", "")
 
@@ -598,7 +596,7 @@ Namespace DNNStuff.Aggregator
                     Dim strDescription As String = HtmlUtils.Shorten(HtmlUtils.Clean(strDesktopHtml, False), MAX_DESCRIPTION_LENGTH, "...")
                     Dim strGuid As String = "Agg" & ModInfo.ModuleID.ToString & "_SelectTab=" & tabNumber.ToString
 
-                    Dim SearchItem As SearchItemInfo = New SearchItemInfo(ModInfo.ModuleTitle, strDescription, 0, Date.Now, ModInfo.ModuleID, tabNumber.ToString, strDesktopHtml, strGuid)
+                    Dim SearchItem As DotNetNuke.Services.Search.SearchItemInfo = New DotNetNuke.Services.Search.SearchItemInfo(ModInfo.ModuleTitle, strDescription, 0, Date.Now, ModInfo.ModuleID, tabNumber.ToString, strDesktopHtml, strGuid)
 
                     SearchItemCollection.Add(SearchItem)
 

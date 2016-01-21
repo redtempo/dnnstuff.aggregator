@@ -1,17 +1,12 @@
 
-## 06.04.11
+## 06.05.00
 
-01/Jun/2015
+21/Jan/2016
 
-
-## 06.04.10
-
-12/Feb/2015
 
 * Fixes
-	* Added a jQueryUI 1.10.x specific version of the jQuery Accordion - in the list as Accordion_1_10
+	* Added support for DNN8
+    * Minimum configuration is now DNN 7.1.2+ (.NET 4.0) / DNN 8+ (.NET 4.5)
 
-
-For additional release history please visit the [documentation](http://docs.dnnstuff.com/pages/aggregator).
 
 For additional release history please visit the [documentation](http://docs.dnnstuff.com/pages/aggregator).
