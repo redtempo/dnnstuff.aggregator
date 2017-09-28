@@ -190,10 +190,6 @@ Namespace DNNStuff.Aggregator
             ' add tabs based on rss
             AddRSSTabs()
 
-            ' add demo tab
-#If Config = "Trial" Then
-            AddDemoTab()
-#End If
             ' get selected module
             _selectedTabNumber = GetSelectedTab()
         End Sub
@@ -229,38 +225,6 @@ Namespace DNNStuff.Aggregator
                 End With
                 _aggregator.Tabs.Add(ati)
             Next
-
-        End Sub
-
-        Private Sub AddDemoTab()
-
-            Dim sb As New StringBuilder
-            sb.Append("<p>Thank you for evaluating the #1 tab control for DotNetNuke.</p>")
-            sb.Append("<p>This evaluation version is fully functional in every way. The only difference from the licensed version of Aggregator is the addition of this informational tab.</p>")
-            sb.Append("<p>If after your evaluation you wish to support great DotNetNuke software, please visit <a style=""text-decoration:underline"" target=""_blank"" title=""DNNStuff"" href=""http://www.dnnstuff.com?utm_source=dnnstuff&utm_medium=demo&utm_campaign=aggregator"">DNNStuff</a> to purchase a licensed version. Use discount code <strong>'TRIAL'</strong> at checkout for 10% off!</p>")
-            sb.Append("<p>Here are a few additional resources for you to consider:</p>")
-            sb.Append("<ul><li><a href=""http://www.dnnstuff.com/Modules/AggregatorTabbedModules/AggregatorSkins/tabid/304/Default.aspx?utm_source=dnnstuff&utm_medium=demo&utm_campaign=aggregator"">Aggregator Skins</a></li>")
-            sb.Append("<li><a href=""http://www.dnnstuff.com/Modules/AggregatorTabbedModules/AggregatorFAQ/tabid/293/Default.aspx?utm_source=dnnstuff&utm_medium=demo&utm_campaign=aggregator"">Aggregator FAQ</a></li>")
-            sb.Append("<li><a href=""http://www.dnnstuff.com/Modules/AggregatorTabbedModules/AggregatorDemos/tabid/322/Default.aspx?utm_source=dnnstuff&utm_medium=demo&utm_campaign=aggregator"">Aggregator Demos</a></li>")
-            sb.Append("<li><a href=""http://www.dnnstuff.com/Modules/AggregatorTabbedModules/AggregatorTestimonials/tabid/334/Default.aspx?utm_source=dnnstuff&utm_medium=demo&utm_campaign=aggregator"">Aggregator Testimonials</a></li>")
-            sb.Append("<li><a href=""http://wiki.dnnstuff.com/Aggregator.ashx?utm_source=dnnstuff&utm_medium=demo&utm_campaign=aggregator"">Aggregator Documentation</a></li>")
-            sb.Append("</ul>")
-
-            Dim ati As New AggregatorTabInfo
-            With ati
-                .Caption = "Unlicensed Version"
-                .HtmlText = sb.ToString
-                .ModuleId = Me.ModuleId
-                .AggregatorTabId = -1
-                .Modules = New ArrayList
-                .Properties = New ArrayList
-            End With
-            'alternate between first and last tab
-            If Now.Minute Mod 2 = 0 Then
-                _aggregator.Tabs.Insert(0, ati)
-            Else
-                _aggregator.Tabs.Add(ati)
-            End If
 
         End Sub
 
