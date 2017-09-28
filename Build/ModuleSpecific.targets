@@ -21,6 +21,7 @@
     <MyContentFiles Include="..\version\all\*.*" />
     <MyContentFiles Include="..\version\data\*.*" />
     <MyContentFiles Include="..\refs\DNNStuff.Utilities.dll" />
+    <MyContentFiles Include="..\refs\RssToolkit.dll" />
   </ItemGroup>
   <Import Project="DNNInstall.targets" />
 </Project>

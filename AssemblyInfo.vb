@@ -12,12 +12,12 @@ Option Strict Off
 Option Explicit On
 
 <Assembly: System.Reflection.AssemblyTitle("DNNStuff.Aggregator"),  _
- Assembly: System.Reflection.AssemblyDescription("DNNStuff.Aggregator - DNN7 Install - .NET 3.5"),  _
+ Assembly: System.Reflection.AssemblyDescription("DNNStuff.Aggregator - DNN7 Install"),  _
  Assembly: System.Reflection.AssemblyCompany("DNNStuff"),  _
  Assembly: System.Reflection.AssemblyProduct("DNNStuff Aggregator"),  _
- Assembly: System.Reflection.AssemblyCopyright("Copyright (c) DNNStuff 2004-2012"),  _
+ Assembly: System.Reflection.AssemblyCopyright("Copyright (c) DNNStuff 2017"),  _
  Assembly: System.Runtime.InteropServices.ComVisible(false),  _
  Assembly: System.CLSCompliant(true),  _
- Assembly: System.Reflection.AssemblyVersion("06.05.01"),  _
- Assembly: System.Reflection.AssemblyFileVersion("06.05.01")> 
+ Assembly: System.Reflection.AssemblyVersion("06.05.02"),  _
+ Assembly: System.Reflection.AssemblyFileVersion("06.05.02")> 
 
