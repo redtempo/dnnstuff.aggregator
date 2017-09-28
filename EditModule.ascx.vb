@@ -1,15 +1,3 @@
-'***************************************************************************/
-'* EditModule.ascx.vb
-'*
-'* COPYRIGHT (c) 2004 by DNNStuff
-'* ALL RIGHTS RESERVED.
-'*
-'* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
-'* TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
-'* THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
-'* CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-'* DEALINGS IN THE SOFTWARE.
-'*************/
 Imports DotNetNuke
 Imports System.Configuration
 Imports System.IO
@@ -86,11 +74,7 @@ Namespace DNNStuff.Aggregator
         End Property
 
         Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-            If DNNUtilities.SafeDNNVersion().Major = 5 Then
-                DNNUtilities.InjectCSS(Me.Page, ResolveUrl("Resources/Support/edit_5.css"))
-            Else
-                DNNUtilities.InjectCSS(Me.Page, ResolveUrl("Resources/Support/edit.css"))
-            End If
+            DNNUtilities.InjectCSS(Me.Page, ResolveUrl("Resources/Support/edit.css"))
             Page.ClientScript.RegisterClientScriptInclude(Me.GetType, "yeti", ResolveUrl("resources/support/yetii-min.js"))
 
             If Not Page.IsPostBack Then

@@ -1,1 +1,0 @@
-<script type="text/javascript" src="[SKINFOLDER]\jquery.li-scroller.1.0.js"></script>

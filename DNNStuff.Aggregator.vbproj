@@ -44,9 +44,10 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\dnn7.dev.com\bin\</OutputPath>
+    <OutputPath>..\..\sites\dnn7.dnndev.me\bin\</OutputPath>
     <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
@@ -66,7 +67,7 @@
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\dnn7.dev.com\bin\</OutputPath>
+    <OutputPath>..\..\sites\dnn7.dnndev.me\bin\</OutputPath>
     <DocumentationFile>DNNStuff.Aggregator.xml</DocumentationFile>
     <BaseAddress>285212672</BaseAddress>
     <ConfigurationOverrideFile>
@@ -87,7 +88,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Trial|AnyCPU' ">
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\dnn7.dev.com\bin\</OutputPath>
+    <OutputPath>..\..\sites\dnn7.dnndev.me\bin\</OutputPath>
     <DefineConstants>
     </DefineConstants>
     <BaseAddress>285212672</BaseAddress>
@@ -99,17 +100,17 @@
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetNuke">
-      <Name>DotNetNuke</Name>
-      <HintPath Condition=" '$(DNNVERSION)' == 'DNN7' ">J:\TOOLING\BIN\DotNetNuke7\DotNetNuke.dll</HintPath>
-      <HintPath Condition=" '$(DNNVERSION)' == 'DNN8' ">J:\TOOLING\BIN\DotNetNuke8\DotNetNuke.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DotNetNuke, Version=7.2.0.613, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetNuke.Core.7.2.0.613\lib\net40\DotNetNuke.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetNuke.WebUtility">
-      <Name>DotNetNuke.WebUtility</Name>
-      <HintPath Condition=" '$(DNNVERSION)' == 'DNN7' ">J:\TOOLING\BIN\DotNetNuke7\DotNetNuke.WebUtility.dll</HintPath>
-      <HintPath Condition=" '$(DNNVERSION)' == 'DNN8' ">J:\TOOLING\BIN\DotNetNuke8\DotNetNuke.WebUtility.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DotNetNuke.Web, Version=7.2.0.613, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetNuke.Web.7.2.0.613\lib\net40\DotNetNuke.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetNuke.WebUtility, Version=4.2.1.783, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetNuke.Web.7.2.0.613\lib\net40\DotNetNuke.WebUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetNuke.Core.7.2.0.613\lib\net40\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="SharpZipLib, Version=0.81.0.1407, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
@@ -143,6 +144,9 @@
       <Name>System.XML</Name>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI, Version=2013.2.717.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetNuke.Web.7.2.0.613\lib\net40\Telerik.Web.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -175,6 +179,19 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_LocalResources\ManageScript.ascx.resx" />
+    <Content Include="Build\DNNStuff.CustomBuildTasks.dll" />
+    <Content Include="Build\MarkdownDeep.dll" />
+    <Content Include="docs\images\Install - Browse.Png" />
+    <Content Include="docs\images\ModuleWrapping_Html.jpg" />
+    <Content Include="docs\images\ModuleWrapping_Result.jpg" />
+    <Content Include="docs\images\ModuleWrapping_Tokens.jpg" />
+    <Content Include="docs\images\SkinFolder.jpg" />
+    <Content Include="docs\images\SkinStructure.png" />
+    <Content Include="docs\images\Style Settings.png" />
+    <Content Include="docs\images\Tab Settings.png" />
+    <Content Include="docs\images\TabAnatomy.gif" />
+    <Content Include="docs\images\Target Settings.png" />
+    <Content Include="docs\images\UploadSkin.png" />
     <Content Include="Skins\jQueryUI\Accordion_1_10\Layout.html" />
     <Content Include="Skins\jQueryUI\Accordion_1_10\Paging.html" />
     <Content Include="Skins\jQueryUI\Accordion_1_10\Script.txt" />
@@ -185,20 +202,7 @@
     <Content Include="Skins\jQueryUI\Accordion_1_10\TabStrip.html" />
     <Content Include="Skins\jQueryUI\head.txt" />
     <Content Include="Skins\jQueryUI\_js\jquery-ui-tabs-rotate.js" />
-    <Content Include="Version\All\Version_Current.html">
-      <DependentUpon>Version_Current.md</DependentUpon>
-    </Content>
-    <Content Include="Version\Documentation\images\Install - Browse.Png" />
-    <Content Include="Version\Documentation\images\ModuleWrapping_Html.jpg" />
-    <Content Include="Version\Documentation\images\ModuleWrapping_Result.jpg" />
-    <Content Include="Version\Documentation\images\ModuleWrapping_Tokens.jpg" />
-    <Content Include="Version\Documentation\images\SkinFolder.jpg" />
-    <Content Include="Version\Documentation\images\SkinStructure.png" />
-    <Content Include="Version\Documentation\images\Style Settings.png" />
-    <Content Include="Version\Documentation\images\Tab Settings.png" />
-    <Content Include="Version\Documentation\images\TabAnatomy.gif" />
-    <Content Include="Version\Documentation\images\Target Settings.png" />
-    <Content Include="Version\Documentation\images\UploadSkin.png" />
+    <Content Include="Version\All\Release.html" />
     <EmbeddedResource Include="CopyAggregator.ascx.resx">
       <DependentUpon>CopyAggregator.ascx.vb</DependentUpon>
     </EmbeddedResource>
@@ -1470,11 +1474,20 @@
     <Content Include="Skins\XPLuna\Top\Tab.html" />
     <Content Include="Skins\XPLuna\Top\TabPage.html" />
     <Content Include="Skins\XPLuna\Top\TabStrip.html" />
-    <Content Include="Version\All\Version_Append.md" />
-    <None Include="Version\All\Version_Current.md" />
+    <Content Include="Build\DNNInstall.targets" />
+    <Content Include="docs\configuration.md" />
+    <Content Include="docs\index.md" />
+    <Content Include="docs\installation.md" />
+    <Content Include="docs\localization.md" />
+    <Content Include="docs\modulewrapping.md" />
+    <Content Include="docs\nesting.md" />
+    <Content Include="docs\releases.md" />
+    <Content Include="docs\selectingtabs.md" />
+    <Content Include="docs\tabcaptionreplacement.md" />
+    <Content Include="docs\templates.md" />
+    <Content Include="docs\uploadskins.md" />
     <Content Include="Resources\Styles\app\images\badge_aggregator.gif" />
     <Content Include="Version\All\License.html" />
-    <Content Include="Version\All\RssToolkit.dll" />
     <Compile Include="Aggregator.ascx.designer.vb">
       <DependentUpon>Aggregator.ascx</DependentUpon>
     </Compile>
@@ -1572,9 +1585,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Build\Build.bat" />
-    <None Include="Build\BuildFinal.bat" />
-    <None Include="Build\DeployFinal.bat" />
     <None Include="Build\ModuleSpecific.targets" />
+    <Content Include="LICENSE" />
+    <Content Include="README.md" />
+    <None Include="packages.config" />
     <None Include="Skins\BlueSteel\Top\BlueSteel_Original.pdn" />
     <None Include="Skins\Ocean\Top\Ocean_Original.pdn" />
     <None Include="Skins\Onyx\Top\Onyx_Original.pdn" />
@@ -1602,20 +1616,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Version\Data\uninstall.sqldataprovider" />
-    <Content Include="Version\Documentation\Configuration.html.md" />
-    <Content Include="Version\Documentation\Index.html.md" />
-    <Content Include="Version\Documentation\Installation.html.md" />
-    <Content Include="Version\Documentation\Localization.html.md" />
-    <Content Include="Version\Documentation\ModuleWrapping.html.md" />
-    <Content Include="Version\Documentation\Nesting.html.md" />
-    <Content Include="Version\Documentation\Releases.html.md" />
-    <Content Include="Version\Documentation\SelectingTabs.html.md" />
-    <Content Include="Version\Documentation\TabCaptionReplacement.html.md" />
-    <Content Include="Version\Documentation\Templates.html.md" />
-    <Content Include="Version\Documentation\UploadSkins.html.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Business\" />
     <Folder Include="My Project\" />
     <Folder Include="Skins\jShowOff\_images\" />
     <Folder Include="Skins\Kwicks\_images\" />
@@ -1639,12 +1641,12 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1124</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://dnn7.dev.com/DesktopModules/DNNStuff - Aggregator</IISUrl>
+          <IISUrl>http://dnn7.dnndev.me/DesktopModules/DNNStuff - Aggregator</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://dnn7.dev.com</IISAppRootUrl>
+          <IISAppRootUrl>http://dnn7.dnndev.me</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>http://dnn7.dev.com/</CustomServerUrl>
+          <CustomServerUrl>http://dnn7.dnndev.me/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

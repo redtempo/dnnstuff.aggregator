@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Company>DNNStuff</Company>
+    <ProductName>Aggregator</ProductName>
+  </PropertyGroup>
+  <ItemGroup>
+		<ProjectToBuild Include="..\$(Company).$(ProductName).vbproj" />
+		<ProjectToBuild Include="..\Providers\SqlDataProvider\$(Company).$(ProductName).SQLDataProvider.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MyResourceFiles Include="..\module.css" />
+    <MyResourceFiles Include="..\*.ascx" />
+    <MyResourceFiles Include="..\App_LocalResources\*.resx" />
+    <MyResourceFiles Include="..\Skins\**\*.*"  Exclude="..\Skins\**\*_\**" />
+    <MyResourceFiles Include="..\Resources\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MyContentFiles Include="..\version\all\*.*" />
+    <MyContentFiles Include="..\version\data\*.*" />
+    <MyContentFiles Include="..\refs\DNNStuff.Utilities.dll" />
+  </ItemGroup>
+  <Import Project="DNNInstall.targets" />
+</Project>

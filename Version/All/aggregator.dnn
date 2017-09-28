@@ -15,7 +15,7 @@
 				</email>
 			</owner>
 			<license src="License.html" />
-			<releaseNotes src="Version_Current.html" />
+			<releaseNotes src="Release.html" />
 			<azureCompatible>true</azureCompatible>
 			<dependencies>
 				<dependency type="CoreVersion">05.02.03</dependency>
