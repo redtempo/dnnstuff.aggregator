@@ -1,8 +1,3 @@
-```
-title: Release History
-tags: ['intro','page']
-```
-
 ```Minimum configuration DNN 7.1.2+ (.NET 4.0) / DNN 8+ (.NET 4.5)```
 
 <!-- insert-newversion -->

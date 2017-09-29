@@ -1,9 +1,3 @@
-```
-title: Selecting Tabs
-layout: page
-tags: ['intro','page']
-```
-
 In the default configuration, the first tab is always the initial tab to
 be shown. Sometimes it is desirable to have another tab show instead.
 There are a couple different ways to accomplish this.
