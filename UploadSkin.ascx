@@ -6,8 +6,6 @@
         <ul id="uploadtabs-nav" class="tabslayout">
             <li><a href="#uploadskin"><span>
                 <%=Localization.GetString("TabCaption_UploadSkin", LocalResourceFile)%></span></a></li>
-            <li><a href="#help"><span>
-                <%=Localization.GetString("TabCaption_Help", LocalResourceFile)%></span></a></li>
         </ul>
         <div class="tabs-container">
             <div class="tab" id="uploadskin">
@@ -18,10 +16,6 @@
                     <br />
                     <asp:Label ID="lblMessage" runat="server" CssClass="Normal" Width="500px" EnableViewState="False"></asp:Label>
                 </div>
-            </div>
-            <div class="tab" id="help">
-                <div>
-                    <%=Localization.GetString("DocumentationHelp.Text", LocalResourceFile)%></div>
             </div>
         </div>
     </div>

@@ -7,8 +7,6 @@
                 <%=Localization.GetString("TabCaption_EditScript1", LocalResourceFile)%></span></a></li>
             <li><a href="#editscript2"><span>
                 <%=Localization.GetString("TabCaption_EditScript2", LocalResourceFile)%></span></a></li>
-            <li><a href="#help"><span>
-                <%=Localization.GetString("TabCaption_Help", LocalResourceFile)%></span></a></li>
         </ul>
         <div class="tabs-container">
             <div class="tab" id="editscript">
@@ -38,10 +36,6 @@
                     <dnn:Label ID="lblHostedScript2" runat="server" ControlName="txtHostedScript2" Suffix=":" Text="Hosted Script2 Url" />
                     <asp:TextBox ID="txtHostedScript2" runat="server" CssClass="NormalTextBox" TextMode="SingleLine" Columns="80"></asp:TextBox>
                 </div>
-            </div>
-            <div class="tab" id="help">
-                <div>
-                    <%=Localization.GetString("DocumentationHelp.Text", LocalResourceFile)%></div>
             </div>
         </div>
     </div>

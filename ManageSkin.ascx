@@ -7,8 +7,6 @@
                 <%=Localization.GetString("TabCaption_EditSkin", LocalResourceFile)%></span></a></li>
             <li><a href="#copyskin"><span>
                 <%=Localization.GetString("TabCaption_CopySkin", LocalResourceFile)%></span></a></li>
-            <li><a href="#help"><span>
-                <%=Localization.GetString("TabCaption_Help", LocalResourceFile)%></span></a></li>
         </ul>
         <div class="tabs-container">
             <div class="tab" id="editskin">
@@ -58,10 +56,6 @@
                     <asp:LinkButton ID="cmdCopySkin" runat="server" BorderStyle="none" Text="Copy Skin" ResourceKey="cmdCopySkin" CssClass="dnnPrimaryAction" CausesValidation="True" ValidationGroup="CopySkin" />
                     <asp:PlaceHolder ID="phCopySkinResults" runat="server" />
                 </div>
-            </div>
-            <div class="tab" id="help">
-                <div>
-                    <%=Localization.GetString("DocumentationHelp.Text", LocalResourceFile)%></div>
             </div>
         </div>
     </div>
