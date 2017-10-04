@@ -17,8 +17,6 @@
                 <%=Localization.GetString("TabCaption_EditRSS", LocalResourceFile)%></span></a></li>
             <li><a href="#edittools"><span>
                 <%=Localization.GetString("TabCaption_EditTools", LocalResourceFile)%></span></a></li>
-            <li><a href="#help"><span>
-                <%=Localization.GetString("TabCaption_Help", LocalResourceFile)%></span></a></li>
         </ul>
         <div class="tabs-container">
             <div class="tab" id="edittabs">
@@ -316,10 +314,6 @@
 					<asp:LinkButton ID="cmdQuickTabsAdd" runat="server" Text="Add Tabs" ResourceKey="cmdQuickTabsAdd" /><br />
                     <asp:TextBox ID="txtQuickTabs" runat="server" TextMode="MultiLine" Rows="8" Columns="80" />
 				</div>
-            </div>
-            <div class="tab" id="help">
-                <div>
-                    <%=Localization.GetString("DocumentationHelp.Text", LocalResourceFile)%></div>
             </div>
         </div>
     </div>
