@@ -1,11 +1,11 @@
-```Minimum configuration DNN 7.1.2+ (.NET 4.0) / DNN 8+ (.NET 4.5)```
+```Minimum configuration DNN 7.2.0+
 
-<!-- insert-newversion -->
+## 06.05.02
 
-## 06.05.01
+4/Oct/2017
 
-14/Jun/2016
-
+* Fixes
+    * Updated to reflect open source license and status
 
 ## 06.05.00
 
