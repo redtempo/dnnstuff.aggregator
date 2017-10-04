@@ -1,4 +1,4 @@
-```Minimum configuration DNN 7.2.0+
+```Minimum configuration DNN 7.2.0+```
 
 ## 06.05.02
 
