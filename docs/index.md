@@ -25,7 +25,7 @@ internal DNN search mechanism as well.
 * [Skins & Templates & Tokens](templates)
 * [Selecting Tabs](selectingtabs)
 * [Token Replacement in Content and Captions](tabcaptionreplacement)
-* [Localization](]localization)
+* [Localization](localization)
 * [Module Wrapping](modulewrapping)
 
 ## How Tos
