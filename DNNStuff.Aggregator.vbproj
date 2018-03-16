@@ -114,8 +114,7 @@
     </Reference>
     <Reference Include="SharpZipLib, Version=0.81.0.1407, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\refs\RssToolkit.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>.\refs\SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="RssToolkit, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
